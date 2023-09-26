@@ -66,11 +66,11 @@ assets:
 
 # for each member, sign by inputting your name and uid here (remove any empty "name+uid" entries)
 members:
-  - name:
-    uid:
-  - name:
-    uid:
-  - name:
-    uid:
-  - name:
-    uid:
+  - name: Hexuan Meng
+    uid: u7605165
+  - name: Jiasheng Li
+    uid: u7758372
+  - name: Fan Yue
+    uid: u7568823
+  - name: Zhining Zhang
+    uid: u7580614
