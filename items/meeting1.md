@@ -19,9 +19,9 @@ Stand up Procedure:
 |    4    | Discuss how to implement the basic features |
 
 ## Meeting Minutes
-- In this meeting, everyone shared their ideas about the theme of our app, and after the discussion, we agreed to develop an app for pets sharing and buying.
-- We then determined the roles for each member according to their strength and interest.
-- We also discussed the difficulties among the basic features, and initialized a plan for how to implement them.
+- In this meeting, everyone shared their ideas about the theme of our app, and after the discussion, we were agreed on developing an app for pets sharing and buying.
+- We then determined the roles for each member and assigned tasks according to their strengths and interests.
+- We initialized a plan for how to implement the basic features and discussed the difficulties existed.
 
 ## Action Items
 | Task          | Assigned To    |  Due Date  |
