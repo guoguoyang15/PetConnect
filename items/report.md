@@ -1,4 +1,4 @@
-# [G0 - Team Name] Report
+# G21 Report
 
 The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
 
@@ -37,12 +37,12 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
 
-| UID      |     Name      |           Role |
-|:---------|:-------------:|---------------:|
-| u7605165 |  Hexuan Meng  |      Algorithm |
-| u7568823 |    Fan Yue    | Data Structure |
-| u7758372 |  Jiasheng Li  |        Android |
-| u7580614 | Zhining Zhang |      Front End |
+| UID      | Name          | Role           |
+|:---------|:--------------|:---------------|
+| u7605165 | Hexuan Meng   | Algorithm      |
+| u7568823 | Fan Yue       | Data Structure |
+| u7758372 | Jiasheng Li   | Android        |
+| u7580614 | Zhining Zhang | Front End      |
 
 
 ## Summary of Individual Contributions
@@ -295,8 +295,6 @@ Feature Category: Firebase Integration <br>
 <hr>
 
 ### Conflict Resolution Protocol
-**Conflict Resolution Protocol for App Development**
-
 1. **Open Communication**:
 - Encourage open and honest communication within the team. Team members should feel comfortable expressing concerns, ideas, and feedback.
 
