@@ -1,23 +1,23 @@
-# [Team Name]
+# [Group 21]
 This following is a very simple team meeting template. You should expand it based on the scope and nature of your discussion.
 
-## Team Meeting [number] - Week [number] - [date] (start-end time)
-**Absent:**
+## Team Meeting [1] - Week [8] - [9-26-2023] (3pm-5pm)
+**Absent: none**
 <br>
-**Lead/scribe:**
+**Lead/scribe: Zhining Zhang**
 
 ## Agreed Procedure
-Stand up Procedure: 
+Stand up Procedure: Each team member briefly shares their progress and any roadblocks
 - {e.g. Each team member briefly shares their progress and any roadblocks.}
 
 
 ## Agenda Items
 | Number   |        Item |
 |:---------|------------:|
-| [number] | [item name] |
-| [number] | [item name] |
-| [number] | [item name] |
-| [number] | [item name] |
+| [1] | [Theme] |
+| [2] | [Role] |
+| [3] | [get familiar with each other] |
+| [4] | [basic features] |
 
 ## Meeting Minutes
 - [Summary of the progress reports, discussions, decisions, and matters to be confirmed from the meeting.]
@@ -28,9 +28,10 @@ Stand up Procedure:
 ## Action Items
 | Task                                   | Assigned To |  Due Date  |
 |:---------------------------------------|:-----------:|:----------:|
-| [Task 1]                               |  [Name 1]   | [Due Date] |
-| [Task 2]                               |  [Name 2]   | [Due Date] |
-| [Task 3]                               |  [Name 3]   | [Due Date] |
+| [LogIn]                               |  [Zhining Zhang]   | [9-29-2023] |
+| [DataFiles]                               |  [Fan Yue]   | [9-29-2023] |
+| [LoadShowData]                               |  [Jiasheng Li]   | [9-29-2023] |
+| [Search]                               |  [Hexuan Meng]   | [9-29-2023] |
 
 
 
@@ -38,7 +39,7 @@ Stand up Procedure:
 The following dictates who will scribe in this and the next meeting.
 | Name |
 | :---: |
-| [Member name] |
-| [Member name] |
-| [Member name] |
-| [Member name] |
+| [Zhining Zhang] |
+| [Fan Yue] |
+| [Jiasheng Li] |
+| [Hexuan Meng] |
