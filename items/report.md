@@ -37,12 +37,12 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
 
-| UID   |  Name  |   Role |
-|:------|:------:|-------:|
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
+| UID      |     Name      |           Role |
+|:---------|:-------------:|---------------:|
+| u7605165 |  Hexuan Meng  |      Algorithm |
+| u7568823 |    Fan Yue    | Data Structure |
+| u7758372 |  Jiasheng Li  |        Android |
+| u7580614 | Zhining Zhang |      Front End |
 
 
 ## Summary of Individual Contributions
@@ -295,10 +295,54 @@ Feature Category: Firebase Integration <br>
 <hr>
 
 ### Conflict Resolution Protocol
-*[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem?
-(If you choose to make this an external document, link to it here)]*
+**Conflict Resolution Protocol for App Development**
 
-This shall include an agreed procedure for situations including (but not limited to):
-- e.g., if a member fails to meet the initial plan and/or deadlines
-- e.g., if your group has issues, how will your group reach consensus or solve the problem?
-- e.g., if a member gets sick, what is the solution? Alternatively, what is your plan to mitigate the impact of unforeseen incidents for this 6-to-8-week project? 
+1. **Open Communication**:
+- Encourage open and honest communication within the team. Team members should feel comfortable expressing concerns, ideas, and feedback.
+
+2. **Define Clear Roles and Responsibilities**:
+- Ensure that each team member understands their role and responsibilities. Clear job descriptions can help prevent conflicts arising from misunderstandings about who should do what.
+
+3. **Regular Meetings**:
+- Hold regular team meetings to discuss progress, challenges, and potential conflicts. These meetings can be daily stand-ups, weekly check-ins, or as needed.
+
+4. **Documentation**:
+- Keep thorough documentation of project requirements, design decisions, and coding standards. This documentation serves as a reference point to resolve disputes based on facts.
+
+5. **Issue Tracking**:
+- Use project management tools like JIRA, Trello, or Asana to track issues and feature requests. Ensure that every concern or feature request is documented, assigned, and tracked.
+
+6. **Peer Review**:
+- Implement a peer review process for code, design, and other project elements. Peer reviews can catch issues early and improve overall quality.
+
+7. **Mediation**:
+- Designate a mediator or team lead responsible for conflict resolution. When conflicts arise, team members can approach the mediator for assistance.
+
+8. **Private Discussions**:
+- When conflicts occur, encourage team members to have private, one-on-one discussions before involving the entire team. Often, issues can be resolved at this level.
+
+9. **Conflict Resolution Meeting**:
+- If a conflict persists, schedule a dedicated conflict resolution meeting. During this meeting:
+    - Identify the root cause of the conflict.
+    - Listen to all parties involved.
+    - Brainstorm potential solutions.
+    - Collaboratively agree on a resolution plan.
+    - Assign responsibilities and set deadlines for implementing the solution.
+
+10. **Escalation**:
+- Define a clear escalation process for conflicts that cannot be resolved within the team. This might involve involving higher-level management or stakeholders.
+
+11. **Follow-Up**:
+- After implementing a resolution, follow up to ensure that the conflict has been resolved satisfactorily. Make adjustments if necessary.
+
+12. **Learn and Improve**:
+- After conflicts are resolved, conduct a post-mortem or lessons learned session to identify ways to prevent similar conflicts in the future.
+
+13. **Positive Team Culture**:
+- Foster a positive team culture that values collaboration, respect, and diversity of thought. A healthy team culture can preempt many conflicts.
+
+14. **Training and Development**:
+- Invest in training and professional development opportunities for team members to improve their skills and reduce conflicts stemming from knowledge gaps.
+
+15. **Conflict Prevention**:
+- Whenever possible, focus on preventing conflicts by establishing clear processes, standards, and expectations from the outset of the project.
