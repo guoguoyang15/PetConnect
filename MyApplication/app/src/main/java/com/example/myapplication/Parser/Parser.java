@@ -41,6 +41,11 @@ public class Parser {
                         throw new IllegalProductionException("Too many attributes in the search!");
                     }
                     tokenizer.next();
+                    if (!tokenizer.hasNext()) {
+                        throw new IllegalProductionException("Search should not end with a separator!");
+                    }
+                } else {
+                    throw new IllegalProductionException("Expect a separator!");
                 }
             } else {
                 throw new IllegalProductionException("Expect an identifier!");
