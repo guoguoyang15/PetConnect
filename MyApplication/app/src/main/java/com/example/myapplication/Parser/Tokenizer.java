@@ -25,19 +25,19 @@ public class Tokenizer {
             return;
         }
 
-        if (buffer.substring(0, 2).equalsIgnoreCase("id")) {
+        if (buffer.length() >= 2 && buffer.substring(0, 2).equalsIgnoreCase("id")) {
             currentToken = new Token("id", Token.Type.IDENTIFIER);
-        } else if (buffer.substring(0, 4).equalsIgnoreCase("name")) {
+        } else if (buffer.length() >= 4 && buffer.substring(0, 4).equalsIgnoreCase("name")) {
             currentToken = new Token("name", Token.Type.IDENTIFIER);
-        } else if (buffer.substring(0, 4).equalsIgnoreCase("type")) {
+        } else if (buffer.length() >= 4 && buffer.substring(0, 4).equalsIgnoreCase("type")) {
             currentToken = new Token("type", Token.Type.IDENTIFIER);
-        } else if (buffer.substring(0, 5).equalsIgnoreCase("money")) {
+        } else if (buffer.length() >= 5 && buffer.substring(0, 5).equalsIgnoreCase("money")) {
             currentToken = new Token("money", Token.Type.IDENTIFIER);
-        } else if (buffer.substring(0, 8).equalsIgnoreCase("bodytype")) {
+        } else if (buffer.length() >= 8 && buffer.substring(0, 8).equalsIgnoreCase("bodytype")) {
             currentToken = new Token("bodytype", Token.Type.IDENTIFIER);
-        } else if (buffer.substring(0, 5).equalsIgnoreCase("color")) {
+        } else if (buffer.length() >= 5 && buffer.substring(0, 5).equalsIgnoreCase("color")) {
             currentToken = new Token("color", Token.Type.IDENTIFIER);
-        } else if (buffer.substring(0, 7).equalsIgnoreCase("comment")) {
+        } else if (buffer.length() >= 7 && buffer.substring(0, 7).equalsIgnoreCase("comment")) {
             currentToken = new Token("comment", Token.Type.IDENTIFIER);
         } else if (buffer.charAt(0) == ';') {
             currentToken = new Token(";", Token.Type.SEPARATOR);
