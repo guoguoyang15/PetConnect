@@ -24,7 +24,7 @@ public class Tokenizer {
             currentToken = null;    // if there's no string left, set currentToken null and return
             return;
         }
-
+        char firstChar = buffer.charAt(0);
         if (buffer.length() >= 2 && buffer.substring(0, 2).equalsIgnoreCase("id")) {
             currentToken = new Token("id", Token.Type.IDENTIFIER);
         } else if (buffer.length() >= 4 && buffer.substring(0, 4).equalsIgnoreCase("name")) {
@@ -39,15 +39,17 @@ public class Tokenizer {
             currentToken = new Token("color", Token.Type.IDENTIFIER);
         } else if (buffer.length() >= 7 && buffer.substring(0, 7).equalsIgnoreCase("comment")) {
             currentToken = new Token("comment", Token.Type.IDENTIFIER);
-        } else if (buffer.charAt(0) == ';') {
+        } else if (firstChar == ';') {
             currentToken = new Token(";", Token.Type.SEPARATOR);
-        } else if (buffer.charAt(0) == '=') {
+        } else if (firstChar == ':') {
+            currentToken = new Token(":", Token.Type.OPERATOR);
+        } else if (firstChar == '=') {
             currentToken = new Token("=", Token.Type.OPERATOR);
-        } else if (buffer.charAt(0) == '<') {
+        } else if (firstChar == '<') {
             currentToken = new Token("<", Token.Type.OPERATOR);
-        } else if (buffer.charAt(0) == '>') {
+        } else if (firstChar == '>') {
             currentToken = new Token(">", Token.Type.OPERATOR);
-        } else if (Character.isDigit(buffer.charAt(0))) {
+        } else if (Character.isDigit(firstChar)) {
             int pos = 1;
             while (pos < buffer.length() && Character.isDigit(buffer.charAt(pos))) {
                 pos++;
