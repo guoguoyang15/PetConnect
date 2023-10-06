@@ -46,7 +46,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
                 }
             }
             return newTree;
-        } else if (element.compareTo(value) < 0) {
+        } else if (element.compareTo(value) <= 0) {
             AVLTree<T> newTree =  new AVLTree<>(value, leftNode.insert(element), rightNode);
             if (newTree.getBalanceFactor() > 1) {
                 AVLTree<T> leftSubTree = (AVLTree<T>) newTree.leftNode;
