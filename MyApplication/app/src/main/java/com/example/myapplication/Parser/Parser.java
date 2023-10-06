@@ -35,17 +35,19 @@ public class Parser {
             if (tokenizer.current().getType() == Token.Type.IDENTIFIER) {
                 Attribute attribute = parseAttribute();
                 search.setAttribute(attribute);
-                if (tokenizer.hasNext() && tokenizer.current().getType() == Token.Type.SEPARATOR) {
-                    separators++;
-                    if (separators >= 7) {
-                        throw new IllegalProductionException("Too many attributes in the search!");
+                if (tokenizer.hasNext()) {
+                    if (tokenizer.current().getType() == Token.Type.SEPARATOR) {
+                        separators++;
+                        if (separators >= 7) {
+                            throw new IllegalProductionException("Too many attributes in the search!");
+                        }
+                        tokenizer.next();
+                        if (!tokenizer.hasNext()) {
+                            throw new IllegalProductionException("Search should not end with a separator!");
+                        }
+                    } else {
+                        throw new IllegalProductionException("Expect a separator!");
                     }
-                    tokenizer.next();
-                    if (!tokenizer.hasNext()) {
-                        throw new IllegalProductionException("Search should not end with a separator!");
-                    }
-                } else {
-                    throw new IllegalProductionException("Expect a separator!");
                 }
             } else {
                 throw new IllegalProductionException("Expect an identifier!");
