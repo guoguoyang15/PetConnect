@@ -6,7 +6,7 @@ public class Pet {
     String id;
     String name;
     String type;
-    int money;
+    int Money;
     String bodyType;
     String color;
     List<String> comment;
@@ -24,7 +24,7 @@ public class Pet {
     }
 
     public int getMoney() {
-        return money;
+        return Money;
     }
 
     public String getBodyType() {
@@ -37,5 +37,10 @@ public class Pet {
 
     public List<String> getComment() {
         return comment;
+    }
+
+    @Override
+    public int compareTo(Pet pet) {
+        return this.Money - pet.Money;
     }
 }

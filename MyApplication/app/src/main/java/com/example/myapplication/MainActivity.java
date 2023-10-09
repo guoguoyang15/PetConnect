@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.myapplication.AVLTree.AVLTree;
+import com.example.myapplication.AVLTree.Tree;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -15,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.Iterator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,23 +31,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.data_sample);
-        InputStreamReader inputStreamReader=new InputStreamReader(inputStream);
-        BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+//        InputStream inputStream = getResources().openRawResource(R.raw.data_sample);
+        InputStream inputStream = getResources().openRawResource(R.raw.data_sample10);
+
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String s;
         try {
-            while((s= bufferedReader.readLine()) !=null)
-            { strJson = strJson + s + "\n";}
+            while ((s = bufferedReader.readLine()) != null) {
+                strJson = strJson + s + "\n";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        recyclerView=findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Gson gson=new Gson();
-        Type myType=new TypeToken<List<Pet>>(){}.getType();
-        list=gson.fromJson(strJson,myType);
+        Gson gson = new Gson();
+        Type myType = new TypeToken<List<Pet>>() {
+        }.getType();
+        list = gson.fromJson(strJson, myType);
+
+        AVLTree<Pet> rootNoed = GetPetsAvlTree(list);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -52,5 +61,22 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.setAdapter(myAdapter);
             }
         });
+    }
+
+    /**
+     * get the avlTree from the petList
+     * @param petList
+     * @return
+     */
+    private AVLTree<Pet> GetPetsAvlTree(List<Pet> petList) {
+        AVLTree<Pet> avl = new AVLTree<>(petList.get(0));
+
+        for (int i = 1; i < petList.size(); i++) {
+            Pet onePet = petList.get(i);
+            avl = avl.insert(onePet);
+        }
+
+        return avl;
+
     }
 }
