@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
      * @param petList
      * @return
      */
+
     private AVLTree<Pet> GetPetsAvlTree(List<Pet> petList) {
         AVLTree<Pet> avl = new AVLTree<>(petList.get(0));
 
