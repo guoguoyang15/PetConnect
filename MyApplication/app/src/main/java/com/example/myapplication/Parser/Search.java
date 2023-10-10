@@ -128,14 +128,18 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getComment().contains(comment.getValue())) {
-                        outputPetList.add(pet);
+                    for (String comment : pet.getComment()) {
+                        if (comment.contains(this.comment.getValue())) {
+                            outputPetList.add(pet);
+                        }
                     }
                 }
             } else {
                 for (Pet pet : allPets) {
-                    if (pet.getComment().contains(comment.getValue())) {
-                        outputPetList.add(pet);
+                    for (String comment : pet.getComment()) {
+                        if (comment.contains(this.comment.getValue())) {
+                            outputPetList.add(pet);
+                        }
                     }
                 }
             }
