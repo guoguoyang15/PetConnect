@@ -22,7 +22,7 @@ public class Search {
         List<Pet> outputPetList = new ArrayList<>();
         if (id != null && id.getValue() != null && !id.getValue().equals("")) {
             for (Pet pet : allPets) {
-                if (pet.getId().equals(id.getValue())) {
+                if (pet.getId().equalsIgnoreCase(id.getValue())) {
                     outputPetList.add(pet);
                     return outputPetList;
                 }
@@ -30,7 +30,7 @@ public class Search {
         }
         if (name != null && name.getValue() != null && !name.getValue().equals("")) {
             for (Pet pet : allPets) {
-                if (pet.getName().equals(name.getValue())) {
+                if (pet.getName().equalsIgnoreCase(name.getValue())) {
                     outputPetList.add(pet);
                 }
             }
@@ -40,13 +40,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getType().equals(type.getValue())) {
+                    if (pet.getType().equalsIgnoreCase(type.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets) {
-                    if (pet.getType().equals(type.getValue())) {
+                    if (pet.getType().equalsIgnoreCase(type.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
@@ -98,13 +98,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getBodyType().equals(bodyType.getValue())) {
+                    if (pet.getBodyType().equalsIgnoreCase(bodyType.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets) {
-                    if (pet.getBodyType().equals(bodyType.getValue())) {
+                    if (pet.getBodyType().equalsIgnoreCase(bodyType.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
@@ -115,13 +115,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getColor().equals(color.getValue())) {
+                    if (pet.getColor().equalsIgnoreCase(color.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets) {
-                    if (pet.getColor().equals(color.getValue())) {
+                    if (pet.getColor().equalsIgnoreCase(color.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
@@ -245,14 +245,14 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getId().equals(id.getValue())) {
+                    if (pet.getId().equalsIgnoreCase(id.getValue())) {
                         outputPetList.add(pet);
                         return outputPetList;
                     }
                 }
             } else {
                 for (Pet pet : allPets.inOrder()) {
-                    if (pet.getId().equals(id.getValue())) {
+                    if (pet.getId().equalsIgnoreCase(id.getValue())) {
                         outputPetList.add(pet);
                         return outputPetList;
                     }
@@ -264,13 +264,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getName().equals(name.getValue())) {
+                    if (pet.getName().equalsIgnoreCase(name.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets.inOrder()) {
-                    if (pet.getName().equals(name.getValue())) {
+                    if (pet.getName().equalsIgnoreCase(name.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
@@ -281,13 +281,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getType().equals(type.getValue())) {
+                    if (pet.getType().equalsIgnoreCase(type.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets.inOrder()) {
-                    if (pet.getType().equals(type.getValue())) {
+                    if (pet.getType().equalsIgnoreCase(type.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
@@ -298,13 +298,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getBodyType().equals(bodyType.getValue())) {
+                    if (pet.getBodyType().equalsIgnoreCase(bodyType.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets.inOrder()) {
-                    if (pet.getBodyType().equals(bodyType.getValue())) {
+                    if (pet.getBodyType().equalsIgnoreCase(bodyType.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
@@ -315,13 +315,13 @@ public class Search {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    if (pet.getColor().equals(color.getValue())) {
+                    if (pet.getColor().equalsIgnoreCase(color.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
             } else {
                 for (Pet pet : allPets.inOrder()) {
-                    if (pet.getColor().equals(color.getValue())) {
+                    if (pet.getColor().equalsIgnoreCase(color.getValue())) {
                         outputPetList.add(pet);
                     }
                 }
