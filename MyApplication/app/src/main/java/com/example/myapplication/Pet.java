@@ -2,7 +2,7 @@ package com.example.myapplication;
 
 import java.util.List;
 
-public class Pet {
+public class Pet implements Comparable<Pet>{
     String id;
     String name;
     String type;
