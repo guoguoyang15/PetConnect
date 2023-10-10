@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,16 +18,13 @@ public class LoginActivity extends AppCompatActivity {
         EditText password_imput = findViewById(R.id.password_input);
 
         Button loginButton = findViewById(R.id.login_button);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = email_imput.getText().toString();
-                String password = password_imput.getText().toString();
+        loginButton.setOnClickListener(view -> {
+            String email = email_imput.getText().toString();
+            String password = password_imput.getText().toString();
 
-                if ((email.equals("comp2100@anu.edu.au") && password.equals("comp2100")) || (email.equals("comp6442@anu.edu.au") && password.equals("comp6442"))) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                }
+            if ((email.equals("comp2100@anu.edu.au") && password.equals("comp2100")) || (email.equals("comp6442@anu.edu.au") && password.equals("comp6442"))) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }

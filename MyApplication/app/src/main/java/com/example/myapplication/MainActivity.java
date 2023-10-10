@@ -34,23 +34,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        InputStream inputStream = getResources().openRawResource(R.raw.data_sample);
-//        InputStream inputStream = getResources().openRawResource(R.raw.data_sample10);
-        InputStream inputStream = getResources().openRawResource(R.raw.data_sample_8color);
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //InputStream inputStream = getResources().openRawResource(R.raw.data_sample);
+        //InputStream inputStream = getResources().openRawResource(R.raw.data_sample10);
+        InputStream inputStream = getResources().openRawResource(R.raw.data_sample_8color);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        String s;
+        StringBuilder buffer = new StringBuilder();
         try {
-            while ((s = bufferedReader.readLine()) != null) {
-                strJson = strJson + s + "\n";
+            while ((strJson = bufferedReader.readLine()) != null) {
+                buffer.append(strJson);
+                buffer.append("\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        strJson = buffer.toString();
 
         Gson gson = new Gson();
         Type myType = new TypeToken<List<Pet>>() {
@@ -73,12 +74,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                MyAdapter myAdapter = new MyAdapter(list);
-                recyclerView.setAdapter(myAdapter);
-            }
+        runOnUiThread(() -> {
+            MyAdapter myAdapter = new MyAdapter(list);
+            recyclerView.setAdapter(myAdapter);
         });
     }
 
