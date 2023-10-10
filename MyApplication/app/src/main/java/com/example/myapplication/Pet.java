@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.service.autofill.FillEventHistory;
+
 import java.util.List;
 
 public class Pet implements Comparable<Pet> {
@@ -33,6 +35,10 @@ public class Pet implements Comparable<Pet> {
 
     public String getColor() {
         return color;
+    }
+
+    public void setColor(String value) {
+        this.color = value;
     }
 
     public List<String> getComment() {

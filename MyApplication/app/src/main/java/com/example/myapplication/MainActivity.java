@@ -6,16 +6,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Environment;
 
 import com.example.myapplication.AVLTree.AVLTree;
 import com.example.myapplication.AVLTree.Tree;
+import com.example.myapplication.tool.Tool;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 //        InputStream inputStream = getResources().openRawResource(R.raw.data_sample);
-        InputStream inputStream = getResources().openRawResource(R.raw.data_sample10);
+//        InputStream inputStream = getResources().openRawResource(R.raw.data_sample10);
+        InputStream inputStream = getResources().openRawResource(R.raw.data_sample_8color);
 
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -53,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
         }.getType();
         list = gson.fromJson(strJson, myType);
 
-        AVLTree<Pet> rootNoed = GetPetsAvlTree(list);
+        AVLTree<Pet> rootNoed = Tool.GetPetsAvlTree(list);
+//        Tool.ChangeColorInData(list);
+
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -69,15 +78,5 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
 
-    private AVLTree<Pet> GetPetsAvlTree(List<Pet> petList) {
-        AVLTree<Pet> avl = new AVLTree<>(petList.get(0));
 
-        for (int i = 1; i < petList.size(); i++) {
-            Pet onePet = petList.get(i);
-            avl = avl.insert(onePet);
-        }
-
-        return avl;
-
-    }
 }
