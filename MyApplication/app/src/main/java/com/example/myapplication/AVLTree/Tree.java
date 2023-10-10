@@ -2,6 +2,7 @@ package com.example.myapplication.AVLTree;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -146,6 +147,85 @@ public abstract class Tree<T extends Comparable<T>> {
         }
 
         return list;
+    }
+    public List<T> findGreater(T element) {
+
+        // Ensure input is not null.
+        if (element == null)
+            throw new IllegalArgumentException("Input cannot be null");
+
+        List<T> greaterNodes = new ArrayList<>();
+        if (value != null) {
+            if (element.compareTo(value) == 0) {
+                greaterNodes.addAll(rightNode.inOrder());
+                if (leftNode != null && leftNode.value != null) {
+                    greaterNodes.addAll(leftNode.findGreater(element));
+                }
+            } else if (element.compareTo(value) < 0) {
+                greaterNodes.addAll(rightNode.inOrder());
+                greaterNodes.add(value);
+                if (leftNode != null && leftNode.value != null) {
+                    greaterNodes.addAll(leftNode.findGreater(element));
+                }
+            } else {
+                if (rightNode != null && rightNode.value != null) {
+                    greaterNodes.addAll(rightNode.findGreater(element));
+                }
+            }
+        }
+
+        return greaterNodes;
+    }
+    public List<T> findSmaller(T element) {
+
+        // Ensure input is not null.
+        if (element == null)
+            throw new IllegalArgumentException("Input cannot be null");
+
+        List<T> smallerNodes = new ArrayList<>();
+        if (value != null) {
+            if (element.compareTo(value) == 0) {
+                smallerNodes.addAll(leftNode.inOrder());
+            } else if (element.compareTo(value) < 0) {
+                if (leftNode != null && leftNode.value != null) {
+                    smallerNodes.addAll(leftNode.findSmaller(element));
+                }
+            } else {
+                smallerNodes.addAll(leftNode.inOrder());
+                smallerNodes.add(value);
+                if (rightNode != null && rightNode.value != null) {
+                    smallerNodes.addAll(rightNode.findSmaller(element));
+                }
+            }
+        }
+
+        return smallerNodes;
+    }
+    public List<T> findEqual(T element) {
+
+        // Ensure input is not null.
+        if (element == null)
+            throw new IllegalArgumentException("Input cannot be null");
+
+        List<T> equalNodes = new ArrayList<>();
+        if (value != null) {
+            if (element.compareTo(value) == 0) {
+                equalNodes.add(value);
+                if (leftNode != null && leftNode.value != null) {
+                    equalNodes.addAll(leftNode.findEqual(element));
+                }
+            } else if (element.compareTo(value) < 0) {
+                if (leftNode != null && leftNode.value != null) {
+                    equalNodes.addAll(leftNode.findEqual(element));
+                }
+            } else {
+                if (rightNode != null && rightNode.value != null) {
+                    equalNodes.addAll(rightNode.findEqual(element));
+                }
+            }
+        }
+
+        return equalNodes;
     }
 }
 
