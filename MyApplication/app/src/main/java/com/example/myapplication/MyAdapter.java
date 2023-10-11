@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,8 +29,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         TextView name=holder.itemView.findViewById(R.id.textView);
         name.setText(petList.get(position).name);
-        TextView type=holder.itemView.findViewById(R.id.textView2);
-        type.setText(petList.get(position).type);
+        //TextView type=holder.itemView.findViewById(R.id.textView2);
+        //type.setText(petList.get(position+1).name);
 
         //ImageView imageView=holder.itemView.findViewById(R.id.imageView);
         //Glide.with(imageView.getContext()).load(petList.get(position).url).into(imageView);

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -27,19 +29,52 @@ public class MainActivity extends AppCompatActivity {
 
     List<Pet> list;
     String strJson = "";
+    String query;
     RecyclerView recyclerView;
+    AVLTree<Pet> rootNode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //InputStream inputStream = getResources().openRawResource(R.raw.data_sample);
-        //InputStream inputStream = getResources().openRawResource(R.raw.data_sample10);
-        InputStream inputStream = getResources().openRawResource(R.raw.data_sample_8color);
+        query = getIntent().getStringExtra("query");
+
+        //R.raw.data_sample
+        //R.raw.data_sample10
+        loadData(R.raw.data_sample_8color);
+        rootNode = Tool.GetPetsAvlTree(list);
+        MyAdapter myAdapter = new MyAdapter(list);
+        recyclerView.setAdapter(myAdapter);
+
+        EditText editTextSearch = findViewById(R.id.editTextSearch);
+        if (!query.isEmpty()) {
+            editTextSearch.setText(getIntent().getStringExtra("query"));
+            myAdapter = new MyAdapter(search());
+            recyclerView.setAdapter(myAdapter);
+        }
+
+        Button buttonSearch = findViewById(R.id.buttonSearch);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                query = editTextSearch.getText().toString();
+                editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
+                MyAdapter myAdapter = new MyAdapter(search());
+                recyclerView.setAdapter(myAdapter);
+            }
+        });
+
+        /*runOnUiThread(() -> {
+            MyAdapter myAdapter = new MyAdapter(list);
+            recyclerView.setAdapter(myAdapter);
+        });*/
+    }
+
+    public void loadData(int data){
+        InputStream inputStream = getResources().openRawResource(data);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         StringBuilder buffer = new StringBuilder();
@@ -57,28 +92,23 @@ public class MainActivity extends AppCompatActivity {
         Type myType = new TypeToken<List<Pet>>() {
         }.getType();
         list = gson.fromJson(strJson, myType);
-
-        AVLTree<Pet> rootNode = Tool.GetPetsAvlTree(list);
-//        Tool.ChangeColorInData(list);
-        Button buttonSearch = findViewById(R.id.buttonSearch);
-        buttonSearch.setOnClickListener(view -> {
-            EditText editTextSearch = findViewById(R.id.editTextSearch);
-            String searchInput = editTextSearch.getText().toString();
-            editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
-            Tokenizer tokenizer = new Tokenizer(searchInput);
-            Parser parser = new Parser(tokenizer);
-            Search search = parser.parseSearch();
-            List<Pet> searchResult = search.searchPetsTree(rootNode);
-            MyAdapter myAdapter = new MyAdapter(searchResult);
-            recyclerView.setAdapter(myAdapter);
-        });
-
-
-        runOnUiThread(() -> {
-            MyAdapter myAdapter = new MyAdapter(list);
-            recyclerView.setAdapter(myAdapter);
-        });
     }
 
+    public List<Pet> search() {
+        //AVLTree<Pet> rootNode = Tool.GetPetsAvlTree(list);
+        //Tool.ChangeColorInData(list);
+        Tokenizer tokenizer = new Tokenizer(query);
+        Parser parser = new Parser(tokenizer);
+        Search search = parser.parseSearch();
+        return search.searchPetsTree(rootNode);
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent back = new Intent();
+        back.putExtra("query",query);
+        setResult(123, back);
+        finish();
+        super.onBackPressed();
+    }
 }
