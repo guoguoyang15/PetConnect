@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
             String password = password_imput.getText().toString();
 
             if ((email.equals("comp2100@anu.edu.au") && password.equals("comp2100")) || (email.equals("comp6442@anu.edu.au") && password.equals("comp6442"))) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(intent);
             }
         });
