@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -15,6 +16,12 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        TextView greetings = findViewById(R.id.greetings);
+        String username = getIntent().getStringExtra("username");
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("Hello, ").append(username).append("!");
+        greetings.setText(buffer.toString());
 
         searchInput = findViewById(R.id.editTextText);
         Button buttonSearch = findViewById(R.id.button);
