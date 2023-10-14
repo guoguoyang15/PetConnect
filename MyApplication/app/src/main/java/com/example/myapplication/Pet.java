@@ -1,10 +1,9 @@
 package com.example.myapplication;
 
-import android.service.autofill.FillEventHistory;
-
+import java.io.Serializable;
 import java.util.List;
 
-public class Pet implements Comparable<Pet> {
+public class Pet implements Comparable<Pet>, Serializable {
     String id;
     String name;
     String type;

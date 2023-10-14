@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,24 +49,25 @@ public class MainActivity extends AppCompatActivity {
         //R.raw.data_sample10
         loadData(R.raw.data_sample_8color);
         rootNode = Tool.GetPetsAvlTree(list);
-        MyAdapter myAdapter = new MyAdapter(list);
+        MyAdapter myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
 
         EditText editTextSearch = findViewById(R.id.editTextSearch);
         if (!query.isEmpty()) {
             editTextSearch.setText(getIntent().getStringExtra("query"));
-            myAdapter = new MyAdapter(search());
+            myAdapter = new MyAdapter(this,search());
             recyclerView.setAdapter(myAdapter);
         }
 
         Button buttonSearch = findViewById(R.id.buttonSearch);
+        Activity activity = this;
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 hideSoftKeyboard();
                 query = editTextSearch.getText().toString();
                 editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
-                MyAdapter myAdapter = new MyAdapter(search());
+                MyAdapter myAdapter = new MyAdapter(activity,search());
                 recyclerView.setAdapter(myAdapter);
             }
         });
