@@ -21,6 +21,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
     private EditText searchInput;
+    String selectedColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class SearchActivity extends AppCompatActivity {
         colorTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedColor = (String) parent.getItemAtPosition(position);
+                selectedColor = (String) parent.getItemAtPosition(position);
                 // TODO: Handle the selected color
                 // 例如，您可以将选中的颜色设置为textView的文本
                 colorTextView.setText(selectedColor);
@@ -78,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
         searchInput = findViewById(R.id.editTextText);
         Button buttonSearch = findViewById(R.id.button);
         buttonSearch.setOnClickListener(view -> {
-            String query = searchInput.getText().toString();
+            String query = searchInput.getText().toString()+";color="+selectedColor;
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("query",query);
             startActivityForResult(intent,123);
