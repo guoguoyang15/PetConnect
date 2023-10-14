@@ -2,45 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/search"
     tools:context=".SearchActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+
+    <TextView
+        android:id="@+id/greetings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="381dp"
-        android:background="#99FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        android:layout_marginTop="50dp"
+        android:text="Hello, !"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/dog"></ImageView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="PetConnect"
-            android:textColor="@color/black"
-            android:textSize="40sp"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/cat"></ImageView>
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -51,32 +30,202 @@
         android:layout_marginEnd="50dp"
         android:ems="10"
         android:inputType="text"
+        android:textSize="30sp"
         android:selectAllOnFocus="true"
         android:text="id: ;name: ;type: ;money: ;bodytype: ;color: ;comment:"
+        android:textColor="@color/white"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@id/greetings" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:text="@android:string/search_go"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
-    <TextView
-        android:id="@+id/greetings"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="Hello, !"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/centerGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"  />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="@android:string/search_go"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@id/img_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/monkey_nine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/chicken_ten"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_9"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/dog_eleven"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_10"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/pig_twelve"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_11"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/cat_five"
+            app:layout_constraintBottom_toTopOf="@id/img_9"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="@id/img_9"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/snake_six"
+            app:layout_constraintBottom_toTopOf="@id/img_9"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_5"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/horse_seven"
+            app:layout_constraintBottom_toTopOf="@id/img_9"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_6"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/sheep_eight"
+            app:layout_constraintBottom_toTopOf="@id/img_9"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_7"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/mouse_one"
+            app:layout_constraintBottom_toTopOf="@id/img_5"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="@id/img_5"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/cow_two"
+            app:layout_constraintBottom_toTopOf="@id/img_5"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_5"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/tiger_three"
+            app:layout_constraintBottom_toTopOf="@id/img_6"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_6"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/img_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/rabbit_four"
+            app:layout_constraintBottom_toTopOf="@id/img_7"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toEndOf="@id/img_7"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <AutoCompleteTextView
+            android:id="@+id/petColor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:clickable="true"
+            android:drawableRight="@android:drawable/arrow_down_float"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/centerGuide"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:hint="COLOR"
+            android:text="COLOR"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+        <AutoCompleteTextView
+            android:id="@+id/petMoney"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:clickable="true"
+            android:drawableRight="@android:drawable/arrow_down_float"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/centerGuide"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:hint="MONEY"
+            android:text="MONEY"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
