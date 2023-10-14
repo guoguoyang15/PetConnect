@@ -66,7 +66,7 @@ public class Parser {
         String type = tokenizer.current().getToken();
         tokenizer.next();
         int relation = 0;
-        String value;
+        String value = "";
         if (tokenizer.hasNext() && tokenizer.current().getType() == Token.Type.OPERATOR) {
             if (tokenizer.current().getToken().equals("<")) {
                 relation = -1;
@@ -78,11 +78,13 @@ public class Parser {
                 throw new IllegalProductionException("Expect an equal operator!");
             }
             tokenizer.next();
-            if (tokenizer.hasNext() && (tokenizer.current().getType() == Token.Type.NUMERIC_LITERAL || tokenizer.current().getType() == Token.Type.STRING_LITERAL)) {
-                value = tokenizer.current().getToken();
-                tokenizer.next();
-            } else {
-                throw new IllegalProductionException("Expect a numeric literal or string literal!");
+            if (tokenizer.hasNext()) {
+                if (tokenizer.current().getType() == Token.Type.NUMERIC_LITERAL || tokenizer.current().getType() == Token.Type.STRING_LITERAL) {
+                    value = tokenizer.current().getToken();
+                    tokenizer.next();
+                } else if (tokenizer.current().getType() != Token.Type.SEPARATOR) {
+                    throw new IllegalProductionException("Expect a numeric literal or string literal!");
+                }
             }
         } else {
             throw new IllegalProductionException("Expect an operator!");

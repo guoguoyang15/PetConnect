@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ga-23s2.iml" filepath="$PROJECT_DIR$/.idea/ga-23s2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AnimalConnect.iml" filepath="$PROJECT_DIR$/.idea/AnimalConnect.iml" />
     </modules>
   </component>
 </project>

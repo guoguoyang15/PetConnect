@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    Activity activity;
     private List<Pet> petList;
     public MyAdapter(List<Pet> list){
+        petList = list;
+    }
+    public MyAdapter(Activity activity, List<Pet> list){
+        this.activity = activity;
         petList = list;
     }
     @NonNull
@@ -28,12 +36,21 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        Pet item = petList.get(position);
         TextView name=holder.itemView.findViewById(R.id.textView);
-        name.setText(petList.get(position).name);
-        TextView type=holder.itemView.findViewById(R.id.textView2);
-        type.setText(petList.get(position).type);
+        name.setText(item.name);
+        //TextView type=holder.itemView.findViewById(R.id.textView2);
+        //type.setText(petList.get(position+1).name);
 
-        //ImageView imageView=holder.itemView.findViewById(R.id.imageView);
+        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity.getApplicationContext(), DetailActivity.class);
+                intent.putExtra("pet",item);
+                activity.startActivity(intent);
+            }
+        });
         //Glide.with(imageView.getContext()).load(petList.get(position).url).into(imageView);
     }
 
