@@ -25,7 +25,6 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         String[] colors = {"color", "red", "blue", "green", "yellow"};
@@ -84,6 +83,7 @@ public class SearchActivity extends AppCompatActivity {
             intent.putExtra("query",query);
             startActivityForResult(intent,123);
         });
+
         ImageView mouseImageView = findViewById(R.id.img_1);
         mouseImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,8 +208,6 @@ public class SearchActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
