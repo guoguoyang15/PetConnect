@@ -88,56 +88,56 @@ public class SearchActivity extends AppCompatActivity {
         mouseImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("mouse");
+                searchInput.setText("type=mouse");
             }
         });
         ImageView cowImageView = findViewById(R.id.img_2);
         cowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("cow");
+                searchInput.setText("type=cow");
             }
         });
         ImageView tigerImageView = findViewById(R.id.img_3);
         tigerImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("tiger");
+                searchInput.setText("type=tiger");
             }
         });
         ImageView rabbitImageView = findViewById(R.id.img_4);
         rabbitImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("rabbit");
+                searchInput.setText("type=rabbit");
             }
         });
         ImageView catImageView = findViewById(R.id.img_5);
         catImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("cat");
+                searchInput.setText("type=cat");
             }
         });
         ImageView snakeImageView = findViewById(R.id.img_6);
         snakeImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("snake");
+                searchInput.setText("type=snake");
             }
         });
         ImageView horseImageView = findViewById(R.id.img_7);
         horseImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("horse");
+                searchInput.setText("type=horse");
             }
         });
         ImageView sheepImageView = findViewById(R.id.img_8);
         sheepImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("sheep");
+                searchInput.setText("type=sheep");
             }
         });
 
@@ -145,7 +145,7 @@ public class SearchActivity extends AppCompatActivity {
         monkeyImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("monkey");
+                searchInput.setText("type=monkey");
             }
         });
 
@@ -153,7 +153,7 @@ public class SearchActivity extends AppCompatActivity {
         chickenImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("chicken");
+                searchInput.setText("type=chicken");
             }
         });
 
@@ -161,7 +161,7 @@ public class SearchActivity extends AppCompatActivity {
         dogImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("dog");
+                searchInput.setText("type=dog");
             }
         });
 
@@ -169,7 +169,7 @@ public class SearchActivity extends AppCompatActivity {
         pigImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput.setText("pig");
+                searchInput.setText("type=pig");
             }
         });
     }
