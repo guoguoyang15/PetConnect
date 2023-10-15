@@ -1,5 +1,8 @@
 package com.example.myapplication.Parser;
 
+import com.example.myapplication.Interface.IAttribute;
+import com.example.myapplication.Parser.AttributeFolder.AttributeFactory;
+
 public class Parser {
     /**
      * The following exception should be thrown if the parse is faced with series of tokens that do not
@@ -35,6 +38,41 @@ public class Parser {
             if (tokenizer.current().getType() == Token.Type.IDENTIFIER) {
                 Attribute attribute = parseAttribute();
                 search.setAttribute(attribute);
+                if (tokenizer.hasNext()) {
+                    if (tokenizer.current().getType() == Token.Type.SEPARATOR) {
+                        separators++;
+                        if (separators >= 7) {
+                            throw new IllegalProductionException("Too many attributes in the search!");
+                        }
+                        tokenizer.next();
+                        if (!tokenizer.hasNext()) {
+                            throw new IllegalProductionException("Search should not end with a separator!");
+                        }
+                    } else {
+                        throw new IllegalProductionException("Expect a separator!");
+                    }
+                }
+            } else {
+                throw new IllegalProductionException("Expect an identifier!");
+            }
+        }
+        return search;
+    }
+
+    /**
+     * FanYue testing merging with designPattern :Adheres to the grammar rule:
+     * <search>    ::= (<attribute> <separator>){0-6} <attribute> | <>
+     *
+     * @return type: Attribute.
+     */
+    public Search parseSearchTest() {
+        AttributeFactory attributeFactory = new AttributeFactory();
+        Search search = new Search();
+        while (tokenizer.hasNext()) {
+            if (tokenizer.current().getType() == Token.Type.IDENTIFIER) {
+                Attribute attribute = parseAttribute();
+                IAttribute oneAttribute = attributeFactory.getAttribute(attribute);
+                search.addAttributesToList(oneAttribute);
                 if (tokenizer.hasNext()) {
                     if (tokenizer.current().getType() == Token.Type.SEPARATOR) {
                         separators++;

@@ -70,14 +70,3 @@ public class Tool {
 
 }
 
-enum PetColor {
-    Red,
-    Orange,
-    Yellow,
-    Green,
-    Blue,
-    Purple,
-    White,
-    Black
-
-}

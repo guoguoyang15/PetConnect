@@ -1,7 +1,16 @@
 package com.example.myapplication.Parser;
 
 import com.example.myapplication.AVLTree.Tree;
+import com.example.myapplication.Interface.IAttribute;
+import com.example.myapplication.Parser.AttributeFolder.bodyTypeAttribute;
+import com.example.myapplication.Parser.AttributeFolder.colorAttribute;
+import com.example.myapplication.Parser.AttributeFolder.commentAttribute;
+import com.example.myapplication.Parser.AttributeFolder.idAttribute;
+import com.example.myapplication.Parser.AttributeFolder.moneyAttribute;
+import com.example.myapplication.Parser.AttributeFolder.nameAttribute;
+import com.example.myapplication.Parser.AttributeFolder.typeAttribute;
 import com.example.myapplication.Pet;
+import com.example.myapplication.tool.Tool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +23,7 @@ public class Search {
     private Attribute bodyType;
     private Attribute color;
     private Attribute comment;
+    private ArrayList<IAttribute> attributeArrayList = new ArrayList<>();
 
     public Search() {
     }
@@ -52,6 +62,7 @@ public class Search {
                 }
             }
         }
+
         if (money != null && money.getValue() != null && !money.getValue().equals("")) {
             if (outputPetList.size() > 0) {
                 List<Pet> currentPetList = outputPetList;
@@ -93,7 +104,7 @@ public class Search {
                 }
             }
         }
-        if (bodyType!= null && bodyType.getValue() != null && !bodyType.getValue().equals("")) {
+        if (bodyType != null && bodyType.getValue() != null && !bodyType.getValue().equals("")) {
             if (outputPetList.size() > 0) {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
@@ -110,7 +121,7 @@ public class Search {
                 }
             }
         }
-        if (color!= null && color.getValue() != null && !color.getValue().equals("")) {
+        if (color != null && color.getValue() != null && !color.getValue().equals("")) {
             if (outputPetList.size() > 0) {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
@@ -229,6 +240,8 @@ public class Search {
 
     public List<Pet> searchPetsTree(Tree<Pet> allPets) {
         List<Pet> outputPetList = new ArrayList<>();
+
+
         if (money != null && money.getValue() != null && !money.getValue().equals("")) {
             if (money.getRelation() == 0) {
                 outputPetList.addAll(findEqual(money, allPets));
@@ -293,7 +306,7 @@ public class Search {
                 }
             }
         }
-        if (bodyType!= null && bodyType.getValue() != null && !bodyType.getValue().equals("")) {
+        if (bodyType != null && bodyType.getValue() != null && !bodyType.getValue().equals("")) {
             if (outputPetList.size() > 0) {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
@@ -310,7 +323,7 @@ public class Search {
                 }
             }
         }
-        if (color!= null && color.getValue() != null && !color.getValue().equals("")) {
+        if (color != null && color.getValue() != null && !color.getValue().equals("")) {
             if (outputPetList.size() > 0) {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
@@ -352,6 +365,34 @@ public class Search {
         return outputPetList;
     }
 
+    /**
+     * merge the "searchPetsTree" method with design pattern
+     *
+     * @param allPets
+     * @return
+     */
+    public List<Pet> searchPetsTree_Test(Tree<Pet> allPets) {
+
+
+        //region fan yue testing the design pattern
+//        attributeArrayList.add(new moneyAttribute(money.getValue(), money.getRelation()));
+//        attributeArrayList.add(new idAttribute(id.getValue(), id.getRelation()));
+//        attributeArrayList.add(new nameAttribute(name.getValue(), name.getRelation()));
+//        attributeArrayList.add(new typeAttribute(type.getValue(), type.getRelation()));
+//        attributeArrayList.add(new bodyTypeAttribute(bodyType.getValue(), bodyType.getRelation()));
+//        attributeArrayList.add(new colorAttribute(color.getValue(), color.getRelation()));
+//        attributeArrayList.add(new commentAttribute(comment.getValue(), comment.getRelation()));
+        List<Pet> outputPetList = new ArrayList<>();
+        outputPetList.addAll(attributeArrayList.get(0).executeMethod(allPets, outputPetList));
+        for (int i = 1; i < attributeArrayList.size(); i++) {
+            outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
+        }
+
+
+        return outputPetList;
+        //endregion
+    }
+
     public void setAttribute(Attribute attribute) {
         if (attribute.getType().equals("id")) {
             this.id = attribute;
@@ -374,6 +415,10 @@ public class Search {
         if (attribute.getType().equals("comment")) {
             this.comment = attribute;
         }
+    }
+
+    public void addAttributesToList(IAttribute attribute) {
+        attributeArrayList.add(attribute);
     }
 
     public Attribute getId() {
