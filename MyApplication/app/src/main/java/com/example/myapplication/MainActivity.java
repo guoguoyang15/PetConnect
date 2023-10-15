@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         query = getIntent().getStringExtra("query");
-
+//        //fan yue is lazy
+//        query=" money<200;color=red";
         //R.raw.data_sample
         //R.raw.data_sample10
         if (list == null) {
@@ -74,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
         buttonSearch.setOnClickListener(view -> {
             hideSoftKeyboard();
             query = editTextSearch.getText().toString();
+
             editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
+
             MyAdapter myAdapter1 = new MyAdapter(activity, search());
             recyclerView.setAdapter(myAdapter1);
         });
@@ -124,9 +127,10 @@ public class MainActivity extends AppCompatActivity {
         //Tool.ChangeColorInData(list);
         Tokenizer tokenizer = new Tokenizer(query);
         Parser parser = new Parser(tokenizer);
-        Search search = parser.parseSearch();
         //commented by fan yue
-         search.searchPetsTree(rootNode);
+//        Search search = parser.parseSearch();
+//        return search.searchPetsTree(rootNode);
+        Search search = parser.parseSearchTest();
         return search.searchPetsTree_Test(rootNode);
     }
 

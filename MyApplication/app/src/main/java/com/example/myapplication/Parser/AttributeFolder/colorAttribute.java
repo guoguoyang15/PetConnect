@@ -4,6 +4,7 @@ import com.example.myapplication.AVLTree.Tree;
 import com.example.myapplication.Pet;
 import com.example.myapplication.tool.AttributeTypeEnum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +23,27 @@ public class colorAttribute extends basicAttribute {
 
     @Override
     public List<Pet> executeMethod(Tree<Pet> petsTree, List<Pet> petsList) {
-        return findDefault(petsTree, petsList);
+        outputPetList = petsList;
+    if (this != null && this.getValue() != null && !this.getValue().equals("")) {
+        if (outputPetList.size() > 0) {
+            List<Pet> currentPetList = outputPetList;
+            outputPetList = new ArrayList<>();
+            for (Pet pet : currentPetList) {
+                if (pet.getColor().equalsIgnoreCase(this.getValue())) {
+                    outputPetList.add(pet);
+                }
+            }
+        } else {
+            for (Pet pet : petsTree.inOrder()) {
+                if (pet.getColor().equalsIgnoreCase(this.getValue())) {
+                    outputPetList.add(pet);
+                }
+            }
+        }
+    }
+
+
+    return outputPetList;
     }
 
 
