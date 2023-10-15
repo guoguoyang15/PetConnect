@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,16 +9,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.myapplication.AVLTree.AVLTree;
 import com.example.myapplication.Parser.Parser;
 import com.example.myapplication.Parser.Search;
 import com.example.myapplication.Parser.Tokenizer;
 import com.example.myapplication.tool.Tool;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,23 +38,24 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     List<Pet> list;
-    String strJson = "";
     String query;
-    RecyclerView recyclerView;
     AVLTree<Pet> rootNode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerView);
+
+        updateDataFromFirebase();
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         query = getIntent().getStringExtra("query");
 
         //R.raw.data_sample
         //R.raw.data_sample10
-        loadData(R.raw.data_sample_8color);
+        if (list == null) { loadData(R.raw.data_sample_8color); }
         rootNode = Tool.GetPetsAvlTree(list);
         MyAdapter myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
@@ -61,24 +69,17 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonSearch = findViewById(R.id.buttonSearch);
         Activity activity = this;
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                hideSoftKeyboard();
-                query = editTextSearch.getText().toString();
-                editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
-                MyAdapter myAdapter = new MyAdapter(activity,search());
-                recyclerView.setAdapter(myAdapter);
-            }
+        buttonSearch.setOnClickListener(view -> {
+            hideSoftKeyboard();
+            query = editTextSearch.getText().toString();
+            editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
+            MyAdapter myAdapter1 = new MyAdapter(activity,search());
+            recyclerView.setAdapter(myAdapter1);
         });
-
-        /*runOnUiThread(() -> {
-            MyAdapter myAdapter = new MyAdapter(list);
-            recyclerView.setAdapter(myAdapter);
-        });*/
     }
 
     public void loadData(int data){
+        String strJson;
         InputStream inputStream = getResources().openRawResource(data);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -97,6 +98,21 @@ public class MainActivity extends AppCompatActivity {
         Type myType = new TypeToken<List<Pet>>() {
         }.getType();
         list = gson.fromJson(strJson, myType);
+    }
+
+    public void updateDataFromFirebase() {
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {};
+                list = snapshot.getValue(genericTypeIndicator);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Failed to update data.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public List<Pet> search() {
