@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(view -> {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
+            //region FanYueL : i am  lazy to input
+//            email = "comp2100@anu.edu.au";
+//            password = "comp2100";
+            //endreion
             if (email.isEmpty() || password.isEmpty()){
                 Toast.makeText(LoginActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
             }else{
@@ -59,26 +63,23 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(view -> {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
-            if (email.isEmpty() || password.isEmpty()){
-                Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
-            }else{
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                                    intent.putExtra("username", user.getEmail().split("@")[0]);
-                                    startActivity(intent);
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
-                                }
+
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                                intent.putExtra("username",user.getEmail().split("@")[0]);
+                                startActivity(intent);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
                             }
-                        });
-            }
+                        }
+                    });
         });
     }
 }

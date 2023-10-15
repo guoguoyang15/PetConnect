@@ -21,10 +21,10 @@ public class SearchActivity extends AppCompatActivity {
 
 
     private EditText searchInput;
+    String selectedColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
@@ -41,7 +41,7 @@ public class SearchActivity extends AppCompatActivity {
         colorTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedColor = (String) parent.getItemAtPosition(position);
+                selectedColor = (String) parent.getItemAtPosition(position);
                 // TODO: Handle the selected color
                 // 例如，您可以将选中的颜色设置为textView的文本
                 colorTextView.setText(selectedColor);
@@ -80,10 +80,14 @@ public class SearchActivity extends AppCompatActivity {
         Button buttonSearch = findViewById(R.id.button);
         buttonSearch.setOnClickListener(view -> {
             String query = searchInput.getText().toString();
+            if (selectedColor != null) { query = query+";color="+selectedColor; }
+            selectedColor = null;
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("query",query);
             startActivityForResult(intent,123);
         });
+
         ImageView mouseImageView = findViewById(R.id.img_1);
         mouseImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,8 +212,6 @@ public class SearchActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
