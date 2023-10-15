@@ -55,15 +55,17 @@ public class MainActivity extends AppCompatActivity {
 
         //R.raw.data_sample
         //R.raw.data_sample10
-        if (list == null) { loadData(R.raw.data_sample_8color); }
+        if (list == null) {
+            loadData(R.raw.data_sample_8color);
+        }
         rootNode = Tool.GetPetsAvlTree(list);
-        MyAdapter myAdapter = new MyAdapter(this,list);
+        MyAdapter myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
         EditText editTextSearch = findViewById(R.id.editTextSearch);
         if (!query.isEmpty()) {
             editTextSearch.setText(getIntent().getStringExtra("query"));
-            myAdapter = new MyAdapter(this,search());
+            myAdapter = new MyAdapter(this, search());
             recyclerView.setAdapter(myAdapter);
         }
 
@@ -73,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
             hideSoftKeyboard();
             query = editTextSearch.getText().toString();
             editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
-            MyAdapter myAdapter1 = new MyAdapter(activity,search());
+            MyAdapter myAdapter1 = new MyAdapter(activity, search());
             recyclerView.setAdapter(myAdapter1);
         });
     }
 
-    public void loadData(int data){
+    public void loadData(int data) {
         String strJson;
         InputStream inputStream = getResources().openRawResource(data);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -105,9 +107,11 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {};
+                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
+                };
                 list = snapshot.getValue(genericTypeIndicator);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(MainActivity.this, "Failed to update data.", Toast.LENGTH_SHORT).show();
@@ -121,13 +125,15 @@ public class MainActivity extends AppCompatActivity {
         Tokenizer tokenizer = new Tokenizer(query);
         Parser parser = new Parser(tokenizer);
         Search search = parser.parseSearch();
-        return search.searchPetsTree(rootNode);
+        //commented by fan yue
+         search.searchPetsTree(rootNode);
+        return search.searchPetsTree_Test(rootNode);
     }
 
     @Override
     public void onBackPressed() {
         Intent back = new Intent();
-        back.putExtra("query",query);
+        back.putExtra("query", query);
         setResult(123, back);
         finish();
         super.onBackPressed();
