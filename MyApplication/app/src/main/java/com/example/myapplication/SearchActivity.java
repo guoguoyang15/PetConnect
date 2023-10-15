@@ -79,7 +79,10 @@ public class SearchActivity extends AppCompatActivity {
         searchInput = findViewById(R.id.editTextText);
         Button buttonSearch = findViewById(R.id.button);
         buttonSearch.setOnClickListener(view -> {
-            String query = searchInput.getText().toString()+";color="+selectedColor;
+            String query = searchInput.getText().toString();
+            if (selectedColor != null) { query = query+";color="+selectedColor; }
+            selectedColor = null;
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("query",query);
             startActivityForResult(intent,123);
