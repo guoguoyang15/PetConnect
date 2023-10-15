@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(view -> {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
+            //region FanYueL : i am  lazy to input
+            email = "comp2100@anu.edu.au";
+            password = "comp2100";
+            //endreion
 
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -42,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // Log in success
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                                intent.putExtra("username",user.getEmail().split("@")[0]);
+                                intent.putExtra("username", user.getEmail().split("@")[0]);
                                 startActivity(intent);
                             } else {
                                 // Log in fails
@@ -65,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // Sign in success
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                                intent.putExtra("username",user.getEmail().split("@")[0]);
+                                intent.putExtra("username", user.getEmail().split("@")[0]);
                                 startActivity(intent);
                             } else {
                                 // If sign in fails, display a message to the user.
