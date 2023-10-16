@@ -48,21 +48,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/centerGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5"  />
+
+
+
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="20dp"
             android:text="@android:string/search_go"
-            android:textSize="30dp"
+            android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@id/img_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -187,6 +191,19 @@
             app:layout_constraintStart_toEndOf="@id/img_7"
             app:layout_constraintWidth_percent="0.25" />
 
+        <TextView
+            android:id="@+id/budgetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your budget AUD 0 - AUD 0"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rangeSlider"
+             />
+
         <AutoCompleteTextView
             android:id="@+id/petColor"
             android:layout_width="0dp"
@@ -201,7 +218,7 @@
             android:gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="20dp"
             android:hint="COLOR"
             android:text="COLOR"
             android:textColor="@android:color/white"
@@ -220,12 +237,24 @@
             android:gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="20dp"
             android:hint="MONEY"
             android:text="MONEY"
             android:textColor="@android:color/white"
             android:textSize="30sp" />
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/rangeSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/petColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

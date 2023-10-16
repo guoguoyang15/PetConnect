@@ -3,7 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.google.android.material.slider.RangeSlider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +16,18 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.github.channguyen.rsv.RangeSliderView;
+import com.google.android.material.slider.RangeSlider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
 
     private EditText searchInput;
     String selectedColor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +42,29 @@ public class SearchActivity extends AppCompatActivity {
         AutoCompleteTextView moneyTextView = (AutoCompleteTextView) findViewById(R.id.petMoney);
         colorTextView.setAdapter(colorAdapter);
         moneyTextView.setAdapter(moneyAdapter);
+        RangeSlider rangeSlider = findViewById(R.id.rangeSlider);
+        rangeSlider.setValueFrom(1.0f);
+        rangeSlider.setValueTo(1000.0f);
+        List<Float> initialValues = new ArrayList<>();
+        initialValues.add(100.0f);  // 初始最小值
+        initialValues.add(900.0f);  // 初始最大值
+        rangeSlider.setValues(initialValues);
 
-        // 这里加上监听器
+
+
+        TextView budgetTextView = findViewById(R.id.budgetTextView);
+
+        rangeSlider.addOnChangeListener(new RangeSlider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
+                // 获取滑块的当前值
+                List<Float> values = slider.getValues();
+
+                // 更新TextView的文本
+                budgetTextView.setText(String.format("Your budget AUD %.0f - AUD %.0f", values.get(0), values.get(1)));
+            }
+        });
+
         colorTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
