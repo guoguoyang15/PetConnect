@@ -7,6 +7,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
 
     @Override
@@ -17,17 +20,18 @@ public class DetailActivity extends AppCompatActivity {
         Pet pet = (Pet) getIntent().getExtras().getSerializable("pet");
 
         TextView id = findViewById(R.id.petId);
-        id.setText("Pet ID: "+pet.id);
+        id.setText("Pet ID: " + pet.id);
         TextView name = findViewById(R.id.petName);
-        name.setText("Pet Name: "+pet.name);
+        name.setText("Pet Name: " + pet.name);
         TextView type = findViewById(R.id.petType);
-        type.setText("Pet Type: "+pet.type);
+        type.setText("Pet Type: " + pet.type);
         TextView money = findViewById(R.id.petMoney);
-        money.setText("Pet Value: $"+pet.Money);
+        money.setText("Pet Value: $" + pet.Money);
         TextView bodyType = findViewById(R.id.petBody);
-        bodyType.setText("Pet Body Type: "+pet.bodyType);
+        bodyType.setText("Pet Body Type: " + pet.bodyType);
         TextView color = findViewById(R.id.petColor);
-        color.setText("Pet Color: "+pet.color);
+        color.setText("Pet Color: " + pet.color);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,pet.comment);
         ListView comment = findViewById(R.id.commentList);
         comment.setAdapter(adapter);

@@ -16,8 +16,6 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.github.channguyen.rsv.RangeSliderView;
-import com.google.android.material.slider.RangeSlider;
 
 import java.util.ArrayList;
 import java.util.List;
