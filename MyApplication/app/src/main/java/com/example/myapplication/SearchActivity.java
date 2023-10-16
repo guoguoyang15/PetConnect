@@ -48,8 +48,6 @@ public class SearchActivity extends AppCompatActivity {
         initialValues.add(900.0f);  // 初始最大值
         rangeSlider.setValues(initialValues);
 
-
-
         TextView budgetTextView = findViewById(R.id.budgetTextView);
 
         rangeSlider.addOnChangeListener(new RangeSlider.OnChangeListener() {
