@@ -5,127 +5,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DetailActivity"
-    android:background="@drawable/grass"
-    >
+    tools:context=".DetailActivity">
 
     <ImageView
         android:id="@+id/petPhoto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:src="@drawable/cat"
-        android:adjustViewBounds="true"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/centerGuide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintBottom_toTopOf="@+id/petId"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/petId"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="petId"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:background="@drawable/bubble_background"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petPhoto" />
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/petName"
+        tools:layout_editor_absoluteX="104dp" />
+
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/petName"
-        android:layout_width="wrap_content"
-        android:background="@drawable/bubble_background"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="petName"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="@id/centerGuide"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/petType"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petPhoto" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/petType"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bubble_background"
-        android:textSize="20dp"
-        android:text="petType"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petId" />
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/petMoney"
+        tools:layout_editor_absoluteX="58dp" />
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bubble_background"
         android:id="@+id/petMoney"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="petMoney"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="@id/centerGuide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petName" />
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/petBody"
+        tools:layout_editor_absoluteX="58dp" />
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bubble_background"
         android:id="@+id/petBody"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="petBody"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petType" />
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/petColor"
+        tools:layout_editor_absoluteX="36dp" />
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bubble_background"
         android:id="@+id/petColor"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="petColor"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="@id/centerGuide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petMoney" />
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/comments"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:textSize="20dp"
-        android:text="Comments"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Comments:"
+        app:layout_constraintBottom_toTopOf="@+id/commentList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petBody" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ListView
-            android:id="@+id/commentList"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/comments"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+    <ListView
+        android:id="@+id/commentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
