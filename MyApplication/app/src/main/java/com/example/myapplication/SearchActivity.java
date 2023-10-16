@@ -35,13 +35,13 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         String[] colors = {"color", "red", "blue", "green", "yellow"};
-        String[] money = {"5~10", "10~100", "100~200", "200~500","500~1000"};
+        String[] money = {"Large","Medium","Small"};
         NoFilterAdapter colorAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
-        NoFilterAdapter moneyAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, money);
+        NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, money);
         AutoCompleteTextView colorTextView = (AutoCompleteTextView) findViewById(R.id.petColor);
-        AutoCompleteTextView moneyTextView = (AutoCompleteTextView) findViewById(R.id.petMoney);
+        AutoCompleteTextView bodyTypeTextView = (AutoCompleteTextView) findViewById(R.id.petBodyType);
         colorTextView.setAdapter(colorAdapter);
-        moneyTextView.setAdapter(moneyAdapter);
+        bodyTypeTextView.setAdapter(bodyTypeAdapter);
         RangeSlider rangeSlider = findViewById(R.id.rangeSlider);
         rangeSlider.setValueFrom(1.0f);
         rangeSlider.setValueTo(1000.0f);
@@ -75,13 +75,13 @@ public class SearchActivity extends AppCompatActivity {
                 colorTextView.setThreshold(0);
             }
         });
-        moneyTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        bodyTypeTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedMoney = (String) parent.getItemAtPosition(position);
+                String selectedBodyType = (String) parent.getItemAtPosition(position);
                 // TODO: Handle the selected money
-                moneyTextView.setText(selectedMoney);
-                moneyTextView.setThreshold(0);
+                bodyTypeTextView.setText(selectedBodyType);
+                bodyTypeTextView.setThreshold(0);
             }
         });
         colorTextView.setOnClickListener(new View.OnClickListener() {
@@ -90,10 +90,10 @@ public class SearchActivity extends AppCompatActivity {
                 colorTextView.showDropDown();
             }
         });
-        moneyTextView.setOnClickListener(new View.OnClickListener() {
+        bodyTypeTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moneyTextView.showDropDown();
+                bodyTypeTextView.showDropDown();
             }
         });
 
