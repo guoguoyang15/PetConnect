@@ -55,17 +55,29 @@ public class LoginActivity extends AppCompatActivity {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
             //region FanYueL : i am  lazy to input
-            email = "comp2100@anu.edu.au";
-            password = "comp2100";
+//            email = "comp2100@anu.edu.au";
+//            password = "comp2100";
             //endreion
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
             } else {
 
+                String checkingResult = CheckComplianceOfUserData(email, password);
+
+                if (checkingResult.length() > 0) {
+                    Toast.makeText(LoginActivity.this, "login  failed: " + checkingResult, Toast.LENGTH_SHORT).show();
+                }
+
+                boolean isLocallyCheckSuccessful = LocalCheckUserLoginInfo(email, password);
+                if (!isLocallyCheckSuccessful) {
+                    Toast.makeText(LoginActivity.this, "locally login  failed", Toast.LENGTH_SHORT).show();
+                }
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
                                 if (task.isSuccessful()) {
                                     // Log in success
                                     FirebaseUser user = mAuth.getCurrentUser();
@@ -111,7 +123,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * checking the format validation of email and password with the design pattern
+     * check the user login info locally. ture for validation and false for fault login
+     *
+     * @param email
+     * @param password
+     * @return
+     */
+    private boolean LocalCheckUserLoginInfo(String email, String password) {
+        for (User ou : userLocalData
+        ) {
+            if (ou.Password.equals(password) && ou.Username.equals(email)) return true;
+        }
+        return false;
+    }
+
+    /**
+     * checking the format validation of email and password with the design pattern code
      *
      * @param email
      * @param password
@@ -125,7 +152,8 @@ public class LoginActivity extends AppCompatActivity {
     private boolean WriteNewUserInfo(String username, String password) {
         try {
             File path = getFilesDir();
-            File pTest = new File(Environment.getExternalStorageDirectory(), "test.xml");
+            File pTest = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "test.xml");
+//            File pTest = new File(Environment.getExternalStorageDirectory(), "test.xml");
             File[] fl = Environment.getDataDirectory().listFiles();
             String p = Environment.getDataDirectory().getAbsolutePath();
             File file2 = Environment.getExternalStorageDirectory();
@@ -164,6 +192,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * load user passsword and username from local file
+     *
+     * @return
+     */
     private List<User> LoadLocalUserInfo() {
         List<User> resultsList = new ArrayList<User>();
         User person = null;
