@@ -27,13 +27,13 @@ public class DetailActivity extends AppCompatActivity {
         TextView name = findViewById(R.id.petName);
         name.setText("Pet Name: " + pet.name);
         TextView type = findViewById(R.id.petType);
-        type.setText("Pet Type: " + pet.type);
+        type.setText(""+pet.type);
         TextView money = findViewById(R.id.petMoney);
-        money.setText("Pet Value: $" + pet.Money);
+        money.setText("$ "+pet.Money);
         TextView bodyType = findViewById(R.id.petBody);
-        bodyType.setText("Pet Body Type: " + pet.bodyType);
+        bodyType.setText("Body Type: " + pet.bodyType);
         TextView color = findViewById(R.id.petColor);
-        color.setText("Pet Color: " + pet.color);
+        color.setText("Color: " + pet.color);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,pet.comment){
             @NonNull

@@ -26,9 +26,11 @@
 
     <TextView
         android:id="@+id/petId"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bubble_background"
         android:gravity="center"
         android:text="petId"
@@ -36,56 +38,64 @@
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petPhoto" />
+        app:layout_constraintTop_toBottomOf="@id/petColor" />
 
     <TextView
 
         android:id="@+id/petName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bubble_background"
         android:gravity="center"
         android:text="petName"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petId" />
+        app:layout_constraintTop_toBottomOf="@id/petPhoto" />
 
     <TextView
         android:id="@+id/petType"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bubble_background"
         android:gravity="center"
         android:text="petType"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toStartOf="@+id/centerGuide"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/petName" />
 
     <TextView
         android:id="@+id/petMoney"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bubble_background"
         android:gravity="center"
         android:text="petMoney"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petType" />
+        app:layout_constraintTop_toBottomOf="@id/petName" />
 
     <TextView
         android:id="@+id/petBody"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bubble_background"
         android:gravity="center"
         android:text="petBody"
@@ -93,13 +103,15 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petName" />
+        app:layout_constraintTop_toBottomOf="@id/petMoney" />
 
     <TextView
         android:id="@+id/petColor"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bubble_background"
         android:gravity="center"
         android:text="petColor"
@@ -107,7 +119,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/centerGuide"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petBody" />
+        app:layout_constraintTop_toBottomOf="@id/petType" />
 
     <TextView
         android:id="@+id/comments"
@@ -121,7 +133,7 @@
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petMoney" />
+        app:layout_constraintTop_toBottomOf="@id/petId" />
 
     <ListView
         android:id="@+id/commentList"
@@ -130,5 +142,6 @@
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/comments" />
+        app:layout_constraintTop_toBottomOf="@id/comments"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
