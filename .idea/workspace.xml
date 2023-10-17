@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="Updated search logic">
+    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="Fixed errors in Tokenizer.java">
       <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/layout/activity_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/res/layout/activity_search.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697529522619</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed errors in Tokenizer.java">
+      <created>1697530427842</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697530427842</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,51 +169,37 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Support search by ID." />
     <MESSAGE value="Updated search logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated search logic" />
+    <MESSAGE value="Fixed errors in Tokenizer.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed errors in Tokenizer.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/commentAttribute.java</url>
-          <line>24</line>
-          <properties class="com.example.myapplication.Parser.AttributeFolder.commentAttribute" method="executeMethod">
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/nameAttribute.java</url>
-          <line>24</line>
-          <properties class="com.example.myapplication.Parser.AttributeFolder.nameAttribute" method="executeMethod">
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/moneyAttribute.java</url>
-          <line>25</line>
-          <properties class="com.example.myapplication.Parser.AttributeFolder.moneyAttribute" method="executeMethod">
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java</url>
+          <line>359</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/commentAttribute.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/nameAttribute.java</url>
+          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/typeAttribute.java</url>
           <line>45</line>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/moneyAttribute.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="6" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java</url>
+          <line>126</line>
+          <properties class="com.example.myapplication.MainActivity" method="search">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="AndroidRunConfigurationType">
+        <watch expression="((typeAttribute)search.attributeArrayList.get(0)).value" custom="com.example.myapplication.Parser.AttributeFolder.typeAttribute" />
+        <watch expression="((typeAttribute)search.attributeArrayList.get(0)).value" custom="com.example.myapplication.Parser.AttributeFolder.typeAttribute" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
