@@ -55,17 +55,29 @@ public class LoginActivity extends AppCompatActivity {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
             //region FanYueL : i am  lazy to input
-            email = "comp2100@anu.edu.au";
-            password = "comp2100";
+//            email = "comp2100@anu.edu.au";
+//            password = "comp2100";
             //endreion
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
             } else {
 
+                String checkingResult = CheckComplianceOfUserData(email, password);
+
+                if (checkingResult.length() > 0) {
+                    Toast.makeText(LoginActivity.this, "login  failed: " + checkingResult, Toast.LENGTH_SHORT).show();
+                }
+
+                boolean isLocallyCheckSuccessful = LocalCheckUserLoginInfo(email, password);
+                if (!isLocallyCheckSuccessful) {
+                    Toast.makeText(LoginActivity.this, "locally login  failed", Toast.LENGTH_SHORT).show();
+                }
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
                                 if (task.isSuccessful()) {
                                     // Log in success
                                     FirebaseUser user = mAuth.getCurrentUser();
@@ -87,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             String password = password_input.getText().toString();
 
             String checkingResult = CheckComplianceOfUserData(email, password);
-//            WriteNewUserInfo(email, password);
+
             if (checkingResult.length() > 0) {
                 Toast.makeText(LoginActivity.this, "register  failed: " + checkingResult, Toast.LENGTH_SHORT).show();
             }
@@ -111,7 +123,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * checking the format validation of email and password with the design pattern
+     * check the user login info locally. ture for validation and false for fault login
+     *
+     * @param email
+     * @param password
+     * @return
+     */
+    private boolean LocalCheckUserLoginInfo(String email, String password) {
+        for (User ou : userLocalData
+        ) {
+            if (ou.Password.equals(password) && ou.Username.equals(email)) return true;
+        }
+        return false;
+    }
+
+    /**
+     * checking the format validation of email and password with the design pattern code
      *
      * @param email
      * @param password
@@ -122,48 +149,12 @@ public class LoginActivity extends AppCompatActivity {
         return res;
     }
 
-    private boolean WriteNewUserInfo(String username, String password) {
-        try {
-            File path = getFilesDir();
-            File pTest = new File(Environment.getExternalStorageDirectory(), "test.xml");
-            File[] fl = Environment.getDataDirectory().listFiles();
-            String p = Environment.getDataDirectory().getAbsolutePath();
-            File file2 = Environment.getExternalStorageDirectory();
-            File file = new File(path, "lazyUser.xml");
 
-            FileOutputStream fileOutputStream = null;
-            try {
-                fileOutputStream = new FileOutputStream(pTest);
-                //表明采用XML序列化存储
-                XmlSerializer xmlSerializer = Xml.newSerializer();
-                xmlSerializer.setOutput(fileOutputStream, "utf-8");
-//开始写
-                xmlSerializer.startDocument("utf-8", true);
-                xmlSerializer.startTag(null, "Student");
-                for (User student : userLocalData) {
-                    xmlSerializer.startTag(null, "student");
-                    //写ID
-                    xmlSerializer.attribute(null, "id", student.Password + "");
-
-                    xmlSerializer.endTag(null, "student");
-                }
-                xmlSerializer.endTag(null, "Student");
-                xmlSerializer.endDocument();
-//写入磁盘
-                xmlSerializer.flush();
-                fileOutputStream.close();
-//                Toast.makeText(MainActivity.this,"Succeed",Toast.LENGTH_SHORT).show();
-
-                return false;
-            } catch (Exception e) {
-                throw new RuntimeException();
-            }
-
-        } catch (RuntimeException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    /**
+     * load user passsword and username from local file
+     *
+     * @return
+     */
     private List<User> LoadLocalUserInfo() {
         List<User> resultsList = new ArrayList<User>();
         User person = null;

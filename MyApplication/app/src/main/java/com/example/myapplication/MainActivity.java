@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
         query = getIntent().getStringExtra("query");
         //fan yue is lazy
-        query=" money<200;color=red";
+//        query=" money<200;color=red";
         //R.raw.data_sample
         //R.raw.data_sample10
         if (list == null) {
-            loadData(R.raw.data_sample_8color);
+            loadLocalData(R.raw.data_sample_8color);
         }
 
         MyAdapter myAdapter = new MyAdapter(this, list);
@@ -85,45 +85,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void loadData(int data) {
-        String strJson;
-        InputStream inputStream = getResources().openRawResource(data);
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        StringBuilder buffer = new StringBuilder();
-        try {
-            while ((strJson = bufferedReader.readLine()) != null) {
-                buffer.append(strJson);
-                buffer.append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        strJson = buffer.toString();
-
-        Gson gson = new Gson();
-        Type myType = new TypeToken<List<Pet>>() {
-        }.getType();
-        list = gson.fromJson(strJson, myType);
-    }
-
-    public void updateDataFromFirebase() {
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
-                };
-                list = snapshot.getValue(genericTypeIndicator);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Failed to update data.", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
+    /**
+     * XXX
+     *
+     * @author XXX
+     */
     public List<Pet> search() {
         //AVLTree<Pet> rootNode = Tool.GetPetsAvlTree(list);
         //Tool.ChangeColorInData(list);
@@ -137,6 +103,63 @@ public class MainActivity extends AppCompatActivity {
         return search.searchPetsTree_Test(rootNode);
     }
 
+    /**
+     * Method to load the data saved at local.
+     * Used to show results when fetching data from Firebase is processing.
+     *
+     * @param data This is the id of the data file in raw resource.
+     *
+     * @author Jiasheng Li (u7758372)
+     */
+    public void loadLocalData(int data) {
+        String strJson;
+        InputStream inputStream = getResources().openRawResource(data);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        StringBuilder buffer = new StringBuilder();
+        try {
+            while ((strJson = bufferedReader.readLine()) != null) { buffer.append(strJson); }
+        } catch (IOException e) {
+            Toast.makeText(MainActivity.this, "Failed to load local data.", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+        strJson = buffer.toString();
+
+        Gson gson = new Gson();
+        Type myType = new TypeToken<List<Pet>>(){}.getType();
+        list = gson.fromJson(strJson, myType);
+    }
+
+    /**
+     * Method to fetch latest data from Firebase when network is available,
+     * this task is asynchronous
+     * so once it's done, it will update the data loaded by application.
+     *
+     * @author  Jiasheng Li (u7758372)
+     */
+    public void updateDataFromFirebase() {
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
+                };
+                list = snapshot.getValue(genericTypeIndicator);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Failed to update data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /**
+     * Method to return the last query back to SearchActivity.
+     * Notice that it may be different from the one which user input in SearchActivity.
+     * The purpose is to improve user experience.
+     *
+     * @author  Jiasheng Li (u7758372)
+     */
     @Override
     public void onBackPressed() {
         Intent back = new Intent();
@@ -146,6 +169,13 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    /**
+     * Method to hide soft key board.
+     * Used when user finishes typing and presses "Search" button.
+     * The purpose is to improve user experience.
+     *
+     * @author  Jiasheng Li (u7758372)
+     */
     public void hideSoftKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);

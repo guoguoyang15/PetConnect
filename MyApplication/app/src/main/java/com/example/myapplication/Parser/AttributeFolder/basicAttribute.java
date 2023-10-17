@@ -23,32 +23,8 @@ public abstract class basicAttribute implements IAttribute{
         this.relation = relation;
         this.value = value;
     }
-//protected  List<Pet>findDefault(Tree<Pet> petsTree, List<Pet> petsList)
-//
-//{
-//    outputPetList = petsList;
-//    if (this != null && this.getValue() != null && !this.getValue().equals("")) {
-//        if (outputPetList.size() > 0) {
-//            List<Pet> currentPetList = outputPetList;
-//            outputPetList = new ArrayList<>();
-//            for (Pet pet : currentPetList) {
-//                if (pet.getType().equalsIgnoreCase(this.getValue())) {
-//                    outputPetList.add(pet);
-//                }
-//            }
-//        } else {
-//            for (Pet pet : petsTree.inOrder()) {
-//                if (pet.getType().equalsIgnoreCase(this.getValue())) {
-//                    outputPetList.add(pet);
-//                }
-//            }
-//        }
-//    }
-//
-//
-//    return outputPetList;
-//
-//}
+
+
     protected List<Pet> findEqual(IAttribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)
