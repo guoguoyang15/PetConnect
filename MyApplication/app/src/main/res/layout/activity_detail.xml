@@ -68,7 +68,7 @@
         android:gravity="center"
         android:text="petType"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toStartOf="@+id/centerGuide"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/petName" />
@@ -84,10 +84,10 @@
         android:gravity="center"
         android:text="petMoney"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petType" />
+        app:layout_constraintTop_toBottomOf="@id/petName" />
 
     <TextView
         android:id="@+id/petBody"
@@ -103,7 +103,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide"
-        app:layout_constraintTop_toBottomOf="@id/petName" />
+        app:layout_constraintTop_toBottomOf="@id/petMoney" />
 
     <TextView
         android:id="@+id/petColor"
@@ -119,7 +119,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/centerGuide"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/petBody" />
+        app:layout_constraintTop_toBottomOf="@id/petType" />
 
     <TextView
         android:id="@+id/comments"
