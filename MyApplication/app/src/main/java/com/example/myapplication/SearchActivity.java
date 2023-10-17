@@ -32,20 +32,19 @@ public class SearchActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        String[] colors = {"color", "red", "blue", "green", "yellow"};
-        String[] money = {"Large","Medium","Small"};
+        String[] colors = {"Red", "Orange", "Green", "Blue", "Purple","Yellow","White","Black"};
+        String[] petBodyType = {"Large","Medium","Small"};
         NoFilterAdapter colorAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
-        NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, money);
+        NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, petBodyType);
         AutoCompleteTextView colorTextView = (AutoCompleteTextView) findViewById(R.id.petColor);
         AutoCompleteTextView bodyTypeTextView = (AutoCompleteTextView) findViewById(R.id.petBodyType);
         colorTextView.setAdapter(colorAdapter);
         bodyTypeTextView.setAdapter(bodyTypeAdapter);
         RangeSlider rangeSlider = findViewById(R.id.rangeSlider);
         rangeSlider.setValueFrom(1.0f);
-        rangeSlider.setValueTo(1000.0f);
+        rangeSlider.setValueTo(10000.0f);
         List<Float> initialValues = new ArrayList<>();
-        initialValues.add(100.0f);  // 初始最小值
-        initialValues.add(900.0f);  // 初始最大值
+        initialValues.add(10000.0f);
         rangeSlider.setValues(initialValues);
 
         TextView budgetTextView = findViewById(R.id.budgetTextView);
@@ -53,11 +52,11 @@ public class SearchActivity extends AppCompatActivity {
         rangeSlider.addOnChangeListener(new RangeSlider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-                // 获取滑块的当前值
+                // Get the current value of the slider
                 List<Float> values = slider.getValues();
 
-                // 更新TextView的文本
-                budgetTextView.setText(String.format("Your budget AUD %.0f - AUD %.0f", values.get(0), values.get(1)));
+                // Update the TextView's text
+                budgetTextView.setText(String.format("Your budget is AUD %.0f", values.get(0)));
             }
         });
 
@@ -65,8 +64,6 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedColor = (String) parent.getItemAtPosition(position);
-                // TODO: Handle the selected color
-                // 例如，您可以将选中的颜色设置为textView的文本
                 colorTextView.setText(selectedColor);
                 colorTextView.setThreshold(0);
             }
