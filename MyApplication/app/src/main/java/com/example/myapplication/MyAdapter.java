@@ -43,6 +43,44 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         //type.setText(petList.get(position+1).name);
 
         ImageView imageView=holder.itemView.findViewById(R.id.imageView);
+        switch (petList.get(position).type){
+            case "Mouse":
+                imageView.setImageResource(R.drawable.mouse_one);
+                break;
+            case "Cow":
+                imageView.setImageResource(R.drawable.cow_two);
+                break;
+            case "Tiger":
+                imageView.setImageResource(R.drawable.tiger_three);
+                break;
+            case "Rabbit":
+                imageView.setImageResource(R.drawable.rabbit_four);
+                break;
+            case "Cat":
+                imageView.setImageResource(R.drawable.cat_five);
+                break;
+            case "Snake":
+                imageView.setImageResource(R.drawable.snake_six);
+                break;
+            case "Horse":
+                imageView.setImageResource(R.drawable.horse_seven);
+                break;
+            case "Sheep":
+                imageView.setImageResource(R.drawable.sheep_eight);
+                break;
+            case "Monkey":
+                imageView.setImageResource(R.drawable.monkey_nine);
+                break;
+            case "Chicken":
+                imageView.setImageResource(R.drawable.chicken_ten);
+                break;
+            case "Dog":
+                imageView.setImageResource(R.drawable.dog_eleven);
+                break;
+            case "Pig":
+                imageView.setImageResource(R.drawable.pig_twelve);
+                break;
+        }
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
