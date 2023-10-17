@@ -94,6 +94,29 @@ public class Parser {
         return search;
     }
 
+    public Search parseSearchInvalid() {
+        AttributeFactory attributeFactory = new AttributeFactory();
+        Search search = new Search();
+        while (tokenizer.hasNext()) {
+            if (tokenizer.current().getType() == Token.Type.IDENTIFIER) {
+                Attribute attribute = parseAttributeInvalid();
+                IAttribute oneAttribute = attributeFactory.getAttribute(attribute);
+                search.addAttributesToList(oneAttribute);
+                if (tokenizer.hasNext()) {
+                    if (tokenizer.current().getType() == Token.Type.SEPARATOR) {
+                        separators++;
+                        tokenizer.next();
+                    }
+                }
+            } else {
+                while (tokenizer.hasNext() && tokenizer.current().getType() != Token.Type.IDENTIFIER) {
+                    tokenizer.next();
+                }
+            }
+        }
+        return search;
+    }
+
     /**
      * Adheres to the grammar rule:
      * <attribute>   ::=  <identifier> <operator> (<numeric literal> | <string literal>)
@@ -124,6 +147,31 @@ public class Parser {
             }
         } else {
             throw new IllegalProductionException("Expect an operator!");
+        }
+        return new Attribute(type, value, relation);
+    }
+    public Attribute parseAttributeInvalid() {
+        String type = tokenizer.current().getToken();
+        tokenizer.next();
+        int relation = 0;
+        String value = "";
+        if (tokenizer.hasNext() && tokenizer.current().getType() == Token.Type.OPERATOR) {
+            if (tokenizer.current().getToken().equals("<")) {
+                relation = -1;
+            }
+            if (tokenizer.current().getToken().equals(">")) {
+                relation = 1;
+            }
+            if (!type.equals("money") && relation != 0) {
+                relation = 0;
+            }
+            tokenizer.next();
+        }
+        if (tokenizer.hasNext()) {
+            if (tokenizer.current().getType() == Token.Type.NUMERIC_LITERAL || tokenizer.current().getType() == Token.Type.STRING_LITERAL) {
+                value = tokenizer.current().getToken();
+                tokenizer.next();
+            }
         }
         return new Attribute(type, value, relation);
     }

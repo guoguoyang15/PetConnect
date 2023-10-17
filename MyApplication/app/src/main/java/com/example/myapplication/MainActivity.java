@@ -80,7 +80,14 @@ public class MainActivity extends AppCompatActivity {
 
             editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
 
-            MyAdapter myAdapter1 = new MyAdapter(activity, search());
+            List<Pet> searchResult;
+            try {
+                searchResult = search();
+            } catch (Parser.IllegalProductionException e) {
+                searchResult = searchInvalid();
+            }
+
+            MyAdapter myAdapter1 = new MyAdapter(activity, searchResult);
             recyclerView.setAdapter(myAdapter1);
         });
     }
@@ -100,6 +107,13 @@ public class MainActivity extends AppCompatActivity {
 //        Search search = parser.parseSearch();
 //        return search.searchPetsTree(rootNode);
         Search search = parser.parseSearchTest();
+        return search.searchPetsTree_Test(rootNode);
+    }
+    public List<Pet> searchInvalid() {
+        rootNode = Tool.GetPetsAvlTree(list);
+        Tokenizer tokenizer = new Tokenizer(query);
+        Parser parser = new Parser(tokenizer);
+        Search search = parser.parseSearchInvalid();
         return search.searchPetsTree_Test(rootNode);
     }
 
