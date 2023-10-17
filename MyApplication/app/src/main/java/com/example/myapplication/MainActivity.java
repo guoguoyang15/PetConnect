@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         if (list == null) {
             loadData(R.raw.data_sample_8color);
         }
-        rootNode = Tool.GetPetsAvlTree(list);
+
         MyAdapter myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
     public List<Pet> search() {
         //AVLTree<Pet> rootNode = Tool.GetPetsAvlTree(list);
         //Tool.ChangeColorInData(list);
+        rootNode = Tool.GetPetsAvlTree(list);
         Tokenizer tokenizer = new Tokenizer(query);
         Parser parser = new Parser(tokenizer);
         //commented by fan yue

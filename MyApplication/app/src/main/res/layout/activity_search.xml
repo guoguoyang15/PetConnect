@@ -13,32 +13,16 @@
         android:id="@+id/greetings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:background="@drawable/comment_head"
         android:text="Hello, !"
         android:textColor="@color/white"
         android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="30sp"
-        android:selectAllOnFocus="true"
-        android:text="id: ;name: ;type: ;money: ;bodytype: ;color: ;comment:"
-        android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/greetings" />
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -193,15 +177,18 @@
             app:layout_constraintWidth_percent="0.25" />
 
         <TextView
+            android:background="@drawable/bubble_background"
             android:id="@+id/budgetTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your budget AUD 0 - AUD 0"
-            android:textColor="@color/white"
+            android:text="Your budget is AUD 10000"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/petColor"
+            app:layout_constraintEnd_toEndOf="@id/petBodyType"
             app:layout_constraintBottom_toTopOf="@id/rangeSlider"
              />
 
@@ -209,11 +196,11 @@
             android:id="@+id/petColor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/bubble_background"
             android:clickable="true"
             android:drawableRight="@android:drawable/arrow_down_float"
             android:focusable="true"
-            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintBottom_toTopOf="@id/budgetTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/centerGuide"
             android:gravity="center"
@@ -228,11 +215,11 @@
             android:id="@+id/petBodyType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/bubble_background"
             android:clickable="true"
             android:drawableRight="@android:drawable/arrow_down_float"
             android:focusable="true"
-            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintBottom_toTopOf="@id/budgetTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/centerGuide"
             android:gravity="center"
@@ -247,12 +234,29 @@
             android:id="@+id/rangeSlider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/petColor"
+            app:layout_constraintBottom_toTopOf="@id/button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
             />
+        <EditText
+            android:background="@drawable/bubble_background"
+            android:id="@+id/editTextText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:inputType="text"
+            android:textSize="30sp"
+            android:selectAllOnFocus="true"
+            android:text="your favorite animal"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/petColor" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
