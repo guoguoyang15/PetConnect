@@ -112,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
      * @author Jiasheng Li (u7758372)
      */
     public void loadLocalData(int data) {
-        String strJson;
+        String strJson; // Store the JSON data as string
+
+        // Data loading process starts below
         InputStream inputStream = getResources().openRawResource(data);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         }
         strJson = buffer.toString();
 
+        // Convert the string of JSON data to List<Pet> by Gson
         Gson gson = new Gson();
         Type myType = new TypeToken<List<Pet>>(){}.getType();
         list = gson.fromJson(strJson, myType);
@@ -142,8 +145,7 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
-                };
+                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {};
                 list = snapshot.getValue(genericTypeIndicator);
             }
             @Override
