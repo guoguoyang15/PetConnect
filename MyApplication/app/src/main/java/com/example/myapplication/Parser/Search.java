@@ -380,9 +380,13 @@ public class Search {
         }
         attributeArrayList = listInOrder;
         List<Pet> outputPetList = new ArrayList<>();
+        try {
 
-        for (int i = 0; i < attributeArrayList.size(); i++) {
-            outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
+            for (int i = 0; i < attributeArrayList.size(); i++) {
+                outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
+            }
+        } catch (Exception e) {
+          return new ArrayList<>();
         }
 
         return outputPetList;

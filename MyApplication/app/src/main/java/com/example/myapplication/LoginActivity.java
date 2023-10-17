@@ -55,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
             //region FanYueL : i am  lazy to input
-//            email = "comp2100@anu.edu.au";
-//            password = "comp2100";
+            email = "comp2100@anu.edu.au";
+            password = "comp2100";
             //endreion
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();

@@ -10,19 +10,19 @@ import com.example.myapplication.tool.AttributeTypeEnum;
  */
 public class AttributeFactory {
     public IAttribute getAttribute(Attribute attribute) {
-        if (attribute.getType().equals(AttributeTypeEnum.id.toString())) {
+        if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.id.toString())) {
             return new idAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.name.toString())) {
+        } else if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.name.toString())) {
             return new nameAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.type.toString())) {
+        } else if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.type.toString())) {
             return new typeAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.money.toString())) {
+        } else if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.money.toString())) {
             return new moneyAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.bodytype.toString())) {
+        } else if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.bodytype.toString())) {
             return new bodyTypeAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.color.toString())) {
+        } else if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.color.toString())) {
             return new colorAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.comment.toString())) {
+        } else if (attribute.getType().equalsIgnoreCase(AttributeTypeEnum.comment.toString())) {
             return new commentAttribute(attribute.getValue(), attribute.getRelation());
         }
         return null;
