@@ -61,16 +61,24 @@ public class Tokenizer {
                 }
             }
             currentToken = new Token(buffer.substring(0, pos), Token.Type.NUMERIC_LITERAL);
-        } else {
-            int pos = 0;
-            while (pos < buffer.length() && buffer.charAt(pos) != ';' && buffer.charAt(pos) != ' ') {
+            while (pos < buffer.length() && buffer.charAt(pos) != ';') {
                 pos++;
             }
-            currentToken = new Token(buffer.substring(0, pos), Token.Type.STRING_LITERAL);
+            currentToken = new Token(buffer.substring(0, pos).trim(), Token.Type.STRING_LITERAL);
+            buffer = buffer.substring(pos);
+        } else {
+            int pos = 0;
+            while (pos < buffer.length() && buffer.charAt(pos) != ';') {
+                pos++;
+            }
+            currentToken = new Token(buffer.substring(0, pos).trim(), Token.Type.STRING_LITERAL);
+            buffer = buffer.substring(pos);
         }
         // Remove the extracted token from buffer
-        int tokenLen = currentToken.getToken().length();
-        buffer = buffer.substring(tokenLen);
+        if (currentToken.getType() != Token.Type.STRING_LITERAL) {
+            int tokenLen = currentToken.getToken().length();
+            buffer = buffer.substring(tokenLen);
+        }
     }
 
     /**

@@ -171,15 +171,12 @@ public class Search {
         if (pets.value != null) {
             if (Integer.parseInt(attribute.getValue()) == pets.value.getMoney()) {
                 greaterNodes.addAll(pets.rightNode.inOrder());
-                if (pets.leftNode != null && pets.leftNode.value != null) {
-                    greaterNodes.addAll(findGreater(attribute, pets.leftNode));
-                }
             } else if (Integer.parseInt(attribute.getValue()) < pets.value.getMoney()) {
-                greaterNodes.addAll(pets.rightNode.inOrder());
-                greaterNodes.add(pets.value);
                 if (pets.leftNode != null && pets.leftNode.value != null) {
                     greaterNodes.addAll(findGreater(attribute, pets.leftNode));
                 }
+                greaterNodes.add(pets.value);
+                greaterNodes.addAll(pets.rightNode.inOrder());
             } else {
                 if (pets.rightNode != null && pets.rightNode.value != null) {
                     greaterNodes.addAll(findGreater(attribute, pets.rightNode));
@@ -196,9 +193,7 @@ public class Search {
 
         List<Pet> smallerNodes = new ArrayList<>();
         if (pets.value != null) {
-            if (Integer.parseInt(attribute.getValue()) == pets.value.getMoney()) {
-                smallerNodes.addAll(pets.leftNode.inOrder());
-            } else if (Integer.parseInt(attribute.getValue()) < pets.value.getMoney()) {
+            if (Integer.parseInt(attribute.getValue()) <= pets.value.getMoney()) {
                 if (pets.leftNode != null && pets.leftNode.value != null) {
                     smallerNodes.addAll(findSmaller(attribute, pets.leftNode));
                 }
@@ -221,10 +216,10 @@ public class Search {
         List<Pet> equalNodes = new ArrayList<>();
         if (pets.value != null) {
             if (Integer.parseInt(attribute.getValue()) == pets.value.getMoney()) {
-                equalNodes.add(pets.value);
                 if (pets.leftNode != null && pets.leftNode.value != null) {
                     equalNodes.addAll(findEqual(attribute, pets.leftNode));
                 }
+                equalNodes.add(pets.value);
             } else if (Integer.parseInt(attribute.getValue()) < pets.value.getMoney()) {
                 if (pets.leftNode != null && pets.leftNode.value != null) {
                     equalNodes.addAll(findEqual(attribute, pets.leftNode));
@@ -383,11 +378,13 @@ public class Search {
 //        attributeArrayList.add(new colorAttribute(color.getValue(), color.getRelation()));
 //        attributeArrayList.add(new commentAttribute(comment.getValue(), comment.getRelation()));
         List<Pet> outputPetList = new ArrayList<>();
-        outputPetList.addAll(attributeArrayList.get(0).executeMethod(allPets, outputPetList));
+        /*outputPetList.addAll(attributeArrayList.get(0).executeMethod(allPets, outputPetList));
         for (int i = 1; i < attributeArrayList.size(); i++) {
             outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
+        }*/
+        for (int i = 0; i < attributeArrayList.size(); i++) {
+            outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
         }
-
 
         return outputPetList;
         //endregion

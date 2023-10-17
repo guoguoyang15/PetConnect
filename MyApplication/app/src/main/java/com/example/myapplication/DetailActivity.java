@@ -1,3 +1,10 @@
+/**
+ * DetailActivity.java implements the detail page of a single pet data,
+ * to show the detailed information including photo, id, name, type, etc.
+ *
+ * @author  Jiasheng Li (u7758372)
+ */
+
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
@@ -20,24 +27,34 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        // Get the pet data selected by user from MainActivity
         Pet pet = (Pet) getIntent().getExtras().getSerializable("pet");
 
+        // Load and show the text data in some TextView, including id, name, type, value, body type and color
         TextView id = findViewById(R.id.petId);
+
         id.setText("Pet ID: " + pet.id);
+
         TextView name = findViewById(R.id.petName);
         name.setText("Pet Name: " + pet.name);
+
         TextView type = findViewById(R.id.petType);
-        type.setText(""+pet.type);
+        type.setText(pet.type);
+
         TextView money = findViewById(R.id.petMoney);
         money.setText("$ "+pet.Money);
+
         TextView bodyType = findViewById(R.id.petBody);
         bodyType.setText("Body Type: " + pet.bodyType);
+
         TextView color = findViewById(R.id.petColor);
         color.setText("Color: " + pet.color);
 
+        // Load and show the comments of the pet in a ListVew
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,pet.comment){
             @NonNull
             @Override
+            // Edit the text color of comments to white.
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView text = (TextView) view.findViewById(android.R.id.text1);
@@ -48,6 +65,7 @@ public class DetailActivity extends AppCompatActivity {
         ListView comment = findViewById(R.id.commentList);
         comment.setAdapter(adapter);
 
+        // Load and show the corresponding photo of the pet in a ImageView
         ImageView imageView=findViewById(R.id.petPhoto);
         switch (pet.type){
             case "Mouse":

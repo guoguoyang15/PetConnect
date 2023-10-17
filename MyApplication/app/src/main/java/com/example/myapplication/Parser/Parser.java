@@ -120,7 +120,7 @@ public class Parser {
                 if (tokenizer.current().getType() == Token.Type.NUMERIC_LITERAL || tokenizer.current().getType() == Token.Type.STRING_LITERAL) {
                     value = tokenizer.current().getToken();
                     tokenizer.next();
-                } else if (tokenizer.current().getType() != Token.Type.SEPARATOR) {
+                } else {
                     throw new IllegalProductionException("Expect a numeric literal or string literal!");
                 }
             }
