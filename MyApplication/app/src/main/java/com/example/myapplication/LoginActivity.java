@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             String password = password_input.getText().toString();
 
             String checkingResult = CheckComplianceOfUserData(email, password);
-//            WriteNewUserInfo(email, password);
+
             if (checkingResult.length() > 0) {
                 Toast.makeText(LoginActivity.this, "register  failed: " + checkingResult, Toast.LENGTH_SHORT).show();
             }
@@ -149,48 +149,6 @@ public class LoginActivity extends AppCompatActivity {
         return res;
     }
 
-    private boolean WriteNewUserInfo(String username, String password) {
-        try {
-            File path = getFilesDir();
-            File pTest = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "test.xml");
-//            File pTest = new File(Environment.getExternalStorageDirectory(), "test.xml");
-            File[] fl = Environment.getDataDirectory().listFiles();
-            String p = Environment.getDataDirectory().getAbsolutePath();
-            File file2 = Environment.getExternalStorageDirectory();
-            File file = new File(path, "lazyUser.xml");
-
-            FileOutputStream fileOutputStream = null;
-            try {
-                fileOutputStream = new FileOutputStream(pTest);
-                //表明采用XML序列化存储
-                XmlSerializer xmlSerializer = Xml.newSerializer();
-                xmlSerializer.setOutput(fileOutputStream, "utf-8");
-//开始写
-                xmlSerializer.startDocument("utf-8", true);
-                xmlSerializer.startTag(null, "Student");
-                for (User student : userLocalData) {
-                    xmlSerializer.startTag(null, "student");
-                    //写ID
-                    xmlSerializer.attribute(null, "id", student.Password + "");
-
-                    xmlSerializer.endTag(null, "student");
-                }
-                xmlSerializer.endTag(null, "Student");
-                xmlSerializer.endDocument();
-//写入磁盘
-                xmlSerializer.flush();
-                fileOutputStream.close();
-//                Toast.makeText(MainActivity.this,"Succeed",Toast.LENGTH_SHORT).show();
-
-                return false;
-            } catch (Exception e) {
-                throw new RuntimeException();
-            }
-
-        } catch (RuntimeException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     /**
      * load user passsword and username from local file
