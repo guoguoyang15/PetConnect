@@ -18,7 +18,7 @@ public class bodyTypeAttribute extends basicAttribute {
 
     @Override
     public AttributeTypeEnum getATTRIBUTE_TYPE_ENUM() {
-        return AttributeTypeEnum.bodyType;
+        return AttributeTypeEnum.bodytype;
     }
 
     @Override

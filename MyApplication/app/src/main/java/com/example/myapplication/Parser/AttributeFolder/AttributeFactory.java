@@ -18,7 +18,7 @@ public class AttributeFactory {
             return new typeAttribute(attribute.getValue(), attribute.getRelation());
         } else if (attribute.getType().equals(AttributeTypeEnum.money.toString())) {
             return new moneyAttribute(attribute.getValue(), attribute.getRelation());
-        } else if (attribute.getType().equals(AttributeTypeEnum.bodyType.toString())) {
+        } else if (attribute.getType().equals(AttributeTypeEnum.bodytype.toString())) {
             return new bodyTypeAttribute(attribute.getValue(), attribute.getRelation());
         } else if (attribute.getType().equals(AttributeTypeEnum.color.toString())) {
             return new colorAttribute(attribute.getValue(), attribute.getRelation());

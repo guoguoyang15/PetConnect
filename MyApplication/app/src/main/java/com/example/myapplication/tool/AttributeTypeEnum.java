@@ -12,7 +12,7 @@ public enum AttributeTypeEnum {
     name,
     type,
     money,
-    bodyType,
+    bodytype,
     color,
     comment
 
