@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="Support search by ID.">
-      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java" afterDir="false" />
+    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="Updated search logic">
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697525613720</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated search logic">
+      <created>1697529522619</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697529522619</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,7 +159,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Support search by ID." />
-    <option name="LAST_COMMIT_MESSAGE" value="Support search by ID." />
+    <MESSAGE value="Updated search logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated search logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
