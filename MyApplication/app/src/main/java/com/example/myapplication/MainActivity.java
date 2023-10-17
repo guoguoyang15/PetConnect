@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         query = getIntent().getStringExtra("query");
         //fan yue is lazy
-        query=" money<200;color=red";
+//        query=" money<200;color=red";
         //R.raw.data_sample
         //R.raw.data_sample10
         if (list == null) {

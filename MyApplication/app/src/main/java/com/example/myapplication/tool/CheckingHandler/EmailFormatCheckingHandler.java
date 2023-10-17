@@ -13,7 +13,8 @@ public class EmailFormatCheckingHandler extends AbstractCheckingHandler {
     @Override
     protected String doFilter(String username, String password) {
 
-        patternStr = "\\w+@[a-zA-Z0-9]+?\\.[a-zA-Z]{2,3}";
+//        patternStr = "\\w+@[a-zA-Z0-9]+?\\.[a-zA-Z]{2,3}\\.[a-zA-Z]{2,3}";
+        patternStr = "\\w+@[a-zA-Z0-9]+?\\.[.|a-zA-Z0-9]+";
         Pattern pattern = Pattern.compile(patternStr);
 
         Matcher matcher = pattern.matcher(username);
