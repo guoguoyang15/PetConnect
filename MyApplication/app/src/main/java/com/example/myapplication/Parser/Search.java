@@ -10,6 +10,7 @@ import com.example.myapplication.Parser.AttributeFolder.moneyAttribute;
 import com.example.myapplication.Parser.AttributeFolder.nameAttribute;
 import com.example.myapplication.Parser.AttributeFolder.typeAttribute;
 import com.example.myapplication.Pet;
+import com.example.myapplication.tool.AttributeTypeEnum;
 import com.example.myapplication.tool.Tool;
 
 import java.util.ArrayList;
@@ -368,26 +369,24 @@ public class Search {
      */
     public List<Pet> searchPetsTree_Test(Tree<Pet> allPets) {
 
-
-        //region fan yue testing the design pattern
-//        attributeArrayList.add(new moneyAttribute(money.getValue(), money.getRelation()));
-//        attributeArrayList.add(new idAttribute(id.getValue(), id.getRelation()));
-//        attributeArrayList.add(new nameAttribute(name.getValue(), name.getRelation()));
-//        attributeArrayList.add(new typeAttribute(type.getValue(), type.getRelation()));
-//        attributeArrayList.add(new bodyTypeAttribute(bodyType.getValue(), bodyType.getRelation()));
-//        attributeArrayList.add(new colorAttribute(color.getValue(), color.getRelation()));
-//        attributeArrayList.add(new commentAttribute(comment.getValue(), comment.getRelation()));
+        ArrayList<IAttribute> listInOrder = new ArrayList<>();
+        for (IAttribute oneAttri : attributeArrayList
+        ) {
+            if (oneAttri.getATTRIBUTE_TYPE_ENUM().equals(AttributeTypeEnum.money))
+                listInOrder.add(0, oneAttri);
+            else {
+                listInOrder.add(oneAttri);
+            }
+        }
+        attributeArrayList = listInOrder;
         List<Pet> outputPetList = new ArrayList<>();
-        /*outputPetList.addAll(attributeArrayList.get(0).executeMethod(allPets, outputPetList));
-        for (int i = 1; i < attributeArrayList.size(); i++) {
-            outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
-        }*/
+
         for (int i = 0; i < attributeArrayList.size(); i++) {
             outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
         }
 
         return outputPetList;
-        //endregion
+
     }
 
     public void setAttribute(Attribute attribute) {
