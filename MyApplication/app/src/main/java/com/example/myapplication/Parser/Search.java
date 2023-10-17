@@ -383,11 +383,13 @@ public class Search {
 //        attributeArrayList.add(new colorAttribute(color.getValue(), color.getRelation()));
 //        attributeArrayList.add(new commentAttribute(comment.getValue(), comment.getRelation()));
         List<Pet> outputPetList = new ArrayList<>();
-        outputPetList.addAll(attributeArrayList.get(0).executeMethod(allPets, outputPetList));
+        /*outputPetList.addAll(attributeArrayList.get(0).executeMethod(allPets, outputPetList));
         for (int i = 1; i < attributeArrayList.size(); i++) {
             outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
+        }*/
+        for (int i = 0; i < attributeArrayList.size(); i++) {
+            outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
         }
-
 
         return outputPetList;
         //endregion
