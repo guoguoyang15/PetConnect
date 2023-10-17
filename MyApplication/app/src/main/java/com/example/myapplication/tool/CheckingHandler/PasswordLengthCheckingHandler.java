@@ -8,15 +8,15 @@ import java.util.regex.Pattern;
  * @author 13521
  * @date 16/10/2023
  */
-public class PasswordCheckingHandler extends AbstractCheckingHandler {
+public class PasswordLengthCheckingHandler extends AbstractCheckingHandler {
     @Override
     protected String doFilter(String username, String password) {
 
-        patternStr = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
-        boolean res = Pattern.matches(patternStr, password);
+
+        boolean res = password.length() >= 6;
         if (res) resStr = "";
         else
-            resStr = "the password should contain digitals and letters";
+            resStr = "the password length  should be at least 6";
 
         return resStr;
 
