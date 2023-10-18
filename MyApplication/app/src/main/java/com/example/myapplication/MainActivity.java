@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
             editTextSearch.setText(getIntent().getStringExtra("query"));
             myAdapter = new MyAdapter(this, search());
             recyclerView.setAdapter(myAdapter);
-        } else {
-            editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
         }
 
         Button buttonSearch = findViewById(R.id.buttonSearch);
@@ -77,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
         buttonSearch.setOnClickListener(view -> {
             hideSoftKeyboard();
             query = editTextSearch.getText().toString();
-
-            editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
 
             List<Pet> searchResult;
             try {
