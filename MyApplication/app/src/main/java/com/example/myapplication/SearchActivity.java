@@ -202,14 +202,13 @@ public class SearchActivity extends AppCompatActivity {
      *
      * @author XXX
      */
-    // 这是我们新定义的适配器类
     public static class NoFilterAdapter extends ArrayAdapter<String> {
 
         private String[] originalData;
 
         public NoFilterAdapter(Context context, int resource, String[] objects) {
             super(context, resource, objects);
-            this.originalData = objects; // 保存原始数据
+            this.originalData = objects; //
         }
 
         @NonNull
@@ -222,7 +221,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();
-                results.values = originalData; // 使用原始数据
+                results.values = originalData; //
                 results.count = originalData.length;
                 return results;
             }

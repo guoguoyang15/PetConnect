@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Shown here is the front-end code for the search screen
+@author  Zhining Zhang (u7580614)
+This is the main ConstraintLayout for the search functionality -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +12,7 @@
     android:background="@drawable/search"
     tools:context=".SearchActivity">
 
-
+    <!-- Greetings TextView -->
     <TextView
         android:id="@+id/greetings"
         android:layout_width="wrap_content"
@@ -24,16 +28,15 @@
 
 
 
-
+    <!-- ConstraintLayout for Image Grid -->
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-
+        <!-- Center Guideline -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/centerGuide"
             android:layout_width="wrap_content"
@@ -41,7 +44,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
-
+        <!-- Search Button -->
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
@@ -55,6 +58,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+
+        <!-- Image Views for Pets -->
+        <!-- Note: img_1 to img_12 are placeholders for actual image references -->
         <ImageView
             android:id="@+id/img_9"
             android:layout_width="0dp"
@@ -64,6 +70,10 @@
             app:layout_constraintDimensionRatio="4:3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_percent="0.25" />
+
+        <!-- Add more ImageView elements for other pet images as needed -->
+
+        <!-- Budget TextView -->
 
         <ImageView
             android:id="@+id/img_10"
@@ -190,7 +200,7 @@
             app:layout_constraintEnd_toEndOf="@id/petBodyType"
             app:layout_constraintBottom_toTopOf="@id/rangeSlider"
              />
-
+        <!-- AutoCompleteTextView for Pet Color -->
         <AutoCompleteTextView
             android:id="@+id/petColor"
             android:layout_width="0dp"
@@ -230,6 +240,7 @@
             app:layout_constraintBottom_toTopOf="@id/budgetTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/centerGuide" />
+        <!-- RangeSlider for Budget Range -->
         <com.google.android.material.slider.RangeSlider
             android:id="@+id/rangeSlider"
             android:layout_width="match_parent"
@@ -240,7 +251,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
             />
-
+        <!-- EditText for Favorite Animal -->
         <EditText
             android:id="@+id/editTextText"
             android:layout_width="0dp"
