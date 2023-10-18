@@ -2,7 +2,7 @@
  * MyAdapter.java implements showing search result in RecyclerView in MainActivity.
  * Detailed comments please find in the code below.
  *
- * @author  Jiasheng Li (u7758372)
+ * @author Jiasheng Li (u7758372)
  */
 
 package com.example.myapplication;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +24,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Activity activity;  // Get MainActivity. Used to put an entity of data and start DetailActivity by Intent
     private List<Pet> petList;  // Search result to show
 
-    public MyAdapter(Activity activity, List<Pet> list){
+    public MyAdapter(Activity activity, List<Pet> list) {
         this.activity = activity;
         petList = list;
     }
@@ -31,19 +32,20 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
-        return new RecyclerView.ViewHolder(view) {};
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
+        return new RecyclerView.ViewHolder(view) {
+        };
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Pet item = petList.get(position);   // An entity of data
 
-        TextView name=holder.itemView.findViewById(R.id.textView);
+        TextView name = holder.itemView.findViewById(R.id.textView);
         name.setText(item.name);
 
-        ImageView imageView=holder.itemView.findViewById(R.id.imageView);
-        switch (petList.get(position).type){
+        ImageView imageView = holder.itemView.findViewById(R.id.imageView);
+        switch (petList.get(position).type) {
             case "Mouse":
                 imageView.setImageResource(R.drawable.mouse_one);
                 break;
@@ -83,7 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
         imageView.setOnClickListener(view -> {
             Intent intent = new Intent(activity.getApplicationContext(), DetailActivity.class);
-            intent.putExtra("pet",item);
+            intent.putExtra("pet", item);
             activity.startActivity(intent);
         });
     }

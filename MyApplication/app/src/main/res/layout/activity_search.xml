@@ -42,7 +42,6 @@
             app:layout_constraintGuide_percent="0.5" />
 
 
-
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
@@ -51,7 +50,7 @@
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="20dp"
             android:text="@android:string/search_go"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/img_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -196,40 +195,41 @@
             android:id="@+id/petColor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bubble_background"
-            android:clickable="true"
-            android:drawableRight="@android:drawable/arrow_down_float"
-            android:focusable="true"
-            app:layout_constraintBottom_toTopOf="@id/budgetTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/centerGuide"
-            android:gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/bubble_background"
+            android:clickable="true"
+            android:drawableRight="@android:drawable/arrow_down_float"
+            android:focusable="false"
+            android:gravity="center"
             android:hint="COLOR"
             android:text="COLOR"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/budgetTextView"
+            app:layout_constraintEnd_toStartOf="@id/centerGuide"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <AutoCompleteTextView
             android:id="@+id/petBodyType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bubble_background"
-            android:clickable="true"
-            android:drawableRight="@android:drawable/arrow_down_float"
-            android:focusable="true"
-            app:layout_constraintBottom_toTopOf="@id/budgetTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/centerGuide"
-            android:gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/bubble_background"
+            android:clickable="true"
+            android:drawableRight="@android:drawable/arrow_down_float"
+            android:focusable="false"
+            android:gravity="center"
             android:hint="BodyType"
             android:text="BodyType"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/budgetTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/centerGuide" />
         <com.google.android.material.slider.RangeSlider
             android:id="@+id/rangeSlider"
             android:layout_width="match_parent"
@@ -248,6 +248,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:autofillHints="Your Favorite Animal"
             android:background="@drawable/bubble_background"
             android:gravity="center"
             android:hint="your favorite animal"
