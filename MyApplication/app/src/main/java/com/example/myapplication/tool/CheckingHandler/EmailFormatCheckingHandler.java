@@ -6,8 +6,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author 13521
- * @date 16/10/2023
+ * @param
+ * @author u7568823 FanYue
+ * @description validate the formateof email
+ * @return
+ * @time 18/10/2023
  */
 public class EmailFormatCheckingHandler extends AbstractCheckingHandler {
     @Override
