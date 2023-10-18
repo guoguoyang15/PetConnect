@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-
-
     String selectedColor;
     String selectedBodyType;
     Float selectedBudget;
@@ -34,47 +32,63 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         setUI();
-
-        constructQuery();
+        putToSearch();
     }
 
     /**
-     * XXX
+     * Method to put the query to MainActivity for search,
+     * when the search button is clicked.
      *
-     * @author XXX
+     * @author Jiasheng Li (u7758372)
      */
-    public void constructQuery() {
-        searchInput = findViewById(R.id.editTextText);
+    public void putToSearch() {
         Button buttonSearch = findViewById(R.id.button);
         buttonSearch.setOnClickListener(view -> {
-            String query = searchInput.getText().toString();
-            if (selectedColor != null) {
-                if (query.isEmpty())
-                    query = query + "color=" + selectedColor;
-                else query = query + ";color=" + selectedColor;
-            }
-            if (selectedBodyType != null) {
-                if (query.isEmpty())
-                    query = query + "bodytype=" + selectedBodyType;
-                else query = query + ";bodytype=" + selectedBodyType;
-            }
-            if (selectedBudget != null) {
-                if (query.isEmpty())
-                    query = query + String.format("money<%.0f", selectedBudget);
-                else query = query + String.format(";money<%.0f", selectedBudget);
-            }
-
+            String query = constructQuery();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("query", query);
             startActivityForResult(intent, 123);
         });
-
     }
 
     /**
-     * XXX
+     * Method to combine:
+     * 1) search input in EditText
+     * 2) options in AutoCompleteTextView
      *
-     * @author XXX
+     * @return String query
+     * @author Jiasheng Li (u7758372)
+     */
+    public String constructQuery() {
+        String query = searchInput.getText().toString();
+        // Combine color option
+        if (selectedColor != null && !selectedColor.isEmpty()) {
+            if (query.isEmpty())
+                query = query + "color=" + selectedColor;
+            else query = query + ";color=" + selectedColor;
+        }
+        // Combine body type option
+        if (selectedBodyType != null && !selectedBodyType.isEmpty()) {
+            if (query.isEmpty())
+                query = query + "bodytype=" + selectedBodyType;
+            else query = query + ";bodytype=" + selectedBodyType;
+        }
+        // Combine budget value
+        if (selectedBudget != null && selectedBudget != 10000.0f) {
+            if (query.isEmpty())
+                query = query + String.format("money<%.0f", selectedBudget);
+            else query = query + String.format(";money<%.0f", selectedBudget);
+        }
+        return query;
+    }
+
+    /**
+     * Method to receive the last query return from MainActivity.
+     * Remove the tokens, that can be selected in SearchActivity, in the query.
+     * Notice that it may be different from the one which user input in SearchActivity.
+     * The purpose is to improve user experience.
+     *
+     * @author Jiasheng Li (u7758372)
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -82,19 +96,25 @@ public class SearchActivity extends AppCompatActivity {
 
         String tokens = "(color\\s*=|bodytype\\s*=|money\\s*=|money\\s*<|money\\s*>)";
         if (data != null) {
+            // Get the last query from MainActivity
             String query = data.getStringExtra("query");
             if (query != null) {
                 if (query.matches("^\\s*" + tokens + ".*;")) {
+                    // Remove the token at first
                     query = query.replaceAll("^\\s*" + tokens + ".*;", "");
                 } else if (query.matches(";\\s*" + tokens + ".*;")) {
+                    // Remove the token at middle
                     query = query.replaceAll("\\s*" + tokens + ".*;", "");
                 } else {
+                    // Remove the token at last
                     query = query.replaceAll("\\s*" + tokens + ".*$", "");
                 }
             }
             while (query != null && query.endsWith(";")) {
+                // Remove semicolon at last that may cause error
                 query = query.substring(0, query.length() - 1);
             }
+            // Update the query in EditTextView
             searchInput.setText(query);
         }
     }
@@ -105,12 +125,14 @@ public class SearchActivity extends AppCompatActivity {
      * @author XXX
      */
     private void setUI() {
+        searchInput = findViewById(R.id.editTextText);
+
         TextView greetings = findViewById(R.id.greetings);
         String username = getIntent().getStringExtra("username");
         greetings.setText("Hello, " + username + "!");
 
-        String[] colors = {"Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
-        String[] petBodyType = {"Large", "Medium", "Small"};
+        String[] colors = {"","Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
+        String[] petBodyType = {"","Large", "Medium", "Small"};
         NoFilterAdapter colorAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
         NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, petBodyType);
         AutoCompleteTextView colorTextView = findViewById(R.id.petColor);
@@ -180,14 +202,13 @@ public class SearchActivity extends AppCompatActivity {
      *
      * @author XXX
      */
-    // 这是我们新定义的适配器类
     public static class NoFilterAdapter extends ArrayAdapter<String> {
 
         private String[] originalData;
 
         public NoFilterAdapter(Context context, int resource, String[] objects) {
             super(context, resource, objects);
-            this.originalData = objects; // 保存原始数据
+            this.originalData = objects; //
         }
 
         @NonNull
@@ -200,7 +221,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();
-                results.values = originalData; // 使用原始数据
+                results.values = originalData; //
                 results.count = originalData.length;
                 return results;
             }

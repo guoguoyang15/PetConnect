@@ -1,3 +1,8 @@
+/**
+ * @author Jiasheng Li (u7758372): Create the prototype of Pet class.
+ * @author Fan Yue (u7568823): Implement Pet class to Comparable
+ * @author Hexuan Meng: Create get method to use in Tree
+ */
 package com.example.myapplication;
 
 import java.io.Serializable;

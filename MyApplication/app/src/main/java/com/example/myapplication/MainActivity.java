@@ -1,11 +1,5 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +7,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.AVLTree.AVLTree;
 import com.example.myapplication.Parser.Parser;
@@ -40,55 +39,32 @@ public class MainActivity extends AppCompatActivity {
     List<Pet> list;
     String query;
     AVLTree<Pet> rootNode;
+    RecyclerView recyclerView;
+    EditText editTextSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Load the latest data from Firebase Database
         updateDataFromFirebase();
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        // Receive the query from SearchActivity, used to search in this
         query = getIntent().getStringExtra("query");
-        //fan yue is lazy
-//        query="color=red;money<200";
-        //R.raw.data_sample
-        //R.raw.data_sample10
-        if (list == null) {
-            loadLocalData(R.raw.data_sample_8color);
-        }
-
-        MyAdapter myAdapter = new MyAdapter(this, list);
-        recyclerView.setAdapter(myAdapter);
-
-        EditText editTextSearch = findViewById(R.id.editTextSearch);
-        if (!query.isEmpty()) {
-            editTextSearch.setText(getIntent().getStringExtra("query"));
-            myAdapter = new MyAdapter(this, search());
-            recyclerView.setAdapter(myAdapter);
-        } else {
-            editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
-        }
-
+        // Initialize UI component
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        editTextSearch = findViewById(R.id.editTextSearch);
         Button buttonSearch = findViewById(R.id.buttonSearch);
-        Activity activity = this;
+
+        // Load and show
+        loadShowData();
+
+        // Search function
         buttonSearch.setOnClickListener(view -> {
             hideSoftKeyboard();
             query = editTextSearch.getText().toString();
-
-            editTextSearch.setText("id: ;name: ;type: ;money< ;bodytype: ;color: ;comment:");
-
-            List<Pet> searchResult;
-            try {
-                searchResult = search();
-            } catch (Parser.IllegalProductionException e) {
-                searchResult = searchInvalid();
-            }
-
-            MyAdapter myAdapter1 = new MyAdapter(activity, searchResult);
-            recyclerView.setAdapter(myAdapter1);
+            recyclerView.setAdapter(new MyAdapter(this, search()));
         });
     }
 
@@ -98,17 +74,22 @@ public class MainActivity extends AppCompatActivity {
      * @author XXX
      */
     public List<Pet> search() {
-        //AVLTree<Pet> rootNode = Tool.GetPetsAvlTree(list);
-        //Tool.ChangeColorInData(list);
-        rootNode = Tool.GetPetsAvlTree(list);
-        Tokenizer tokenizer = new Tokenizer(query);
-        Parser parser = new Parser(tokenizer);
-        //commented by fan yue
-//        Search search = parser.parseSearch();
-//        return search.searchPetsTree(rootNode);
-        Search search = parser.parseSearchTest();
-        return search.searchPetsTree_Test(rootNode);
+        try {
+            rootNode = Tool.GetPetsAvlTree(list);
+            Tokenizer tokenizer = new Tokenizer(query);
+            Parser parser = new Parser(tokenizer);
+            Search search = parser.parseSearchTest();
+            return search.searchPetsTree_Test(rootNode);
+        } catch (Parser.IllegalProductionException e) {
+            return searchInvalid();
+        }
     }
+
+    /**
+     * XXX
+     *
+     * @author XXX
+     */
     public List<Pet> searchInvalid() {
         rootNode = Tool.GetPetsAvlTree(list);
         Tokenizer tokenizer = new Tokenizer(query);
@@ -118,23 +99,46 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Method to load the data saved at local.
-     * Used to show results when fetching data from Firebase is processing.
-     *
-     * @param data This is the id of the data file in raw resource.
+     * Method to load data and show:
+     * 1) All the data if user doesn't input a query in SearchActivity,
+     * 2) Search result if user inputs a query in SearchActivity.
      *
      * @author Jiasheng Li (u7758372)
      */
-    public void loadLocalData(int data) {
+    public void loadShowData() {
+        if (list == null) {
+            // If fetching data from Firebase is still processing, use local data
+            loadLocalData(R.raw.data);
+        }
+        if (query.isEmpty()) {
+            // Show all data
+            recyclerView.setAdapter(new MyAdapter(this, list));
+        } else {
+            // Show search result
+            editTextSearch.setText(query);
+            recyclerView.setAdapter(new MyAdapter(this, search()));
+        }
+    }
+
+    /**
+     * Method to load the data saved at local.
+     * Used to show results when fetching data from Firebase is processing.
+     *
+     * @param id This is the id of the data file in raw resource.
+     * @author Jiasheng Li (u7758372)
+     */
+    public void loadLocalData(int id) {
         String strJson; // Store the JSON data as string
 
         // Data loading process starts below
-        InputStream inputStream = getResources().openRawResource(data);
+        InputStream inputStream = getResources().openRawResource(id);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         StringBuilder buffer = new StringBuilder();
         try {
-            while ((strJson = bufferedReader.readLine()) != null) { buffer.append(strJson); }
+            while ((strJson = bufferedReader.readLine()) != null) {
+                buffer.append(strJson);
+            }
         } catch (IOException e) {
             Toast.makeText(MainActivity.this, "Failed to load local data.", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
@@ -143,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Convert the string of JSON data to List<Pet> by Gson
         Gson gson = new Gson();
-        Type myType = new TypeToken<List<Pet>>(){}.getType();
+        Type myType = new TypeToken<List<Pet>>() {
+        }.getType();
         list = gson.fromJson(strJson, myType);
     }
 
@@ -152,16 +157,18 @@ public class MainActivity extends AppCompatActivity {
      * this task is asynchronous
      * so once it's done, it will update the data loaded by application.
      *
-     * @author  Jiasheng Li (u7758372)
+     * @author Jiasheng Li (u7758372)
      */
     public void updateDataFromFirebase() {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {};
+                GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
+                };
                 list = snapshot.getValue(genericTypeIndicator);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(MainActivity.this, "Failed to update data.", Toast.LENGTH_SHORT).show();
@@ -174,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
      * Notice that it may be different from the one which user input in SearchActivity.
      * The purpose is to improve user experience.
      *
-     * @author  Jiasheng Li (u7758372)
+     * @author Jiasheng Li (u7758372)
      */
     @Override
     public void onBackPressed() {
@@ -190,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
      * Used when user finishes typing and presses "Search" button.
      * The purpose is to improve user experience.
      *
-     * @author  Jiasheng Li (u7758372)
+     * @author Jiasheng Li (u7758372)
      */
     public void hideSoftKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

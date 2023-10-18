@@ -41,9 +41,18 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Pet item = petList.get(position);   // An entity of data
 
+        // Display the pet name in a TextView
         TextView name = holder.itemView.findViewById(R.id.textView);
         name.setText(item.name);
+        // When user clicks the pet name, turn to the detail page, e.g. DetailActivity
+        name.setOnClickListener(view -> {
+            Intent intent = new Intent(activity.getApplicationContext(), DetailActivity.class);
+            // Put the selected pet data to DetailActivity
+            intent.putExtra("pet", item);
+            activity.startActivity(intent);
+        });
 
+        // Load the corresponding pet image in an ImageView
         ImageView imageView = holder.itemView.findViewById(R.id.imageView);
         switch (petList.get(position).type) {
             case "Mouse":
@@ -83,8 +92,10 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 imageView.setImageResource(R.drawable.pig_twelve);
                 break;
         }
+        // When user clicks the image, turn to the detail page, e.g. DetailActivity
         imageView.setOnClickListener(view -> {
             Intent intent = new Intent(activity.getApplicationContext(), DetailActivity.class);
+            // Put the selected pet data to DetailActivity
             intent.putExtra("pet", item);
             activity.startActivity(intent);
         });
