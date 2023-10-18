@@ -1,42 +1,26 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Xml;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.tool.CheckingHandler.CheckingHandlerDemo;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlSerializer;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class LoginActivity extends AppCompatActivity {
-
     private FirebaseAuth mAuth;
     private List<User> userLocalData;
 
@@ -45,85 +29,118 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Initialize the Firebase Authentication instance
         mAuth = FirebaseAuth.getInstance();
+        // Load local user information
         userLocalData = LoadLocalUserInfo();
+        // Initialize UI component
         EditText email_input = findViewById(R.id.email_input);
         EditText password_input = findViewById(R.id.password_input);
-
         Button loginButton = findViewById(R.id.login_button);
-        loginButton.setOnClickListener(view -> {
-            String email = email_input.getText().toString();
-            String password = password_input.getText().toString();
-            //region FanYueL : i am  lazy to input
-            email = "comp2100@anu.edu.au";
-            password = "comp2100";
-            //endreion
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(LoginActivity.this, "Log in failed.", Toast.LENGTH_SHORT).show();
-            } else {
-
-                String checkingResult = CheckComplianceOfUserData(email, password);
-
-                if (checkingResult.length() > 0) {
-                    Toast.makeText(LoginActivity.this, "login  failed: " + checkingResult, Toast.LENGTH_SHORT).show();
-                }
-
-                boolean isLocallyCheckSuccessful = LocalCheckUserLoginInfo(email, password);
-                if (!isLocallyCheckSuccessful) {
-                    Toast.makeText(LoginActivity.this, "locally login  failed", Toast.LENGTH_SHORT).show();
-                }
-
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                if (task.isSuccessful()) {
-                                    // Log in success
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                                    intent.putExtra("username", user.getEmail().split("@")[0]);
-                                    startActivity(intent);
-                                } else {
-                                    // Log in fails
-                                    Toast.makeText(LoginActivity.this, "Invalid user and password.", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-            }
-        });
-
         Button registerButton = findViewById(R.id.register_button);
+
+        // Login process
+        //region FanYueL : i am  lazy to input
+        String Email = "comp2100@anu.edu.au";
+        String Password = "comp2100";
+        loginButton.setOnClickListener(view -> login(Email, Password));
+        //endregion
+        //当上方注释块移除时启用下方
+//        loginButton.setOnClickListener(view -> {
+//            String email = email_input.getText().toString();
+//            String password = password_input.getText().toString();
+//            login(email,password);
+//        });
+
+        // Register process
         registerButton.setOnClickListener(view -> {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
-
-            String checkingResult = CheckComplianceOfUserData(email, password);
-
-            if (checkingResult.length() > 0) {
-                Toast.makeText(LoginActivity.this, "register  failed: " + checkingResult, Toast.LENGTH_SHORT).show();
-            }
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                                intent.putExtra("username", user.getEmail().split("@")[0]);
-                                startActivity(intent);
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+            register(email, password);
         });
     }
 
     /**
-     * check the user login info locally. ture for validation and false for fault login
+     * Method to login by:
+     * 1) Firebase Authentication if network is available,
+     * 2) Local user information if (1) fails.
+     * <p>
+     * Method check if:
+     * 1) Input is empty,
+     * 2) Input is in right format.
+     * Display the corresponding result messages by Toast if login fails.
+     * @param email    This is the email string that user inputs.
+     * @param password This is the password string that user inputs.
+     *
+     * @author Jiasheng Li (u7758372)
+     */
+    protected void login(String email, String password) {
+        if (email.isEmpty() || password.isEmpty()) {
+            // Check if input is empty
+            Toast.makeText(this, "Please enter email or password.", Toast.LENGTH_SHORT).show();
+        } else if (CheckComplianceOfUserData(email, password).length() > 0) {
+            // Check if input is in right format
+            Toast.makeText(this, "Login Failed: " + CheckComplianceOfUserData(email, password), Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    // Login success by Firebase Authentication
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                    intent.putExtra("username", user.getEmail().split("@")[0]);
+                    startActivity(intent);
+                } else {
+                    // Login failure by Firebase Authentication
+                    if (LocalCheckUserLoginInfo(email, password)) {
+                        // Login success by local user information
+                        Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                        intent.putExtra("username", email.split("@")[0]);
+                        startActivity(intent);
+                    } else {
+                        // Login failure by local user information
+                        Toast.makeText(LoginActivity.this, "Invalid user and password.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * Method to sign in by Firebase Authentication if network is available.
+     * Method check if:
+     * 1) Input is empty,
+     * 2) Input is in right format.
+     * Display the corresponding result messages by Toast if login fails.
+     * @param email    This is the email string that user inputs.
+     * @param password This is the password string that user inputs.
+     *
+     * @author Jiasheng Li (u7758372)
+     */
+    protected void register(String email, String password) {
+        if (email.isEmpty() || password.isEmpty()) {
+            // Check if input is empty
+            Toast.makeText(this, "Please enter email or password.", Toast.LENGTH_SHORT).show();
+        } else if (CheckComplianceOfUserData(email, password).length() > 0) {
+            // Check if input is in right format
+            Toast.makeText(this, "Register Failed: " + CheckComplianceOfUserData(email, password), Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    // Sign in success by Firebase Authentication
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                    intent.putExtra("username", user.getEmail().split("@")[0]);
+                    startActivity(intent);
+                } else {
+                    // Sign in failure by Firebase Authentication
+                    Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    /**
+     * check the user login info locally. ture 错别字被我发现啦 for validation and false for fault login
      *
      * @param email
      * @param password
@@ -145,8 +162,7 @@ public class LoginActivity extends AppCompatActivity {
      * @return
      */
     private String CheckComplianceOfUserData(String email, String password) {
-        String res = CheckingHandlerDemo.exec(email, password);
-        return res;
+        return CheckingHandlerDemo.exec(email, password);
     }
 
 
@@ -156,8 +172,8 @@ public class LoginActivity extends AppCompatActivity {
      * @return
      */
     private List<User> LoadLocalUserInfo() {
-        List<User> resultsList = new ArrayList<User>();
-        User person = null;
+        List<User> resultsList = new ArrayList<>();
+        User person;
 
         Resources resources = getResources();
         XmlResourceParser xrParser = resources.getXml(R.xml.userdata);
@@ -175,11 +191,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 xrParser.next();
             }
-
             return resultsList;
-        } catch (XmlPullParserException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             throw new RuntimeException(e);
         }
     }
