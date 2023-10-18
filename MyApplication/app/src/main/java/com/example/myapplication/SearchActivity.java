@@ -62,19 +62,19 @@ public class SearchActivity extends AppCompatActivity {
     public String constructQuery() {
         String query = searchInput.getText().toString();
         // Combine color option
-        if (selectedColor != null) {
+        if (selectedColor != null && !selectedColor.isEmpty()) {
             if (query.isEmpty())
                 query = query + "color=" + selectedColor;
             else query = query + ";color=" + selectedColor;
         }
         // Combine body type option
-        if (selectedBodyType != null) {
+        if (selectedBodyType != null && !selectedBodyType.isEmpty()) {
             if (query.isEmpty())
                 query = query + "bodytype=" + selectedBodyType;
             else query = query + ";bodytype=" + selectedBodyType;
         }
         // Combine budget value
-        if (selectedBudget != null) {
+        if (selectedBudget != null && selectedBudget != 10000.0f) {
             if (query.isEmpty())
                 query = query + String.format("money<%.0f", selectedBudget);
             else query = query + String.format(";money<%.0f", selectedBudget);
@@ -131,8 +131,8 @@ public class SearchActivity extends AppCompatActivity {
         String username = getIntent().getStringExtra("username");
         greetings.setText("Hello, " + username + "!");
 
-        String[] colors = {"Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
-        String[] petBodyType = {"Large", "Medium", "Small"};
+        String[] colors = {"","Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
+        String[] petBodyType = {"","Large", "Medium", "Small"};
         NoFilterAdapter colorAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
         NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, petBodyType);
         AutoCompleteTextView colorTextView = findViewById(R.id.petColor);
