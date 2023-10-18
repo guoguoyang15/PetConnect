@@ -1,6 +1,7 @@
 /**
  * DetailActivity.java implements the detail page for a single pet data,
  * to show the detailed information including photo, id, name, type, and etc.
+ * Detailed comments please find in the code below.
  *
  * @author  Jiasheng Li (u7758372)
  */
