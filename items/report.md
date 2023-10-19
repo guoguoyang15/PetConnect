@@ -40,7 +40,7 @@ The key area(s) of responsibilities for each member
 | UID      | Name          | Role           |
 |:---------|:--------------|:---------------|
 | u7605165 | Hexuan Meng   | Algorithm      |
-| u7568823 | Fan Yue       | Data Structure |
+| u7568823 | Fan Yue       | Design Pattern |
 | u7758372 | Jiasheng Li   | Android        |
 | u7580614 | Zhining Zhang | Front End      |
 

@@ -11,6 +11,7 @@ import java.util.List;
  *
  * @param <T> the generic type this Tree uses. It extends comparable
  *            which allows us to order two of the same type.
+ * @author u7605165 Hexuan meng
  */
 public abstract class Tree<T extends Comparable<T>> {
     /**
@@ -148,6 +149,11 @@ public abstract class Tree<T extends Comparable<T>> {
 
         return list;
     }
+
+    /**
+     * Find elements that greater than the given value in a tree
+     * @return a list of element that greater than the given value in a tree
+     */
     public List<T> findGreater(T element) {
 
         // Ensure input is not null.
@@ -158,24 +164,25 @@ public abstract class Tree<T extends Comparable<T>> {
         if (value != null) {
             if (element.compareTo(value) == 0) {
                 greaterNodes.addAll(rightNode.inOrder());
-                if (leftNode != null && leftNode.value != null) {
-                    greaterNodes.addAll(leftNode.findGreater(element));
-                }
             } else if (element.compareTo(value) < 0) {
-                greaterNodes.addAll(rightNode.inOrder());
-                greaterNodes.add(value);
                 if (leftNode != null && leftNode.value != null) {
                     greaterNodes.addAll(leftNode.findGreater(element));
                 }
+                greaterNodes.add(value);
+                greaterNodes.addAll(rightNode.inOrder());
             } else {
                 if (rightNode != null && rightNode.value != null) {
                     greaterNodes.addAll(rightNode.findGreater(element));
                 }
             }
         }
-
         return greaterNodes;
     }
+
+    /**
+     * Find elements that smaller than the given value in a tree
+     * @return a list of element that smaller than the given value in a tree
+     */
     public List<T> findSmaller(T element) {
 
         // Ensure input is not null.
@@ -184,9 +191,7 @@ public abstract class Tree<T extends Comparable<T>> {
 
         List<T> smallerNodes = new ArrayList<>();
         if (value != null) {
-            if (element.compareTo(value) == 0) {
-                smallerNodes.addAll(leftNode.inOrder());
-            } else if (element.compareTo(value) < 0) {
+            if (element.compareTo(value) <= 0) {
                 if (leftNode != null && leftNode.value != null) {
                     smallerNodes.addAll(leftNode.findSmaller(element));
                 }
@@ -198,9 +203,13 @@ public abstract class Tree<T extends Comparable<T>> {
                 }
             }
         }
-
         return smallerNodes;
     }
+
+    /**
+     * Find elements that equal to the given value in a tree
+     * @return a list of element that equal to the given value in a tree
+     */
     public List<T> findEqual(T element) {
 
         // Ensure input is not null.
@@ -210,10 +219,10 @@ public abstract class Tree<T extends Comparable<T>> {
         List<T> equalNodes = new ArrayList<>();
         if (value != null) {
             if (element.compareTo(value) == 0) {
-                equalNodes.add(value);
                 if (leftNode != null && leftNode.value != null) {
                     equalNodes.addAll(leftNode.findEqual(element));
                 }
+                equalNodes.add(value);
             } else if (element.compareTo(value) < 0) {
                 if (leftNode != null && leftNode.value != null) {
                     equalNodes.addAll(leftNode.findEqual(element));
@@ -224,7 +233,6 @@ public abstract class Tree<T extends Comparable<T>> {
                 }
             }
         }
-
         return equalNodes;
     }
 }

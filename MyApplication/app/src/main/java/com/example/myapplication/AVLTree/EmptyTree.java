@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 /**
  * To avoid null pointer errors (and because this implementation is immutable)
  * we have a class that represents an 'empty' tree.
+ * @author u7605165 Hexuan Meng
  */
 public abstract class EmptyTree<T extends Comparable<T>> extends Tree<T> {
     // Will need to be implemented by the subclass inheriting this class.

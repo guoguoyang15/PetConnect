@@ -124,7 +124,7 @@ public class SearchActivity extends AppCompatActivity {
      * <p>
      * This method initializes the user interface components, including text views, sliders, auto-complete text fields, and handles related event logic.
      *
-     * @author Zhining Zhang
+     * @author Zhining Zhang (u7580614)
      */
     private void setUI() {
         // Find and initialize the search input field
@@ -218,7 +218,7 @@ public class SearchActivity extends AppCompatActivity {
      * <p>
      * This class extends ArrayAdapter and provides a custom adapter that does not perform any filtering on the data.
      *
-     * @author Zhining Zhang
+     * @author Zhining Zhang (u7580614)
      */
     public static class NoFilterAdapter extends ArrayAdapter<String> {
 

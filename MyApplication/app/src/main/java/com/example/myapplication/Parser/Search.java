@@ -2,20 +2,16 @@ package com.example.myapplication.Parser;
 
 import com.example.myapplication.AVLTree.Tree;
 import com.example.myapplication.Interface.IAttribute;
-import com.example.myapplication.Parser.AttributeFolder.bodyTypeAttribute;
-import com.example.myapplication.Parser.AttributeFolder.colorAttribute;
-import com.example.myapplication.Parser.AttributeFolder.commentAttribute;
-import com.example.myapplication.Parser.AttributeFolder.idAttribute;
-import com.example.myapplication.Parser.AttributeFolder.moneyAttribute;
-import com.example.myapplication.Parser.AttributeFolder.nameAttribute;
-import com.example.myapplication.Parser.AttributeFolder.typeAttribute;
 import com.example.myapplication.Pet;
 import com.example.myapplication.tool.AttributeTypeEnum;
-import com.example.myapplication.tool.Tool;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class represents the search input
+ * @author u7605165 Hexuan Meng
+ */
 public class Search {
     private Attribute id;
     private Attribute name;
@@ -29,141 +25,10 @@ public class Search {
     public Search() {
     }
 
-    public List<Pet> searchPets(List<Pet> allPets) {
-        List<Pet> outputPetList = new ArrayList<>();
-        if (id != null && id.getValue() != null && !id.getValue().equals("")) {
-            for (Pet pet : allPets) {
-                if (pet.getId().equalsIgnoreCase(id.getValue())) {
-                    outputPetList.add(pet);
-                    return outputPetList;
-                }
-            }
-        }
-        if (name != null && name.getValue() != null && !name.getValue().equals("")) {
-            for (Pet pet : allPets) {
-                if (pet.getName().equalsIgnoreCase(name.getValue())) {
-                    outputPetList.add(pet);
-                }
-            }
-        }
-        if (type != null && type.getValue() != null && !type.getValue().equals("")) {
-            if (outputPetList.size() > 0) {
-                List<Pet> currentPetList = outputPetList;
-                outputPetList = new ArrayList<>();
-                for (Pet pet : currentPetList) {
-                    if (pet.getType().equalsIgnoreCase(type.getValue())) {
-                        outputPetList.add(pet);
-                    }
-                }
-            } else {
-                for (Pet pet : allPets) {
-                    if (pet.getType().equalsIgnoreCase(type.getValue())) {
-                        outputPetList.add(pet);
-                    }
-                }
-            }
-        }
-
-        if (money != null && money.getValue() != null && !money.getValue().equals("")) {
-            if (outputPetList.size() > 0) {
-                List<Pet> currentPetList = outputPetList;
-                outputPetList = new ArrayList<>();
-                for (Pet pet : currentPetList) {
-                    if (money.getRelation() == 0) {
-                        if (pet.getMoney() == Integer.parseInt(money.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                    if (money.getRelation() == -1) {
-                        if (pet.getMoney() < Integer.parseInt(money.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                    if (money.getRelation() == 1) {
-                        if (pet.getMoney() > Integer.parseInt(money.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                }
-            } else {
-                for (Pet pet : allPets) {
-                    if (money.getRelation() == 0) {
-                        if (pet.getMoney() == Integer.parseInt(money.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                    if (money.getRelation() == -1) {
-                        if (pet.getMoney() < Integer.parseInt(money.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                    if (money.getRelation() == 1) {
-                        if (pet.getMoney() > Integer.parseInt(money.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                }
-            }
-        }
-        if (bodyType != null && bodyType.getValue() != null && !bodyType.getValue().equals("")) {
-            if (outputPetList.size() > 0) {
-                List<Pet> currentPetList = outputPetList;
-                outputPetList = new ArrayList<>();
-                for (Pet pet : currentPetList) {
-                    if (pet.getBodyType().equalsIgnoreCase(bodyType.getValue())) {
-                        outputPetList.add(pet);
-                    }
-                }
-            } else {
-                for (Pet pet : allPets) {
-                    if (pet.getBodyType().equalsIgnoreCase(bodyType.getValue())) {
-                        outputPetList.add(pet);
-                    }
-                }
-            }
-        }
-        if (color != null && color.getValue() != null && !color.getValue().equals("")) {
-            if (outputPetList.size() > 0) {
-                List<Pet> currentPetList = outputPetList;
-                outputPetList = new ArrayList<>();
-                for (Pet pet : currentPetList) {
-                    if (pet.getColor().equalsIgnoreCase(color.getValue())) {
-                        outputPetList.add(pet);
-                    }
-                }
-            } else {
-                for (Pet pet : allPets) {
-                    if (pet.getColor().equalsIgnoreCase(color.getValue())) {
-                        outputPetList.add(pet);
-                    }
-                }
-            }
-        }
-        if (comment != null && comment.getValue() != null && !comment.getValue().equals("")) {
-            if (outputPetList.size() > 0) {
-                List<Pet> currentPetList = outputPetList;
-                outputPetList = new ArrayList<>();
-                for (Pet pet : currentPetList) {
-                    for (String comment : pet.getComment()) {
-                        if (comment.contains(this.comment.getValue())) {
-                            outputPetList.add(pet);
-                        }
-                    }
-                }
-            } else {
-                for (Pet pet : allPets) {
-                    for (String comment : pet.getComment()) {
-                        if (comment.contains(this.comment.getValue())) {
-                            outputPetList.add(pet);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        return outputPetList;
-    }
-
+    /**
+     * Find pets whose price are higher than the given price
+     * @return a list of pets with the price higher than the given price
+     */
     public List<Pet> findGreater(Attribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)
@@ -187,6 +52,10 @@ public class Search {
         return greaterNodes;
     }
 
+    /**
+     * Find pets whose price are lower than the given price
+     * @return a list of pets with the price lower than the given price
+     */
     public List<Pet> findSmaller(Attribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)
@@ -209,6 +78,10 @@ public class Search {
         return smallerNodes;
     }
 
+    /**
+     * Find pets whose price are equal to the given price
+     * @return a list of pets with the price equal to the given price
+     */
     public List<Pet> findEqual(Attribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)
@@ -234,6 +107,11 @@ public class Search {
         return equalNodes;
     }
 
+    /**
+     * Search pets in a tree that meet the attributes of the search object
+     * @param allPets pets ordered by their price in a tree
+     * @return a list of pets as the search result
+     */
     public List<Pet> searchPetsTree(Tree<Pet> allPets) {
         List<Pet> outputPetList = new ArrayList<>();
 
@@ -382,10 +260,17 @@ public class Search {
         }
         attributeArrayList = listInOrder;
         List<Pet> outputPetList = new ArrayList<>();
+        boolean emptySearch = true;
         for (int i = 0; i < attributeArrayList.size(); i++) {
+            IAttribute attribute = attributeArrayList.get(i);
+            if (attribute != null && attribute.getValue() != null && !attribute.getValue().equals("")) {
+                emptySearch = false;
+            }
             outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
         }
-
+        if (emptySearch) {
+            return allPets.inOrder();
+        }
         return outputPetList;
 
     }

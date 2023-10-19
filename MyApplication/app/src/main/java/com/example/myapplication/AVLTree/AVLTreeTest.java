@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * @author u7605165 Hexuan Meng
+ */
 public class AVLTreeTest {
     @Test(timeout = 1000)
     public void immutableTest1() {
@@ -61,16 +64,15 @@ public class AVLTreeTest {
 
     @Test(timeout = 1000)
     public void insertDuplicateTest() {
-        // As per the implementation requirements, duplicates should be ignored.
         AVLTree<Integer> avl = new AVLTree<>(5).insert(5);
-        String expected = "{value=5, leftNode={}, rightNode={}}";
+        String expected = "{value=5, leftNode={value=5, leftNode={}, rightNode={}}, rightNode={}}";
         assertEquals(
                 "\nInsertion does not properly position values" +
                         "\nYour AVL tree should look like: " + expected + "\nBut it actually looks like: " + avl,
-                0, avl.getHeight());
+                1, avl.getHeight());
 
         // Double checking encase anyone changes height output.
-        assertNull("\nInsertion does not properly handle duplicates" +
+        assertNotNull("\nInsertion does not properly handle duplicates" +
                 "\nYour AVL tree should look like: " + expected + "\nBut it actually looks like: " + avl, avl.leftNode.value);
 
         assertNull("\nInsertion does not properly handle duplicates" +

@@ -1,5 +1,9 @@
 package com.example.myapplication.Parser;
 
+/**
+ * A class represents the attribute of a search
+ * @author u7605165 Hexuan meng
+ */
 public class Attribute {
     private final String type;
     private final String value;

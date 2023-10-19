@@ -40,12 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         Button registerButton = findViewById(R.id.register_button);
 
         // Login process
-        //region FanYueL : i am  lazy to input
-//        String Email = "comp2100@anu.edu.au";
-//        String Password = "comp2100";
-//        loginButton.setOnClickListener(view -> login(Email, Password));
-        //endregion
-        //当上方注释块移除时启用下方
         loginButton.setOnClickListener(view -> {
             String email = email_input.getText().toString();
             String password = password_input.getText().toString();
@@ -140,11 +134,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * check the user login info locally. ture 错别字被我发现啦 for validation and false for fault login
+     * check the user login info locally. true for validation and false for fault login
      *
-     * @param email
-     * @param password
-     * @return
+     * @author u7568823 FanYue
+     * @time 19/10/2023
      */
     private boolean LocalCheckUserLoginInfo(String email, String password) {
         for (User ou : userLocalData
@@ -167,9 +160,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
    /**
-     * @description   load user passsword and username from local file
-     * @param 
-     * @return 
+     * @description load user password and username from local file
      * @author u7568823 FanYue
      * @time 19/10/2023
      */
