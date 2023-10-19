@@ -245,11 +245,13 @@ Feature Category: Search-related features <br>
 correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * Description of your implementation: ...
+2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
+   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Description of your implementation: ...
 
 <br><br>
 Feature Category: UI Design and Testing <br>
 1. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
-
    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
    * Description of your implementation: ...
@@ -279,8 +281,24 @@ Feature Category: Firebase Integration <br>
 
 ### Surprised Features
 
+1. How to rank the items returned for a given search (a ranking algorithm);
+   * Code: [Class AVLTree, method insert](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java#L35-67) and [Class Pet, method compareTo](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L49-52)
+   * Explanations on solution:
+       * All search results will be ranked depends on the cost of pets in our project, from low to high,
+       * Because our application aims to 
+
+2. Log previous searches and user information to improve search results;
+   * Code: [Class SearchActivity, method onActivityResult](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L85-120) and [Class MainActivity, method onBackPressed](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L169-183)
+   * Explanations on solution:
+       * Because of Android logic, information will lose in tran
+       * And will display the corresponding result messages by Toast if login or sign up fails.
+
+3. A strategy for showing ads (promoted items);
+
+4. A new strategy for visualising the traditional list of results.
+
 - If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprised feature specifications).
-- State that "Suprised feature is not implemented" otherwise.
+- State that "Surprised feature is not implemented" otherwise.
 
 <br> <hr>
 
