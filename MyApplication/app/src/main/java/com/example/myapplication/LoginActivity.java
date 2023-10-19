@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * Method to sign in by Firebase Authentication if network is available.
+     * Method to sign up by Firebase Authentication if network is available.
      * Method check if:
      * 1) Input is empty,
      * 2) Input is in right format.
@@ -120,14 +120,14 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
-                    // Sign in success by Firebase Authentication
+                    // Sign up success by Firebase Authentication
                     FirebaseUser user = mAuth.getCurrentUser();
                     Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
                     intent.putExtra("username", user.getEmail().split("@")[0]);
                     startActivity(intent);
                 } else {
-                    // Sign in failure by Firebase Authentication
-                    Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
+                    // Sign up failure by Firebase Authentication
+                    Toast.makeText(LoginActivity.this, "Sign up failed.", Toast.LENGTH_SHORT).show();
                 }
             });
         }

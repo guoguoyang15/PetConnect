@@ -122,8 +122,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
 ### Application UML
 #### UML Class diagram of the whole application
 ![UML Class diagram of the whole application](UML_diagrams/MainActivity_structure.svg) <br>
-#### UML Class diagram of Login and Sign in process
-![UML Class diagram of Login and Sign in process](UML_diagrams/LoginActivity_structure.svg) <br>
+#### UML Class diagram of Login and Sign up process
+![UML Class diagram of Login and Sign up process](UML_diagrams/LoginActivity_structure.svg) <br>
 #### UML Class diagram of AVL Tree implementation
 ![UML Class diagram of AVL Tree implementation](UML_diagrams/AVLTree_structure.svg) <br>
 
@@ -256,7 +256,7 @@ Feature Category: UI Design and Testing <br>
 
 <br><br>
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
-1. [Data-Formats]]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
+1. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
     * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
     * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
     * Description of your implementation: ...
@@ -264,14 +264,17 @@ Feature Category: Greater Data Usage, Handling and Sophistication <br>
 <br><br>
 Feature Category: Firebase Integration <br>
 1. [FB-Auth]. Use Firebase to implement User Authentication/Authorisation. (easy)
-    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-    * Description of your implementation: ...
+    * Code: [Class LoginActivity, method login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100) and [method register](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134)
+    * Description of your implementation:
+        * User will log in or sign up by Firebase Authentication if network is available,
+        * And will display the corresponding result messages by Toast if login or sign up fails.
 
 2. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
-     * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-    * Description of your implementation: ...
+   * Code: [Class MainActivity, method updateDataFromFirebase](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L144-167)
+   * Description of your implementation:
+     * Method to fetch latest data from Firebase when network is available,
+     * Load local data instead when it's fetching because this task is asynchronous,
+     * So once it's done, it will update the data loaded by application.
 <hr>
 
 ### Surprised Features
