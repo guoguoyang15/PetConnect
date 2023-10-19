@@ -245,6 +245,7 @@ Feature Category: Search-related features <br>
 correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * Description of your implementation: ...
+
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * Description of your implementation: ...
@@ -290,7 +291,7 @@ Feature Category: Firebase Integration <br>
 2. Log previous searches and user information to improve search results;
    * Code: [Class SearchActivity, method onActivityResult](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L85-120) and [Class MainActivity, method onBackPressed](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L169-183)
    * Explanations on solution:
-       * Because of Android logic, information will lose in tran
+       * Because of Android logic, information will lose in transferring between activities, especially
        * And will display the corresponding result messages by Toast if login or sign up fails.
 
 3. A strategy for showing ads (promoted items);
