@@ -160,9 +160,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
    /**
-     * @description   load user passsword and username from local file
-     * @param 
-     * @return 
+     * @description load user password and username from local file
      * @author u7568823 FanYue
      * @time 19/10/2023
      */
