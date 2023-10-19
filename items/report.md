@@ -299,7 +299,7 @@ Feature Category: Firebase Integration <br>
    * Explanations on solution:
      * We have decided not to show ads at present for the following reasons:
        1. Showing ads early in the app's launching can give users a bad first impression.
-       2. Showing ads early in the app's launching is generally regarded as **Adware**.
+       2. An application showing ads early in it launching is generally regarded as an **Adware**.
        3. As our application is for charity, we don't exploit poor displaced animals for profit.
      * However, if we are unable to keep running in the future, we may consider including a small amount of ads.
 
