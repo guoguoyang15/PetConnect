@@ -228,7 +228,7 @@ Production Rules:
    and visualise the same in the App. <br> (e.g., If the main page contains a list of featured products, the user may see
    an increased number of products; <br> as well as receive notifications from interactions simulated from the data
    stream). (medium)
-   * Code: [Class MainActivity, method loadShowData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L92-112)
+   * Code: [Class MainActivity, method loadShowData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L89-109)
    * Description of your implementation:
      * The application will load data and show:
        1. All the data if user doesn't input a query in SearchActivity,
