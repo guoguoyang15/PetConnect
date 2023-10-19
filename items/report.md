@@ -235,27 +235,43 @@ Production Rules:
 4. [Search]. Users must be able to search for information on your app. (medium)<br>
    The application is dependent on your app theme. E.g., search for information of products, users, by certain
    criteria (e.g. #apple $1-2).
-    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * Description of feature: ... <br>
-    * Description of your implementation: ... <br>
+   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Description of feature: ... <br>
+   * Description of your implementation: ... <br>
 
 ### Custom Features
-Feature Category: Privacy <br>
-1. [Privacy-Request]. Description of the feature  (easy)
+Feature Category: Search-related features <br>
+1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
+correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ... <br>
-     <br>
+   * Description of your implementation: ...
 
-2. [Privacy-Block]. Description ... ... (medium)
-   ... ...
-   <br><br>
+<br><br>
+Feature Category: UI Design and Testing <br>
+1. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
 
-Feature Category: Firebase Integration <br>
-3. [FB-Auth] Description of the feature (easy)
    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ... <br>
+   * Description of your implementation: ...
 
+<br><br>
+Feature Category: Greater Data Usage, Handling and Sophistication <br>
+1. [Data-Formats]]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
+    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
+    * Description of your implementation: ...
+
+<br><br>
+Feature Category: Firebase Integration <br>
+1. [FB-Auth]. Use Firebase to implement User Authentication/Authorisation. (easy)
+    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
+    * Description of your implementation: ...
+
+2. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
+     * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
+    * Description of your implementation: ...
 <hr>
 
 ### Surprised Features
