@@ -31,7 +31,7 @@ This is the main ConstraintLayout for the search functionality -->
         android:layout_marginTop="10dp"
         android:autofillHints="id: ;name: ;type: ;money ;bodytype: ;color: ;comment:"
         android:ems="10"
-        android:hint="id: ;name: ;type: ;money< ;bodytype: ;color:"
+        android:hint="id: ;name: ;type: ;money: ;bodytype: ;color:"
         android:inputType="text"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toStartOf="@+id/buttonSearch"

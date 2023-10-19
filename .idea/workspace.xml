@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="Add authorship and comments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java" afterDir="false" />
+    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="return all pets if search is empty">
       <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697682294544</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="return all pets if search is empty">
+      <created>1697683815347</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697683815347</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +212,8 @@
     <MESSAGE value="Fixed search errors" />
     <MESSAGE value="Support invalid search feature" />
     <MESSAGE value="Add authorship and comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add authorship and comments" />
+    <MESSAGE value="return all pets if search is empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="return all pets if search is empty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
