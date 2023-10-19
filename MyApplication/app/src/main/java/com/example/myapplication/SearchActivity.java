@@ -120,25 +120,32 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     /**
-     * XXX
+     * Set up the user interface and event handling logic.
+     * <p>
+     * This method initializes the user interface components, including text views, sliders, auto-complete text fields, and handles related event logic.
      *
-     * @author XXX
+     * @author Zhining Zhang
      */
     private void setUI() {
+        // Find and initialize the search input field
         searchInput = findViewById(R.id.editTextText);
 
+        // Get the username passed in and display it in a welcome text view
         TextView greetings = findViewById(R.id.greetings);
         String username = getIntent().getStringExtra("username");
         greetings.setText("Hello, " + username + "!");
 
-        String[] colors = {"","Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
-        String[] petBodyType = {"","Large", "Medium", "Small"};
+        // Initialize auto-complete text fields for color and pet body type, and their adapters
+        String[] colors = {"", "Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
+        String[] petBodyType = {"", "Large", "Medium", "Small"};
         NoFilterAdapter colorAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
         NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, petBodyType);
         AutoCompleteTextView colorTextView = findViewById(R.id.petColor);
         AutoCompleteTextView bodyTypeTextView = findViewById(R.id.petBodyType);
         colorTextView.setAdapter(colorAdapter);
         bodyTypeTextView.setAdapter(bodyTypeAdapter);
+
+        // Initialize the range slider and set default values
         RangeSlider rangeSlider = findViewById(R.id.rangeSlider);
         rangeSlider.setValueFrom(1.0f);
         rangeSlider.setValueTo(10000.0f);
@@ -146,31 +153,39 @@ public class SearchActivity extends AppCompatActivity {
         initialValues.add(10000.0f);
         rangeSlider.setValues(initialValues);
 
+        // Initialize the budget text view
         TextView budgetTextView = findViewById(R.id.budgetTextView);
 
+        // Add a change listener to the range slider to update the budget text
         rangeSlider.addOnChangeListener((slider, value, fromUser) -> {
             // Get the current value of the slider
             List<Float> values = slider.getValues();
 
-            // Update the TextView's text
+            // Update the text view's text
             selectedBudget = values.get(0);
             budgetTextView.setText(String.format("Your budget is AUD %.0f", values.get(0)));
         });
 
+        // Handle item click events for the color text view
         colorTextView.setOnItemClickListener((parent, view, position, id) -> {
             selectedColor = (String) parent.getItemAtPosition(position);
             colorTextView.setText(selectedColor);
             colorTextView.setThreshold(0);
         });
+
+        // Handle item click events for the pet body type text view
         bodyTypeTextView.setOnItemClickListener((parent, view, position, id) -> {
             selectedBodyType = (String) parent.getItemAtPosition(position);
-            // TODO: Handle the selected money
+            // TODO: Handle the selected pet body type
             bodyTypeTextView.setText(selectedBodyType);
             bodyTypeTextView.setThreshold(0);
         });
+
+        // Show the drop-down menu when clicking on the color and body type text views
         colorTextView.setOnClickListener(v -> colorTextView.showDropDown());
         bodyTypeTextView.setOnClickListener(v -> bodyTypeTextView.showDropDown());
 
+        // Initialize image views for different animals and set click listeners
         ImageView mouseImageView = findViewById(R.id.img_1);
         mouseImageView.setOnClickListener(v -> searchInput.setText("type=mouse"));
         ImageView cowImageView = findViewById(R.id.img_2);
@@ -197,10 +212,13 @@ public class SearchActivity extends AppCompatActivity {
         pigImageView.setOnClickListener(v -> searchInput.setText("type=pig"));
     }
 
+
     /**
-     * XXX
+     * Custom ArrayAdapter with no filtering.
+     * <p>
+     * This class extends ArrayAdapter and provides a custom adapter that does not perform any filtering on the data.
      *
-     * @author XXX
+     * @author Zhining Zhang
      */
     public static class NoFilterAdapter extends ArrayAdapter<String> {
 
@@ -208,7 +226,7 @@ public class SearchActivity extends AppCompatActivity {
 
         public NoFilterAdapter(Context context, int resource, String[] objects) {
             super(context, resource, objects);
-            this.originalData = objects; //
+            this.originalData = objects; // Store the original data
         }
 
         @NonNull
@@ -217,11 +235,14 @@ public class SearchActivity extends AppCompatActivity {
             return new NoFilter();
         }
 
+        /**
+         * Custom filter that returns the original data unfiltered.
+         */
         private class NoFilter extends Filter {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();
-                results.values = originalData; //
+                results.values = originalData; // Set the original data as results
                 results.count = originalData.length;
                 return results;
             }
@@ -236,4 +257,5 @@ public class SearchActivity extends AppCompatActivity {
             }
         }
     }
+
 }
