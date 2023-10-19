@@ -120,9 +120,12 @@ Note that the core criteria of contribution is based on `code contribution` (the
 <hr> 
 
 ### Application UML
-
-![ClassDiagramExample](UML_diagrams/Pet_structure.svg) <br>
-*[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
+#### UML Class diagram of the whole application
+![UML Class diagram of the whole application](UML_diagrams/MainActivity_structure.svg) <br>
+#### UML Class diagram of Login and Sign in process
+![UML Class diagram of Login and Sign in process](UML_diagrams/LoginActivity_structure.svg) <br>
+#### UML Class diagram of AVL Tree implementation
+![UML Class diagram of AVL Tree implementation](UML_diagrams/AVLTree_structure.svg) <br>
 
 <hr>
 
@@ -199,21 +202,45 @@ Production Rules:
 <hr>
 
 ## Implemented Features
-*[What features have you implemented? where, how, and why?]* <br>
-*List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-1. [LogIn]. Description of the feature ... (easy)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of feature: ... <br>
-   * Description of your implementation: ... <br>
+1. [LogIn]. Users must be able to log in (not necessarily sign up). (easy)
+   * Important: You must include the following two accounts for markers' access to your App:
+     * Username: comp2100@anu.edu.au&emsp;Password: comp2100
+     * Username: comp6442@anu.edu.au&emsp;Password: comp6442
+   * Code: [Class LoginActivity, method login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100) and [method register](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134)
+   * Description of your implementation:
+     * User will log in by:
+         1. Firebase Authentication if network is available,
+         2. Local user information if (a) fails, by method [LocalCheckUserLoginInfo](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L136-148).
+     * And this method will check if:
+         1. Input is empty,
+         2. Input is in right format, by method [CheckComplianceOfUserData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L150-159).
+     * And will display the corresponding result messages by Toast if login fails.
+<br><br>
 
 2. [DataFiles]. Description  ... ... (...)
    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
    * Link to the Firebase repo: ...
+<br><br>
 
-3. ...
-   <br>
+3. [LoadShowData]. When a user is logged in, load data (from the file(s) and/or Firebase) at regular time intervals,
+   and visualise the same in the App. <br> (e.g., If the main page contains a list of featured products, the user may see
+   an increased number of products; <br> as well as receive notifications from interactions simulated from the data
+   stream). (medium)
+   * Code: [Class MainActivity, method loadShowData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L92-112)
+   * Description of your implementation:
+     * The application will load data and show:
+       1. All the data if user doesn't input a query in SearchActivity,
+       2. Search result if user inputs a query in SearchActivity.
+<br><br>
+
+4. [Search]. Users must be able to search for information on your app. (medium)<br>
+   The application is dependent on your app theme. E.g., search for information of products, users, by certain
+   criteria (e.g. #apple $1-2).
+    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * Description of feature: ... <br>
+    * Description of your implementation: ... <br>
 
 ### Custom Features
 Feature Category: Privacy <br>

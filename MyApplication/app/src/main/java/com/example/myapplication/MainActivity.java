@@ -60,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
         // Load and show
         loadShowData();
 
-        // Initialize pets tree
-        rootNode = Tool.GetPetsAvlTree(list);
-
         // Search function
         buttonSearch.setOnClickListener(view -> {
             hideSoftKeyboard();
@@ -141,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         Type myType = new TypeToken<List<Pet>>() {
         }.getType();
         list = gson.fromJson(strJson, myType);
+        rootNode = Tool.GetPetsAvlTree(list);
     }
 
     /**
@@ -158,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
                 };
                 list = snapshot.getValue(genericTypeIndicator);
+                rootNode = Tool.GetPetsAvlTree(list);
             }
 
             @Override
