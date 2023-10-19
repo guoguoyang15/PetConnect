@@ -217,12 +217,10 @@ Production Rules:
          1. Input is empty,
          2. Input is in right format, by method [CheckComplianceOfUserData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L150-159).
      * And will display the corresponding result messages by Toast if login fails.
-<br><br>
 
 2. [DataFiles]. Description  ... ... (...)
    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
    * Link to the Firebase repo: ...
-<br><br>
 
 3. [LoadShowData]. When a user is logged in, load data (from the file(s) and/or Firebase) at regular time intervals,
    and visualise the same in the App. <br> (e.g., If the main page contains a list of featured products, the user may see
@@ -233,7 +231,6 @@ Production Rules:
      * The application will load data and show:
        1. All the data if user doesn't input a query in SearchActivity,
        2. Search result if user inputs a query in SearchActivity.
-<br><br>
 
 4. [Search]. Users must be able to search for information on your app. (medium)<br>
    The application is dependent on your app theme. E.g., search for information of products, users, by certain
