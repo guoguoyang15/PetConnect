@@ -70,32 +70,20 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * According to the search input, return the search result
+     * If the search input is invalid, use different parsing methodology
      * @return a list of pets as the search result
      * @author u7605165 Hexuan Meng
      */
     public List<Pet> search() {
+        Tokenizer tokenizer = new Tokenizer(query);
+        Parser parser = new Parser(tokenizer);
         try {
-            rootNode = Tool.GetPetsAvlTree(list);
-            Tokenizer tokenizer = new Tokenizer(query);
-            Parser parser = new Parser(tokenizer);
             Search search = parser.parseSearchTest();
             return search.searchPetsTree_Test(rootNode);
         } catch (Parser.IllegalProductionException e) {
-            return searchInvalid();
+            Search search = parser.parseSearchInvalid();
+            return search.searchPetsTree_Test(rootNode);
         }
-    }
-
-    /**
-     * If the search input is invalid, use different search method to return the search result
-     * @return a list of pets as the search result
-     * @author u7605165 Hexuan Meng
-     */
-    public List<Pet> searchInvalid() {
-        rootNode = Tool.GetPetsAvlTree(list);
-        Tokenizer tokenizer = new Tokenizer(query);
-        Parser parser = new Parser(tokenizer);
-        Search search = parser.parseSearchInvalid();
-        return search.searchPetsTree_Test(rootNode);
     }
 
     /**
@@ -150,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         Type myType = new TypeToken<List<Pet>>() {
         }.getType();
         list = gson.fromJson(strJson, myType);
+        rootNode = Tool.GetPetsAvlTree(list);
     }
 
     /**
@@ -167,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 GenericTypeIndicator<List<Pet>> genericTypeIndicator = new GenericTypeIndicator<List<Pet>>() {
                 };
                 list = snapshot.getValue(genericTypeIndicator);
+                rootNode = Tool.GetPetsAvlTree(list);
             }
 
             @Override

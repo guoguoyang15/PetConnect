@@ -35,20 +35,22 @@ public class commentAttribute extends basicAttribute {
                 List<Pet> currentPetList = outputPetList;
                 outputPetList = new ArrayList<>();
                 for (Pet pet : currentPetList) {
-                    for (String comment : pet.getComment()) {
-                        if (comment.contains(this.getValue())) {
-                            outputPetList.add(pet);
+                    if (pet.getComment() != null)
+                        for (String comment : pet.getComment()) {
+                            if (comment.contains(this.getValue())) {
+                                outputPetList.add(pet);
+                            }
                         }
-                    }
                 }
             } else {
                 for (Pet pet : petsTree.inOrder()) {
-                    for (String comment : pet.getComment()) {
-                        if (comment.contains(this.getValue())) {
-                            outputPetList.add(pet);
-                            break;
+                    if (pet.getComment() != null)
+                        for (String comment : pet.getComment()) {
+                            if (comment.contains(this.getValue())) {
+                                outputPetList.add(pet);
+                                break;
+                            }
                         }
-                    }
                 }
             }
         }

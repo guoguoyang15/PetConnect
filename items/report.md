@@ -120,13 +120,16 @@ Note that the core criteria of contribution is based on `code contribution` (the
 <hr> 
 
 ### Application UML
-
-![ClassDiagramExample](media/_examples/ClassDiagramExample.png) <br>
-*[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
+#### UML Class diagram of the whole application
+![UML Class diagram of the whole application](UML_diagrams/MainActivity_structure.svg) <br>
+#### UML Class diagram of Login and Sign up process
+![UML Class diagram of Login and Sign up process](UML_diagrams/LoginActivity_structure.svg) <br>
+#### UML Class diagram of AVL Tree implementation
+![UML Class diagram of AVL Tree implementation](UML_diagrams/AVLTree_structure.svg) <br>
 
 <hr>
 
-## Code Design and Decisions
+## Application Design and Decisions
 
 This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
 
@@ -163,14 +166,51 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 <hr>
 
 ### Design Patterns
-*[What design patterns did your team utilise? Where and why?]*
 
-1. *xxx Pattern*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
+1. *Chain of responsibility Design Pttern*
+   * *Objective:* used for validate the format of username and password in Login funciton.
+   * *Code Locations:* defined in [Class LoginActivity, CheckComplianceOfUserData () ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L164)
+and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java); 
+[class: AbstractCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java) and [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java) , 
+[Class PasswordLengthCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordCheckingHandler.java) ,
+[Class PasswordCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordLengthCheckingHandler.java)
    * *Reasons:*
-      * ...
+      * Modularity: The system can be made more modular by encapsulating each check (such as email format, password length, password format, etc.) in a separate class or module. Without changing the current code, we could quickly add a new link in the chain if a new validation requirement arose. 
+      * Flexibility:Simply rearranging the chain's links will result in a new order for the checks. For example, we only need to rearrange the links if we choose to verify the strength of the password before the email format.
+      * Maintainability:In the event that a specific validation logic needs to be modified in the future, we just need to update that link in the chain; the other checks remain unchanged.
+      * Decoupling:The pattern separates the receivers—the individual validation checks—from the sender, which in this case is the portion of our app that initiates the login validation. The system's constituent parts can remain independent and cohesive thanks to this decoupling. 
+      * Stop On Failure:The chain can be stopped as soon as one of the validators fails, depending on how we implement it. This can be effective because, once a failure is identified, it won't call upon additional validators needlessly. 
 
+1. *Factory Method Design Pttern*
+   * *Objective:* used for create a specified filter-attribute regarding the input-query.
+   * *Code Locations:*defined in [Class AttributeFactory](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java);
+and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74);
+[class: AbstractCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java);
+[Class AttributeTypeEnum ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/AttributeTypeEnum.java)
+   * *Reasons:*
+      * Variability in Attribute Types: A factory can assist in creating the appropriate kind of attribute based on the query input if we anticipate having many more attribute types in the future than just "money" and "color." 
+      * Complex Creation Logic: Coding can become cleaner and easier to maintain if an attribute creation process (such as initializing related data structures, setting default values, etc.) is complex and is contained within a factory.
+      * Extensibility:We may add more features as our app develops. We can easily expand our attribute creation process with the aid of a factory method. 
+
+1. *Strategy design pattern  pattern*
+   * *Objective:* used for filter the data sample with different logic.
+   * *Code Locations:* [Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370);
+defined in [Class IAttribute](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/IAttribute.java);
+and proceed in [Class basicAttribute , excluding thr function of findEqual (),findSmaller (), and findGreater()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/basicAttribute.java);
+[Class bodyTypeAttribute, exclude the detail in the function of executeMethod()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/bodyTypeAttribute.java)
+[class colorAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)
+[class  colorAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)
+[Class  commentAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/commentAttribute.java)
+[Class idAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/idAttribute.java )
+[Class moneyAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/moneyAttribute.java)
+[Class nameAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/nameAttribute.java)
+[ class  typeAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/typeAttribute.java)
+   * *Reasons:*
+      * Encapsulation of Filtering Logic: Every filtering criterion (like money or color) can be contained within a separate class. This makes the codebase clean and organized by guaranteeing that the logic for each criterion is isolated. 
+      * Flexibility in Filtering: Future filtering criteria can be easily added with the Strategy pattern. We can simply add a new filtering strategy without changing the existing code if we later decide to filter based on another attribute, like "size" or "date." 
+      * Dynamic Filter Selection:We can choose the best filtering strategy at runtime because the filtering logic is separated from the main application logic. For example, once the query has been parsed, we can use the user's input to dynamically instantiate and apply the required filter strategies. 
+      * Maintainability and Extendibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
+      * Testability: The decoupling and modularization of the filtering logic makes it simpler to write unit tests for every strategy. To make sure that every component of your filtering logic functions as intended, you can test each filtering criterion separately. 
 <hr>
 
 ### Parser
@@ -199,45 +239,112 @@ Production Rules:
 <hr>
 
 ## Implemented Features
-*[What features have you implemented? where, how, and why?]* <br>
-*List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-1. [LogIn]. Description of the feature ... (easy)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of feature: ... <br>
-   * Description of your implementation: ... <br>
+1. [LogIn]. Users must be able to log in (not necessarily sign up). (easy)
+   * Important: You must include the following two accounts for markers' access to your App:
+     * Username: comp2100@anu.edu.au&emsp;Password: comp2100
+     * Username: comp6442@anu.edu.au&emsp;Password: comp6442
+   * Code: [Class LoginActivity, method login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100) and [method register](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134)
+   * Description of your implementation:
+     * User will log in by:
+         1. Firebase Authentication if network is available,
+         2. Local user information if (a) fails, by method [LocalCheckUserLoginInfo](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L136-148).
+     * And this method will check if:
+         1. Input is empty,
+         2. Input is in right format, by method [CheckComplianceOfUserData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L150-159).
+     * And will display the corresponding result messages by Toast if login fails.
 
 2. [DataFiles]. Description  ... ... (...)
    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
    * Link to the Firebase repo: ...
 
-3. ...
-   <br>
+3. [LoadShowData]. When a user is logged in, load data (from the file(s) and/or Firebase) at regular time intervals,
+   and visualise the same in the App. <br> (e.g., If the main page contains a list of featured products, the user may see
+   an increased number of products; <br> as well as receive notifications from interactions simulated from the data
+   stream). (medium)
+   * Code: [Class MainActivity, method loadShowData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L89-109)
+   * Description of your implementation:
+     * The application will load data and show:
+       1. All the data if user doesn't input a query in SearchActivity,
+       2. Search result if user inputs a query in SearchActivity.
+
+4. [Search]. Users must be able to search for information on your app. (medium)<br>
+   The application is dependent on your app theme. E.g., search for information of products, users, by certain
+   criteria (e.g. #apple $1-2).
+   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Description of feature: ... <br>
+   * Description of your implementation: ... <br>
 
 ### Custom Features
-Feature Category: Privacy <br>
-1. [Privacy-Request]. Description of the feature  (easy)
+Feature Category: Search-related features <br>
+1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
+correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ... <br>
-     <br>
+   * Description of your implementation: ...
 
-2. [Privacy-Block]. Description ... ... (medium)
-   ... ...
-   <br><br>
+2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
+   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Description of your implementation: ...
 
-Feature Category: Firebase Integration <br>
-3. [FB-Auth] Description of the feature (easy)
+<br><br>
+Feature Category: UI Design and Testing <br>
+1. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ... <br>
+   * Description of your implementation: ...
 
+<br><br>
+Feature Category: Greater Data Usage, Handling and Sophistication <br>
+1. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
+    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
+    * Description of your implementation: ...
+
+<br><br>
+Feature Category: Firebase Integration <br>
+1. [FB-Auth]. Use Firebase to implement User Authentication/Authorisation. (easy)
+    * Code: [Class LoginActivity, method login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100) and [method register](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134)
+    * Description of your implementation:
+      * User will log in or sign up by Firebase Authentication if network is available,
+      * And will display the corresponding result messages by Toast if login or sign up fails.
+
+2. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
+   * Code: [Class MainActivity, method updateDataFromFirebase](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L144-167)
+   * Description of your implementation:
+     * Method to fetch latest data from Firebase when network is available,
+     * Load local data instead when it's fetching because this task is asynchronous,
+     * So once it's done, it will update the data loaded by application.
 <hr>
 
 ### Surprised Features
 
+1. How to rank the items returned for a given search (a ranking algorithm);
+   * Code: [Class AVLTree, method insert](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java#L35-67) and [Class Pet, method compareTo](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L49-52)
+   * Explanations on solution:
+       * All search results will be ranked depends on the cost of pets in our project, from low to high,
+       * Because our application aims to 
+
+2. Log previous searches and user information to improve search results;
+   * Code: [Class SearchActivity, method onActivityResult](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L85-120) and [Class MainActivity, method onBackPressed](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L169-183)
+   * Explanations on solution:
+     * Because of Android logic, information will lose in transferring between activities, especially returning from the next activity,
+     * In our project, the query may not be updated in SearchActivity if users keep searching in MainActivity,
+     * Thus, we want to return the last query from MainActivity to SearchActivity to maintain smooth user experiences.
+
+3. A strategy for showing ads (promoted items);
+   * Explanations on solution:
+     * We have decided not to show ads at present for the following reasons:
+       1. Showing ads early in the app's launch can give users a bad first impression.
+       2. An application showing ads early in its launch is generally regarded as an **Adware**.
+       3. As our application is for charity, we don't exploit poor displaced animals for profit.
+     * However, if we are unable to keep running in the future, we may consider including a small amount of ads.
+
+4. A new strategy for visualising the traditional list of results.
+   * Not implemented.
+
 - If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprised feature specifications).
-- State that "Suprised feature is not implemented" otherwise.
+- State that "Surprised feature is not implemented" otherwise.
 
 <br> <hr>
 
