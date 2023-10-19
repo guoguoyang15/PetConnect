@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 /**
- * @author 13521
+ * @author Zhining Zhang
  * @date 16/10/2023
  */
 public class User {

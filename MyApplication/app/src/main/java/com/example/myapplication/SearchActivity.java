@@ -121,7 +121,7 @@ public class SearchActivity extends AppCompatActivity {
 
     /**
      * Set up the user interface and event handling logic.
-     *
+     * <p>
      * This method initializes the user interface components, including text views, sliders, auto-complete text fields, and handles related event logic.
      *
      * @author Zhining Zhang
@@ -136,8 +136,8 @@ public class SearchActivity extends AppCompatActivity {
         greetings.setText("Hello, " + username + "!");
 
         // Initialize auto-complete text fields for color and pet body type, and their adapters
-        String[] colors = {"","Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
-        String[] petBodyType = {"","Large", "Medium", "Small"};
+        String[] colors = {"", "Red", "Orange", "Green", "Blue", "Purple", "Yellow", "White", "Black"};
+        String[] petBodyType = {"", "Large", "Medium", "Small"};
         NoFilterAdapter colorAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
         NoFilterAdapter bodyTypeAdapter = new NoFilterAdapter(this, android.R.layout.simple_dropdown_item_1line, petBodyType);
         AutoCompleteTextView colorTextView = findViewById(R.id.petColor);
@@ -215,7 +215,7 @@ public class SearchActivity extends AppCompatActivity {
 
     /**
      * Custom ArrayAdapter with no filtering.
-     *
+     * <p>
      * This class extends ArrayAdapter and provides a custom adapter that does not perform any filtering on the data.
      *
      * @author Zhining Zhang
