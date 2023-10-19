@@ -260,10 +260,17 @@ public class Search {
         }
         attributeArrayList = listInOrder;
         List<Pet> outputPetList = new ArrayList<>();
+        boolean emptySearch = true;
         for (int i = 0; i < attributeArrayList.size(); i++) {
+            IAttribute attribute = attributeArrayList.get(i);
+            if (attribute != null && attribute.getValue() != null && !attribute.getValue().equals("")) {
+                emptySearch = false;
+            }
             outputPetList = attributeArrayList.get(i).executeMethod(allPets, outputPetList);
         }
-
+        if (emptySearch) {
+            return allPets.inOrder();
+        }
         return outputPetList;
 
     }

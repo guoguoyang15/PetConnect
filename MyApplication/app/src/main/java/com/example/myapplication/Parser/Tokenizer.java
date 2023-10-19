@@ -64,6 +64,12 @@ public class Tokenizer {
                 }
             }
             currentToken = new Token(buffer.substring(0, pos), Token.Type.NUMERIC_LITERAL);
+            if (pos < buffer.length() && buffer.charAt(pos) != ';' && buffer.charAt(pos) != ' ') {
+                while (pos < buffer.length() && buffer.charAt(pos) != ';' && buffer.charAt(pos) != ' ') {
+                    pos++;
+                }
+                currentToken = new Token(buffer.substring(0, pos), Token.Type.STRING_LITERAL);
+            }
         } else {
             int pos = 0;
             while (pos < buffer.length() && buffer.charAt(pos) != ';' && buffer.charAt(pos) != ' ') {
