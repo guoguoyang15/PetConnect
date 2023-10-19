@@ -84,37 +84,22 @@ Note that the core criteria of contribution is based on `code contribution` (the
 ## Application Description
 
 *[What is your application, what does it do? Include photos or diagrams if necessary]*
+*PetConnect is a charitable animal adoption app that aims to adopt stray animals, record their basic information (e.g., coat color, size, and value), and sell them to families in need at a price close to the cost of adoption.
+(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample3.png/)*
+*There are up to 12 common animals listed here, and after logging in, users can search for the animals they want to adopt based on a variety of indicators(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample2.png/)*
 
-*Here is a pet specific application example*
+*as well as read the comments on the animal's basic information screen to deepen their understanding of the animal they are adopting(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample4.png/)*
 
-*PetBook is a social media application specifically targetting pet owners... it provides... certified practitioners, such as veterians are indicated by a label next to their profile...*
 
 ### Application Use Cases and or Examples
-
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
-*Here is a pet training application example*
+*Target audience: those who want a pet but don't want to spend too much money*
 
-*Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
-1. *Molly notices that McPurr has been hostile since...*
-2. *She makes a post about... with the tag...*
-3. *Lachlan, a vet, writes a reply to Molly's post...*
-4. ...
-5. *Molly gives Lachlan's reply a 'tick' response*
-
-*Here is a map navigation application example*
-
-*Targets Users: Drivers*
-
-* *Users can use it to navigate in order to reach the destinations.*
-* *Users can learn the traffic conditions*
-* ...
-
-*Target Users: Those who want to find some good restaurants*
-
-* *Users can find nearby restaurants and the application can give recommendations*
-* ...
-
+*Molly wants to adopt a cheap orange colored cat*
+1. *Molly downloaded PetConnect and registered and logged in*
+2. *She chose $200 according to her budget and chose an orange medium-sized cat according to her preference; a cat that is too big eats too much, and a cat that is too small is not close enough to its owner*
+3. *According to the search results, Jasmine saw many suitable cats, and through careful comparison of cat photos and related reviews, Jasmine made her choice*
 *List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
 
 <hr> 
