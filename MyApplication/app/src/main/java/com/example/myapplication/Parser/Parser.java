@@ -3,6 +3,9 @@ package com.example.myapplication.Parser;
 import com.example.myapplication.Interface.IAttribute;
 import com.example.myapplication.Parser.AttributeFolder.AttributeFactory;
 
+/**
+ * @author u7605165 Hexuan Meng
+ */
 public class Parser {
     /**
      * The following exception should be thrown if the parse is faced with series of tokens that do not
@@ -30,7 +33,7 @@ public class Parser {
      * Adheres to the grammar rule:
      * <search>    ::= (<attribute> <separator>){0-6} <attribute> | <>
      *
-     * @return type: Attribute.
+     * @return type: Search.
      */
     public Search parseSearch() {
         Search search = new Search();
@@ -63,7 +66,7 @@ public class Parser {
      * FanYue testing merging with designPattern :Adheres to the grammar rule:
      * <search>    ::= (<attribute> <separator>){0-6} <attribute> | <>
      *
-     * @return type: Attribute.
+     * @return type: Search.
      */
     public Search parseSearchTest() {
         AttributeFactory attributeFactory = new AttributeFactory();
@@ -94,6 +97,10 @@ public class Parser {
         return search;
     }
 
+    /**
+     * If the search input is invalid, parse it using a different methodology
+     * @return type: Search.
+     */
     public Search parseSearchInvalid() {
         AttributeFactory attributeFactory = new AttributeFactory();
         Search search = new Search();
@@ -150,6 +157,11 @@ public class Parser {
         }
         return new Attribute(type, value, relation);
     }
+
+    /**
+     * If the search input is invalid, parse it using a different methodology
+     * @return type: Attribute.
+     */
     public Attribute parseAttributeInvalid() {
         String type = tokenizer.current().getToken();
         tokenizer.next();

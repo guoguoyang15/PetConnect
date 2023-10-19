@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * @author u7605165 Hexuan Meng
+ */
 public class AVLTreeTest {
     @Test(timeout = 1000)
     public void immutableTest1() {

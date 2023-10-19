@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 
 import java.util.Objects;
 
+/**
+ * @author u7605165 Hexuan Meng
+ */
 public class Token {
     // The following enum defines different types of tokens.
     public enum Type {SEPARATOR, OPERATOR, IDENTIFIER, STRING_LITERAL, NUMERIC_LITERAL}

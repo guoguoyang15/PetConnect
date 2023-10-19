@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * XXX
-     *
-     * @author XXX
+     * According to the search input, return the search result
+     * @return a list of pets as the search result
+     * @author u7605165 Hexuan Meng
      */
     public List<Pet> search() {
         try {
@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * XXX
-     *
-     * @author XXX
+     * If the search input is invalid, use different search method to return the search result
+     * @return a list of pets as the search result
+     * @author u7605165 Hexuan Meng
      */
     public List<Pet> searchInvalid() {
         rootNode = Tool.GetPetsAvlTree(list);

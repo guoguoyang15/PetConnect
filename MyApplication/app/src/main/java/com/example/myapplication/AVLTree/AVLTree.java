@@ -1,5 +1,9 @@
 package com.example.myapplication.AVLTree;
 
+/**
+ * @param <T>
+ * @author u7605165 Hexuan Meng
+ */
 public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
     /*
         As a result of inheritance by using 'extends BinarySearchTree<T>,

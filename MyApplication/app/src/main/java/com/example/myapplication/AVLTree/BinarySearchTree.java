@@ -4,6 +4,7 @@ package com.example.myapplication.AVLTree;
  * An AVL tree is actually an extension of a Binary Search Tree
  * with self balancing properties. Hence, our AVL trees will 'extend'
  * this Binary Search tree data structure.
+ * @author u7605165 Hexuan Meng
  */
 public class BinarySearchTree<T extends Comparable<T>> extends Tree<T> {
 
