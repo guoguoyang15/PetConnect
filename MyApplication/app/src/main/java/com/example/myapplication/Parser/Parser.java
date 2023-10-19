@@ -99,6 +99,8 @@ public class Parser {
 
     /**
      * If the search input is invalid, parse it using a different methodology
+     * Adheres to the grammar rule:
+     * <search>    ::= <attribute>*
      * @return type: Search.
      */
     public Search parseSearchInvalid() {
@@ -126,7 +128,7 @@ public class Parser {
 
     /**
      * Adheres to the grammar rule:
-     * <attribute>   ::=  <identifier> <operator> (<numeric literal> | <string literal>)
+     * <attribute>   ::=  <identifier> <operator> (<numeric literal> | <string literal>){0-1}
      *
      * @return type: Attribute.
      */
@@ -160,6 +162,8 @@ public class Parser {
 
     /**
      * If the search input is invalid, parse it using a different methodology
+     * Adheres to the grammar rule:
+     * <attribute>   ::=  <identifier> <operator>{0-1} (<numeric literal> | <string literal>){0-1}
      * @return type: Attribute.
      */
     public Attribute parseAttributeInvalid() {
