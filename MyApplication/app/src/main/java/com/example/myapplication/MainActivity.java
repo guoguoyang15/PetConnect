@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         // Load and show
         loadShowData();
 
+        // Initialize pets tree
+        rootNode = Tool.GetPetsAvlTree(list);
+
         // Search function
         buttonSearch.setOnClickListener(view -> {
             hideSoftKeyboard();
@@ -70,32 +73,20 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * According to the search input, return the search result
+     * If the search input is invalid, use different parsing methodology
      * @return a list of pets as the search result
      * @author u7605165 Hexuan Meng
      */
     public List<Pet> search() {
+        Tokenizer tokenizer = new Tokenizer(query);
+        Parser parser = new Parser(tokenizer);
         try {
-            rootNode = Tool.GetPetsAvlTree(list);
-            Tokenizer tokenizer = new Tokenizer(query);
-            Parser parser = new Parser(tokenizer);
             Search search = parser.parseSearchTest();
             return search.searchPetsTree_Test(rootNode);
         } catch (Parser.IllegalProductionException e) {
-            return searchInvalid();
+            Search search = parser.parseSearchInvalid();
+            return search.searchPetsTree_Test(rootNode);
         }
-    }
-
-    /**
-     * If the search input is invalid, use different search method to return the search result
-     * @return a list of pets as the search result
-     * @author u7605165 Hexuan Meng
-     */
-    public List<Pet> searchInvalid() {
-        rootNode = Tool.GetPetsAvlTree(list);
-        Tokenizer tokenizer = new Tokenizer(query);
-        Parser parser = new Parser(tokenizer);
-        Search search = parser.parseSearchInvalid();
-        return search.searchPetsTree_Test(rootNode);
     }
 
     /**
