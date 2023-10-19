@@ -7,21 +7,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author 13521
- * @date 16/10/2023
+ * @param
+ * @author u7568823 FanYue
+ * @description chaking the format validation of username and password
+ * @return
+ * @time 19/10/2023
  */
 public class CheckingHandlerDemo {
+    /**
+      * @description a list of checking handler
+      * @param 
+      * @return 
+      * @author u7568823 FanYue
+      * @time 19/10/2023
+      */
     private static List<AbstractCheckingHandler> handlerList;
     private static AbstractCheckingHandler handler;
 
 
-
+    /**
+     * @param
+     * @return the checking result
+     * @description execute the checking the method
+     * @author u7568823 FanYue
+     * @time 19/10/2023
+     */
     public static String exec(String username, String password) {
         initializeChainFilter();
         String res = handler.filter(username, password);
         return res;
     }
-
+/**
+  * @description initialize the handler
+  * @param 
+  * @return 
+  * @author u7568823 FanYue
+  * @time 19/10/2023
+  */
     private static void initializeChainFilter() {
         handlerList = new ArrayList<>();
         handlerList.add(new EmailFormatCheckingHandler());

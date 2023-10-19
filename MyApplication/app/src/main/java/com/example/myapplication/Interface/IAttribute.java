@@ -7,42 +7,45 @@ import com.example.myapplication.tool.AttributeTypeEnum;
 import java.util.List;
 
 /**
-  * @description the attribute interface, such as money,color
-  * @param
-  * @return
-  * @author u7568823 FanYue
-  * @time 15/10/2023
-  */
+ * @param
+ * @author u7568823 FanYue
+ * @description the attribute interface, such as money,color
+ * @return
+ * @time 15/10/2023
+ */
 public interface IAttribute {
 
     /**
      * get the attribute type
+     *
      * @return attribute type
      */
     AttributeTypeEnum getATTRIBUTE_TYPE_ENUM();
 
     /**
-     *
-     * @param petsTree
-     * @param petsList
+     * @param petsList the filtered result
      * @return
+     * @description filter the list with an attribute to get the result
+     * @author u7568823 FanYue
+     * @time 19/10/2023
      */
+    List<Pet> executeMethod(Tree<Pet> petsTree, List<Pet> petsList);
 
-    List<Pet> executeMethod(Tree<Pet> petsTree,List<Pet> petsList);
-/**
-  * @description get the value of this attribute
-  * @param 
-  * @return the value in string
-  * @author u7568823 FanYue
-  * @time 18/10/2023
-  */
+    /**
+     * @param
+     * @return the value in string
+     * @description get the value of this attribute
+     * @author u7568823 FanYue
+     * @time 18/10/2023
+     */
     String getValue();
-/**
-  * @description get the relation of attribute,for example, the 0 means equal
-  * @param 
-  * @return 
-  * @author u7568823 FanYue
-  * @time 18/10/2023
-  */
+
+    /**
+     * @param
+     * @return
+     * @description get the relation of attribute,for example, the 0 means equal
+     * @author u7568823 FanYue
+     * @time 18/10/2023
+     */
     int getRelation();
 }

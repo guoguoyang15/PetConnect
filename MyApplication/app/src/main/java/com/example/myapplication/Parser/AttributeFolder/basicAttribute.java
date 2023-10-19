@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author 13521
- * @date 15/10/2023
+ * @param
+ * @author u7568823 FanYue
+ * @description define the template of attribute used to filter the pet list
+ * @return
+ * @time 19/10/2023
  */
-public abstract class basicAttribute implements IAttribute{
+public abstract class basicAttribute implements IAttribute {
 
     protected final String value;
     protected final int relation;
@@ -24,7 +27,13 @@ public abstract class basicAttribute implements IAttribute{
         this.value = value;
     }
 
-
+    /**
+     * @param
+     * @return
+     * @description get the relevant pet list regarding one specified attribute
+     * @author u7568823 FanYue
+     * @time 19/10/2023
+     */
     protected List<Pet> findEqual(IAttribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)
@@ -49,7 +58,13 @@ public abstract class basicAttribute implements IAttribute{
         }
         return equalNodes;
     }
-
+    /**
+     * @param
+     * @return
+     * @description get the relevant pet list regarding one specified attribute
+     * @author u7568823 FanYue
+     * @time 19/10/2023
+     */
     protected List<Pet> findSmaller(IAttribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)
@@ -72,7 +87,13 @@ public abstract class basicAttribute implements IAttribute{
         return smallerNodes;
     }
 
-
+    /**
+     * @param
+     * @return
+     * @description get the relevant pet list regarding one specified attribute
+     * @author u7568823 FanYue
+     * @time 19/10/2023
+     */
     public List<Pet> findGreater(IAttribute attribute, Tree<Pet> pets) {
         // Ensure input is not null.
         if (attribute == null)

@@ -362,10 +362,12 @@ public class Search {
     }
 
     /**
-     * merge the "searchPetsTree" method with design pattern
-     *
-     * @param allPets
+     * @param
      * @return
+     * @description filter the list accordingto the query.
+     * this method  merge the "searchPetsTree" method with design pattern
+     * @author u7568823 FanYue
+     * @time 19/10/2023
      */
     public List<Pet> searchPetsTree_Test(Tree<Pet> allPets) {
 

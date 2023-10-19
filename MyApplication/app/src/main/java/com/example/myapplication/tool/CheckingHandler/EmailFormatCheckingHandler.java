@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @param
  * @author u7568823 FanYue
- * @description validate the formateof email
+ * @description validate the format of email
  * @return
  * @time 18/10/2023
  */

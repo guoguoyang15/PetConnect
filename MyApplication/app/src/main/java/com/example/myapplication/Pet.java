@@ -41,9 +41,6 @@ public class Pet implements Comparable<Pet>, Serializable {
         return color;
     }
 
-    public void setColor(String value) {
-        this.color = value;
-    }
 
     public List<String> getComment() {
         return comment;

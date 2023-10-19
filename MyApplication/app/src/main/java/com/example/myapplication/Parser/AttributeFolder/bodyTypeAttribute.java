@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author 13521
- * @date 15/10/2023
+ * @param
+ * @author u7568823 FanYue
+ * @description a bodytype filter to get the pet list
+ * @return
+ * @time 19/10/2023
  */
 public class bodyTypeAttribute extends basicAttribute {
     public bodyTypeAttribute(String value, int relation) {
@@ -21,6 +24,13 @@ public class bodyTypeAttribute extends basicAttribute {
         return AttributeTypeEnum.bodytype;
     }
 
+    /**
+     * @param petsList the filtered result
+     * @return
+     * @description filter the list or tree with this attribute to get the result
+     * @author u7568823 FanYue
+     * @time 19/10/2023
+     */
     @Override
     public List<Pet> executeMethod(Tree<Pet> petsTree, List<Pet> petsList) {
         outputPetList = petsList;

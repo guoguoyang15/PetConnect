@@ -5,8 +5,11 @@ import com.example.myapplication.Parser.Attribute;
 import com.example.myapplication.tool.AttributeTypeEnum;
 
 /**
- * @author 13521
- * @date 15/10/2023
+ * @param
+ * @author u7568823 FanYue
+ * @description factory to craete a specified attribute
+ * @return one attribute
+ * @time 19/10/2023
  */
 public class AttributeFactory {
     public IAttribute getAttribute(Attribute attribute) {

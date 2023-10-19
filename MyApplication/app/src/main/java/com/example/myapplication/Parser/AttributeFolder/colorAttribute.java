@@ -20,7 +20,13 @@ public class colorAttribute extends basicAttribute {
     public AttributeTypeEnum getATTRIBUTE_TYPE_ENUM() {
         return AttributeTypeEnum.color;
     }
-
+    /**
+     * @param petsList the filtered result
+     * @return
+     * @description filter the list or tree with this attribute to get the result
+     * @author u7568823 FanYue
+     * @time 19/10/2023
+     */
     @Override
     public List<Pet> executeMethod(Tree<Pet> petsTree, List<Pet> petsList) {
         outputPetList = petsList;

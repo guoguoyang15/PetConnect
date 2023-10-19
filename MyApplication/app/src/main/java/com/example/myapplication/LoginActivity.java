@@ -41,16 +41,16 @@ public class LoginActivity extends AppCompatActivity {
 
         // Login process
         //region FanYueL : i am  lazy to input
-        String Email = "comp2100@anu.edu.au";
-        String Password = "comp2100";
-        loginButton.setOnClickListener(view -> login(Email, Password));
+//        String Email = "comp2100@anu.edu.au";
+//        String Password = "comp2100";
+//        loginButton.setOnClickListener(view -> login(Email, Password));
         //endregion
         //当上方注释块移除时启用下方
-//        loginButton.setOnClickListener(view -> {
-//            String email = email_input.getText().toString();
-//            String password = password_input.getText().toString();
-//            login(email,password);
-//        });
+        loginButton.setOnClickListener(view -> {
+            String email = email_input.getText().toString();
+            String password = password_input.getText().toString();
+            login(email,password);
+        });
 
         // Register process
         registerButton.setOnClickListener(view -> {
@@ -155,21 +155,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * checking the format validation of email and password with the design pattern code
-     *
-     * @param email
-     * @param password
-     * @return
-     */
+      * @description checking the format validation of email and password with the design pattern code
+      * @param password and email
+      * @return string of checking info
+      * @author u7568823 FanYue
+      * @time 19/10/2023
+      */
     private String CheckComplianceOfUserData(String email, String password) {
         return CheckingHandlerDemo.exec(email, password);
     }
 
 
-    /**
-     * load user passsword and username from local file
-     *
-     * @return
+   /**
+     * @description   load user passsword and username from local file
+     * @param 
+     * @return 
+     * @author u7568823 FanYue
+     * @time 19/10/2023
      */
     private List<User> LoadLocalUserInfo() {
         List<User> resultsList = new ArrayList<>();
