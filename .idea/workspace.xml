@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="return all pets if search is empty">
-      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    <list default="true" id="7f5664e9-86f7-4688-a4b4-73cb7a54bad7" name="Changes" comment="fix hint in search box">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AVLTreeTest">
     <configuration name="My_Application.app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="My_Application.app.main" />
       <option name="DEPLOY" value="true" />
@@ -118,6 +119,26 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AVLTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="My_Application.app.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.myapplication.AVLTree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.myapplication.AVLTree" />
+      <option name="MAIN_CLASS_NAME" value="com.example.myapplication.AVLTree.AVLTreeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AVLTreeTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697683815347</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix hint in search box">
+      <created>1697685115655</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697685115655</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,7 +241,8 @@
     <MESSAGE value="Support invalid search feature" />
     <MESSAGE value="Add authorship and comments" />
     <MESSAGE value="return all pets if search is empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="return all pets if search is empty" />
+    <MESSAGE value="fix hint in search box" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix hint in search box" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -226,7 +255,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java</url>
           <line>249</line>
-          <properties class="com.example.myapplication.Parser.Search" method="searchPetsTree_Test">
+          <properties class="com.example.myapplication.Parser.Search">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="23" />
