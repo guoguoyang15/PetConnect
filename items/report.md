@@ -269,8 +269,8 @@ Feature Category: Firebase Integration <br>
 1. [FB-Auth]. Use Firebase to implement User Authentication/Authorisation. (easy)
     * Code: [Class LoginActivity, method login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100) and [method register](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134)
     * Description of your implementation:
-        * User will log in or sign up by Firebase Authentication if network is available,
-        * And will display the corresponding result messages by Toast if login or sign up fails.
+      * User will log in or sign up by Firebase Authentication if network is available,
+      * And will display the corresponding result messages by Toast if login or sign up fails.
 
 2. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
    * Code: [Class MainActivity, method updateDataFromFirebase](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L144-167)
@@ -291,12 +291,20 @@ Feature Category: Firebase Integration <br>
 2. Log previous searches and user information to improve search results;
    * Code: [Class SearchActivity, method onActivityResult](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L85-120) and [Class MainActivity, method onBackPressed](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L169-183)
    * Explanations on solution:
-       * Because of Android logic, information will lose in transferring between activities, especially
-       * And will display the corresponding result messages by Toast if login or sign up fails.
+     * Because of Android logic, information will lose in transferring between activities, especially returning from the next activity,
+     * In our project, the query may not be updated in SearchActivity if users keep searching in MainActivity,
+     * Thus, we want to return the last query from MainActivity to SearchActivity to maintain smooth user experiences.
 
 3. A strategy for showing ads (promoted items);
+   * Explanations on solution:
+     * We have decided not to show ads at present for the following reasons:
+       1. Showing ads early in the app's launching can give users a bad first impression.
+       2. Showing ads early in the app's launching is generally regarded as **Adware**.
+       3. As our application is for charity, we don't exploit poor displaced animals for profit.
+     * However, if we are unable to keep running in the future, we may consider including a small amount of ads.
 
 4. A new strategy for visualising the traditional list of results.
+   * Not implemented.
 
 - If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprised feature specifications).
 - State that "Surprised feature is not implemented" otherwise.
