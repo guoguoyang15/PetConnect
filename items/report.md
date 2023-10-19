@@ -168,11 +168,11 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 ### Design Patterns
 *[What design patterns did your team utilise? Where and why?]*
 
-1. *xxx Pattern*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
+1. *1.	Chain of responsibility Design Pttern*
+   * *Objective: used for validate the format of username and password in Login funciton.*
+   * *Code Locations: [Class LoginActivity, CheckComplianceOfUserData () ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L164) and [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java); [class: AbstractCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java) and [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java) , [Class PasswordLengthCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordCheckingHandler.java) ,[Class PasswordCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordLengthCheckingHandler.java)
    * *Reasons:*
-      * ...
+      * Modularity: The system can be made more modular by encapsulating each check (such as email format, password length, password format, etc.) in a separate class or module. Without changing the current code, we could quickly add a new link in the chain if a new validation requirement arose. 
 
 <hr>
 
