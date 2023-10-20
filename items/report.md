@@ -122,14 +122,20 @@ Note that the core criteria of contribution is based on `code contribution` (the
 ### Application Use Cases and or Examples
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
-*Target audience: those who want a pet but don't want to spend too much money*
+1. Target Users: Adopters who have preferences for pet characteristics
+   * Users can search for pets based on criteria such as pet type (e.g., dog, cat, rabbit), coat color, and body type (e.g., small, medium, large).
+   * Users can search and browse comments to get additional information about pets.
+   * The application will provide a list of pets that match the user's preferences, helping them find their best-fit pet.
 
-*Molly wants to adopt a cheap orange colored cat*
-1. *Molly downloaded PetConnect and registered and logged in*
-2. *She chose $200 according to her budget and chose an orange medium-sized cat according to her preference; a cat that is too big eats too much, and a cat that is too small is not close enough to its owner*
-3. *According to the search results, Jasmine saw many suitable cats, and through careful comparison of cat photos and related reviews, Jasmine made her choice*
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+2. Target Users: Adopters with limited financial means
+   * Users can set a budget and receive recommendations within their specified limits.
+   * PetConnect offers a feature to estimate the adoption budget, which considers factors like the pet's breed, age, and expected ongoing costs (e.g., food, veterinary care).
 
+3. Target Users: Owners of their lost pets
+   * Users can find their pets by searching pets' names, characteristics or any information about missing.
+
+4. Target Users: Investors (e.g., herdsman, zoo, working animal training center, etc).
+   * Users can look for the animals they need based on searching characteristics and comments and observing the photos
 <hr> 
 
 ### Application UML
