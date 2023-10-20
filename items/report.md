@@ -118,6 +118,15 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - SearchActivity class: [putToSearch()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L38-52), [constructQuery()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L54-83),
     - MainActivity class: [loadLocalData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L111-142), [hideSoftKeyboard()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L185-195).
 
+4. **u7580614, Zhining Zhang**  I have 25% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+    - Feature [UI-Layout],- class Dummy: [activity_main.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_main.xml)
+    - Feature [UI-Layout],- class Dummy: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml)
+    - Feature [UI-Layout],- class Dummy: [activity_detail.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_detail.xml)
+    - Feature [UI-Layout],- class Dummy: [activity_search.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_search.xml)
+    - Feature [UI-Layout],- class Dummy: [item_layout.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/item_layout.xml)
+    - [SearchActivity class](https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java/)[LanguageTranslator class]<br><br>
+
 - **Code and App Design**
   - UML Class diagrams 
   - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
