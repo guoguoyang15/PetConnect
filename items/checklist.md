@@ -2,19 +2,19 @@
 The following markdown document is a checklist of items you **should** complete before submission of your assignment. This exists to help you keep track of all the requirements you must fulfil.
 
 ## Git & Project Access
-- [ ] **GitLab**: Commits (as shown in the Git commit history) using your own account. Failing to do this may result in zero marks.
-- [ ] **GitLab**: Have the relevant marking tutors as 'maintainers' for your repository. (Note: this may be automatically done by us instead. Will update on week 10 if necessary)
-- [ ] The markers will be able to login to your **App** via the APK using either of the 2 sets of accounts in the assignment specification.
-- [ ] If **Firebase** has been used, you have added the Marker's email to your Firebase project, and included the link to your Firebase project in your report.
+- [x] **GitLab**: Commits (as shown in the Git commit history) using your own account. Failing to do this may result in zero marks.
+- [x] **GitLab**: Have the relevant marking tutors as 'maintainers' for your repository. (Note: this may be automatically done by us instead. Will update on week 10 if necessary)
+- [x] The markers will be able to login to your **App** via the APK using either of the 2 sets of accounts in the assignment specification.
+- [x] If **Firebase** has been used, you have added the Marker's email to your Firebase project, and included the link to your Firebase project in your report.
 
 ## Documents (all non-android files) located in a folder named `items`
-- [ ] A conflict resolution protocol is documented and well-defined.
+- [x] A conflict resolution protocol is documented and well-defined.
 - [ ] All Team Meeting Minutes (at least 4, with links in the report). 
 - [ ] Create ONE video titled  `features.(mp4|mov)` that demonstrates each implemented feature (basic + general), in the same order as listed in the report. Max. 3 minutes.
-- [ ] A working standalone **APK** that can be loaded and execute correctly on an AVD (see [demo video](media/_examples/COMP2100APKGenerationGroupAssignment.mp4)).
+- [x] A working standalone **APK** that can be loaded and execute correctly on an AVD (see [demo video](media/_examples/COMP2100APKGenerationGroupAssignment.mp4)).
 - [ ] **Report**: Completed the markdown report document titled [report.md](report.md).
 - [ ] **Statement of Originality**: All members have read and signed the [statement of originality](statement-of-originality.yml). Failure to do so will result in zero marks.
-- [ ] All external code, assets or help received outside the group is documented in the [statement of originality](statement-of-originality.yml) and relevant parts in the code.
+- [x] All external code, assets or help received outside the group is documented in the [statement of originality](statement-of-originality.yml) and relevant parts in the code.
 
 ## Report Checklist
 We advise you to use the provided template when writing your report (it will help you cover everything necessary).

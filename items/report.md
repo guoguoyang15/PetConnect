@@ -436,17 +436,11 @@ Feature Category: Firebase Integration <br>
 
 ## Summary of Known Errors and Bugs
 
-*[Where are the known errors and bugs? What consequences might they lead to?]*
-*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
-
-*Here is an example:*
-
 1. *Bug 1:*
-   - *A space bar (' ') in the sign in email will crash the application.*
-   - ...
+   * Import data to Firebase by JSON file may cause data loss and the attribute of data be null.
+   * If the attribute has empty value.
 
-2. *Bug 2:*
-3. ...
+![Firebase error](Test_ScreenShots/Firebase_error.png) ![Original data](Test_ScreenShots/Original_data.png)
 
 <br> <hr>
 
@@ -461,32 +455,28 @@ Feature Category: Firebase Integration <br>
 1. Tests for Search
    - Code: [TokenizerTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/TokenizerTest.java) for the [Tokenizer Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java)
    
-   ![TokenizerTest.png](./TokenizerTest.png)
+   ![TokenizerTest.png](Test_ScreenShots/TokenizerTest.png)
    - Code: [AVLTreeTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTreeTest.java) for the [AVLTree Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
 
-   ![AVLTreeTest.png](./AVLTreeTest.png)
+   ![AVLTreeTest.png](Test_ScreenShots/AVLTreeTest.png)
    - *Number of test cases: 10*
    - *Code coverage: 100%*
    - *Types of tests created and descriptions: Black box tests to test the functionality of tokenizer and tree data structure*
 
 2. Tests for the format-validation-method of username and password 
 
-   - [unitTest  Class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java) for the[CheckingHandlerDemo Class]( https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).
+   - [unitTest Class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java) for the[CheckingHandlerDemo Class]( https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).
    - Number of test cases:  6
    - Code coverage:100%
    - Types of tests created and descriptions:  
-   test the format-validation-method of username and password. Wrong format will return relevant result. For instance, if the password is “123456678”, the test would return “the password should contain digitals and letters”
-   ![image.png](./image.png)
+   test the format-validation-method of username and password. Wrong format will return relevant result. For instance, if the password is “123456678”, the test would return “the password should contain digitals and letters”<br>
+   ![image.png](Test_ScreenShots/image.png)
 <br> <hr>
 
 
 ## Team Management
 
 ### Team Meetings
-* Link to the minutes of your meetings like above. There must be at least 4 team meetings.
-  (each commited within 2 days aftre the meeting)
-* Your meetings should also have a reasonable date spanning across Week 6 to 11.*
-
 
 - *[Team Meeting 1](meeting1.md)*
 - *[Team Meeting 2](meeting2.md)*
