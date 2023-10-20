@@ -89,10 +89,10 @@ PetConnect also provides an estimated adoption budget and comments from other us
 
 We believe that our design of PetConnect which takes into account the individual needs and abilities of adopters can significantly improve the adoption rate and quality of poor pets.
 
-<img alt="Login Page" src="Sample_pages_of_our_applications/sample1.png" width="25%">
-<img alt="Search Page" src="Sample_pages_of_our_applications/sample2.png" width="25%">
-<img alt="Result Page" src="Sample_pages_of_our_applications/sample3.png" width="25%">
-<img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="25%">
+<img alt="Login Page" src="Sample_pages_of_our_applications/sample1.png" width="24%">
+<img alt="Search Page" src="Sample_pages_of_our_applications/sample2.png" width="24%">
+<img alt="Result Page" src="Sample_pages_of_our_applications/sample3.png" width="24%">
+<img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
