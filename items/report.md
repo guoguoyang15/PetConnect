@@ -178,7 +178,7 @@ This is an important section of your report and should include all technical dec
 ### Design Patterns
 
 1. *Chain of responsibility Design Pattern*
-   * *Objective:* used for validate the format of username and password in Login funciton.
+   * *Objective:* used for validate the format of username and password in Login function.
    * *Code Locations:* defined in [Class LoginActivity, CheckComplianceOfUserData () ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L164)
 and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java); 
 [class: AbstractCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java) and [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java) , 
@@ -365,9 +365,6 @@ Feature Category: Firebase Integration <br>
 
 4. A new strategy for visualising the traditional list of results.
    * Not implemented.
-
-- If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprised feature specifications).
-- State that "Surprised feature is not implemented" otherwise.
 
 <br> <hr>
 
