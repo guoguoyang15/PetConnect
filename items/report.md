@@ -284,7 +284,9 @@ Production Rules:
 
 ### <u>Tokenizers and Parsers</u>
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+   * *Code Locations: defined in [Class Tokenizer](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java) and [Class Parser](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java)*
+
+Since we have two grammars, we created two parse methods for each grammar. If the first parse method failed to parse the input, we will use another method to parse it. This means we can handle both valid and invalid inputs accordingly without crashing our app.
 
 <hr>
 
@@ -329,15 +331,16 @@ Production Rules:
    The application is dependent on your app theme. E.g., search for information of products, users, by certain
    criteria (e.g. #apple $1-2).
    * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
-   * Description of feature: ... <br>
-   * Description of your implementation: ... <br>
+   * Description of feature: This feature enables users to get search results based on their input. <br>
+   * Description of your implementation: When users input their search, we use our parser to parse that string into a search object. Then we will get all the pets according to the user's specified budget, because the pets are inserted in our tree data structure by their price. By doing so, we can increase the performance of each search operation. After that, we just perform search against other attributes in the search object. <br>
 
 ### Custom Features
 Feature Category: Search-related features <br>
 1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
 correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
-   * Description of your implementation: ...
+   * Description of feature: This feature allows users to input partial invalid search, then return the results based on the valid part of their search without crashing the app.  <br>
+   * Description of your implementation: When users input their search, we first parse it according to our first grammar as a normal search. If any illegal production exception are thrown, we will catch it then use our second grammar to parse the input string. If our parser can recognize any part of the search, we return the results accordingly.
 
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
