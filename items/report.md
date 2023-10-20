@@ -107,6 +107,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
      [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
 
 <br><br>
+
 3. **u7758372, Jiasheng Li**  I have 25% contribution, as follows: <br>
 - **Code Contribution in the final App**
     - Feature [LogIn], [LoadShowData], [FB-Auth], [FB-Persist], [Surprised Feature 2]
