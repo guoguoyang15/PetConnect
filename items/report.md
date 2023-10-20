@@ -450,9 +450,11 @@ Feature Category: Firebase Integration <br>
 
 1. Tests for Search
    - Code: [TokenizerTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/TokenizerTest.java) for the [Tokenizer Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java)
+   ![TokenizerTest.png](./TokenizerTest.png)
    - Code: [AVLTreeTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTreeTest.java) for the [AVLTree Class, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
+   ![AVLTreeTest.png](./AVLTreeTest.png)
    - *Number of test cases: 10*
-   - *Code coverage: 100*
+   - *Code coverage: 100%*
    - *Types of tests created and descriptions: Black box tests to test the functionality of tokenizer and tree data structure*
 
 2. Tests for the format-validation-method of username and password 
