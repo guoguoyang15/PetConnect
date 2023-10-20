@@ -179,16 +179,6 @@ We believe that our design of PetConnect which takes into account the individual
 
 ## Application Design and Decisions
 
-This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
-
-- Details about the parser (describe the formal grammar and language used)
-
-- Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
-
-- Details about the design patterns used (where in the code, justification of the choice, etc)
-
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
-
 <hr>
 
 ### Data Structures
@@ -289,13 +279,6 @@ Production Rules:
 
 Since we have two grammars, we created two parse methods for each grammar. If the first parse method failed to parse the input, we will use another method to parse it. This means we can handle both valid and invalid inputs accordingly without crashing our app.
 
-<hr>
-
-### Others
-
-*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
-
-<br>
 <hr>
 
 ## Implemented Features
