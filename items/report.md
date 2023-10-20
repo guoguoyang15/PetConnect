@@ -76,50 +76,20 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-2. **u7568823, Fan Yue**  I have 25% contribution, as follows: <br>
-  - **Code Contribution in the final App**
-     - [UnitTest for validation of  usrname and password format in local login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java)
-      - [Feature [DataFiles]  file  data_sample_8color.json ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
-       - Feature [Login] , locally cheking  and custom feature [Data-Formats]:<br>[class  LoginActivity , LocalCheckUserLoginInfo(). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71).
-       [LoadLocalUserInfo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L158) .<br>
-       [Class User](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/User.java).<br>
-       [File userdata.xml ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/xml/userdata.xml)
-      - Chain of responsibility Design pattern[class LoginActivity, CheckComplianceOfUserData ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L101).<br>
-   [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).<br>
-   [class: AbstractCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java).<br>
-   [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java).<br>
-   [Class PasswordLengthCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordCheckingHandler.java).<br>
-   [Class PasswordCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordLengthCheckingHandler.java)<br>
-    -	Factory Method design pattern[Class AttributeFactory ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java),<br>
-     [Class Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74).<br>
-     [Class AttributeTypeEnum](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/AttributeTypeEnum.java)<br>
-    -	Strategy design pattern  pattern .[Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370)<br>
-   [Class basicAttribute , excluding thr function of findEqual (),findSmaller (), and findGreater()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/basicAttribute.java);<br>
-[Class bodyTypeAttribute, exclude the detail in the function of executeMethod()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/bodyTypeAttribute.java)<br>
-[class colorAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)<br>
-[class  colorAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)<br>
-[Class  commentAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/commentAttribute.java)<br>
-[Class idAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/idAttribute.java )<br>
-[Class moneyAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/moneyAttribute.java)<br>
-[Class nameAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/nameAttribute.java)<br>
-[ class  typeAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/typeAttribute.java)<br>
-    - Part of AVL tree. [class pet , compareTo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L48).<br>
-     [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
-     <br><br>
+2. **UID2, Name2**  I have xx% contribution, as follows: <br>
+  - ...
+
 
 
 ## Application Description
 
-Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
-Adopters can find their best-fit pets by PetConnect based on their favorite pet type, coat color, and body type. 
-PetConnect also provides an estimated adoption budget and comments from other users for adopters to refer to.
+*[What is your application, what does it do? Include photos or diagrams if necessary]*
+*PetConnect is a charitable animal adoption app that aims to adopt stray animals, record their basic information (e.g., coat color, size, and value), and sell them to families in need at a price close to the cost of adoption.
+(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample3.png/)*
+*There are up to 12 common animals listed here, and after logging in, users can search for the animals they want to adopt based on a variety of indicators(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample2.png/)*
 
-We believe that our design of PetConnect which takes into account the individual needs and abilities of adopters can significantly improve the adoption rate and quality of poor pets.
+*as well as read the comments on the animal's basic information screen to deepen their understanding of the animal they are adopting(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample4.png/)*
 
-<img alt="Login Page" src="Sample_pages_of_our_applications/sample1.png" width="24%">
-<img alt="Search Page" src="Sample_pages_of_our_applications/sample2.png" width="24%">
-<img alt="Result Page" src="Sample_pages_of_our_applications/sample3.png" width="24%">
-<img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
@@ -160,29 +130,20 @@ This is an important section of your report and should include all technical dec
 
 ### Data Structures
 
-*[What data structures did your team utilise? Where and why?]*
-
-Here is a partial (short) example for the subsection `Data Structures`:*
-
 *I used the following data structures in my project:*
 
-1. *LinkedList*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
+1. *AVL tree*
+   * *Objective: used for storing pets for [Search] feature.*
+   * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
    * *Reasons:*
-      * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
-      * *We don't need to access the item by index for xxx feature because...*
-      * For the (part), the data ... (characteristics) ...
-
-2. ...
-
-3. ...
+      * *It is more efficient than Red-black tree for searching with a time complexity O(log n)*
+      * *We don't need to often insert items into the tree, so the performance of insertion is not as important as searching*
 
 <hr>
 
 ### Design Patterns
 
-1. *Chain of responsibility Design Pattern*
+1. *Chain of responsibility Design Pttern*
    * *Objective:* used for validate the format of username and password in Login funciton.
    * *Code Locations:* defined in [Class LoginActivity, CheckComplianceOfUserData () ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L164)
 and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java); 
@@ -196,7 +157,7 @@ and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u775
       * Decoupling:The pattern separates the receivers—the individual validation checks—from the sender, which in this case is the portion of our app that initiates the login validation. The system's constituent parts can remain independent and cohesive thanks to this decoupling. 
       * Stop On Failure:The chain can be stopped as soon as one of the validators fails, depending on how we implement it. This can be effective because, once a failure is identified, it won't call upon additional validators needlessly. 
 
-2. *Factory Method Design Pattern*
+1. *Factory Method Design Pttern*
    * *Objective:* used for create a specified filter-attribute regarding the input-query.
    * *Code Locations:*defined in [Class AttributeFactory](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java);
 and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74);
@@ -207,7 +168,7 @@ and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.
       * Complex Creation Logic: Coding can become cleaner and easier to maintain if an attribute creation process (such as initializing related data structures, setting default values, etc.) is complex and is contained within a factory.
       * Extensibility:We may add more features as our app develops. We can easily expand our attribute creation process with the aid of a factory method. 
 
-3. *Strategy Design Pattern*
+1. *Strategy design pattern  pattern*
    * *Objective:* used for filter the data sample with different logic.
    * *Code Locations:* [Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370);
 defined in [Class IAttribute](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/IAttribute.java);
@@ -224,20 +185,28 @@ and proceed in [Class basicAttribute , excluding thr function of findEqual (),fi
       * Encapsulation of Filtering Logic: Every filtering criterion (like money or color) can be contained within a separate class. This makes the codebase clean and organized by guaranteeing that the logic for each criterion is isolated. 
       * Flexibility in Filtering: Future filtering criteria can be easily added with the Strategy pattern. We can simply add a new filtering strategy without changing the existing code if we later decide to filter based on another attribute, like "size" or "date." 
       * Dynamic Filter Selection:We can choose the best filtering strategy at runtime because the filtering logic is separated from the main application logic. For example, once the query has been parsed, we can use the user's input to dynamically instantiate and apply the required filter strategies. 
-      * Maintainability and Extensibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
+      * Maintainability and Extendibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
       * Testability: The decoupling and modularization of the filtering logic makes it simpler to write unit tests for every strategy. To make sure that every component of your filtering logic functions as intended, you can test each filtering criterion separately. 
 <hr>
 
 ### Parser
 
 ### <u>Grammar(s)</u>
-*[How do you design the grammar? What are the advantages of your designs?]*
-*If there are several grammars, list them all under this section and what they relate to.*
+We designed two grammars, the first one is more strict than the second.
+The reason we made this decision is that we want our app to return accurate search results if the search input strictly follows our first grammar.In the meantime, we also want it to accept a broader range of search inputs, and return the results based on the parts that can be recognized by our second grammar.
+In conclusion, compared with only using one grammar, our design can accept more search inputs, and guarantee the correctness of search results without crashing our app. 
 
+First grammar for normal search:
 Production Rules:
 
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+    <Search> ::= (<Attribute> <separator>){0-6} <Attribute> | <>
+    <Attribute> ::= <identifier> <operator> (<numeric literal> | <string literal>){0-1}
+
+Second grammar for invalid search:
+Production Rules:
+
+    <Search> ::= <attribute>*
+    <Attribute> ::= <identifier> <operator>{0-1} (<numeric literal> | <string literal>){0-1}
 
 
 ### <u>Tokenizers and Parsers</u>
@@ -287,7 +256,7 @@ Production Rules:
 4. [Search]. Users must be able to search for information on your app. (medium)<br>
    The application is dependent on your app theme. E.g., search for information of products, users, by certain
    criteria (e.g. #apple $1-2).
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
    * Description of feature: ... <br>
    * Description of your implementation: ... <br>
 
@@ -295,7 +264,7 @@ Production Rules:
 Feature Category: Search-related features <br>
 1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
 correctly handle partially invalid search queries and give meaningful results. (medium)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
    * Description of your implementation: ...
 
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
