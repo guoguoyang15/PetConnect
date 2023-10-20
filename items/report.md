@@ -78,9 +78,9 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **u7568823, Fan Yue**  I have 25% contribution, as follows: <br>
   - **Code Contribution in the final App**
-     - [UnitTest for validation of  usrname and password format in local login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java)
+     - [UnitTest for validation of  username and password format in local login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java)
       - [Feature [DataFiles]  file  data_sample_8color.json ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
-       - Feature [Login] , locally cheking  and custom feature [Data-Formats]:<br>[class  LoginActivity , LocalCheckUserLoginInfo(). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71).
+       - Feature [Login] , locally checking  and custom feature [Data-Formats]:<br>[class  LoginActivity , LocalCheckUserLoginInfo(). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71).
        [LoadLocalUserInfo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L158) .<br>
        [Class User](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/User.java).<br>
        [File userdata.xml ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/xml/userdata.xml)
@@ -125,6 +125,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 <br><br>
 
+
+
 ## Application Description
 
 Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
@@ -139,6 +141,7 @@ We believe that our design of PetConnect which takes into account the individual
 <img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
+*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
 1. Target Users: Adopters who have preferences for pet characteristics
    * Users can search for pets based on criteria such as pet type (e.g., dog, cat, rabbit), coat color, and body type (e.g., small, medium, large).
@@ -188,14 +191,15 @@ This is an important section of your report and should include all technical dec
    * *Objective: used for storing pets for [Search] feature.*
    * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)*
    * *Reasons:*
-      * Dynamic Operations
+      * *Dynamic Operations*<br>
       It is more efficient than Red-black tree for searching with a time complexity O(log n).We don't need to often insert items into the tree, so the performance of insertion is not as important as searching.
-      * Balanced Binary Search Trees
+      * *Balanced Binary Search Trees* <br>
       AVL trees are a type of self-balancing binary search tree. Every insertion operation ensures that the tree remains balanced, which means the height of the tree is always maintained at `O(log n)`. This ensures that search operations are fast and have a time complexity of `O(log n)` and is much better than many sorting algorithms that might require O(n) space..
-      * In-Order Traversal Efficiency: 
+      * *In-Order Traversal Efficiency*: <br>
       there's a need in our application to retrieve data in a sorted manner (e.g., display all pets in money-descending order), AVL trees allow efficient in-order traversal.
-      * Memory Usage: 
-    Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
+      * *Memory Usage*: <br>
+      Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
+
 <hr>
 
 ### Design Patterns
@@ -214,7 +218,7 @@ and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u775
       * Decoupling:The pattern separates the receivers—the individual validation checks—from the sender, which in this case is the portion of our app that initiates the login validation. The system's constituent parts can remain independent and cohesive thanks to this decoupling. 
       * Stop On Failure:The chain can be stopped as soon as one of the validators fails, depending on how we implement it. This can be effective because, once a failure is identified, it won't call upon additional validators needlessly. 
 
-2. *Factory Method Design Pattern*
+1. *Factory Method Design Pattern*
    * *Objective:* used for create a specified filter-attribute regarding the input-query.
    * *Code Locations:*defined in [Class AttributeFactory](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java);
 and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74);
@@ -301,9 +305,8 @@ Production Rules:
          2. Input is in right format, by method [CheckComplianceOfUserData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L150-159).
      * And will display the corresponding result messages by Toast if login fails.
 
-2. [DataFiles]. Description  ... ... (...)
-   * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-   * Link to the Firebase repo: ...
+2. [DataFiles] ,Create data file(s) with at least 2,500 valid data instances,
+   * Code to the Data File ：[File  data_sample_8color.json](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
 
 3. [LoadShowData]. When a user is logged in, load data (from the file(s) and/or Firebase) at regular time intervals,
    and visualise the same in the App. <br> (e.g., If the main page contains a list of featured products, the user may see
@@ -343,9 +346,10 @@ Feature Category: UI Design and Testing <br>
 <br><br>
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
 1. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
-    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-    * Description of your implementation: ...
+    * Code:[Class LoginActivity , LocalCheckUserLoginInfo()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71) and [LoadLocalUserInfo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L158),<br>[Class User ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/User.java).
+    [File userdata.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/xml/userdata.xml).
+    [File  data_sample_8color.json ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
+    * Description of your implementation: storing the data sample in json format  and storing the user’s username and password in xml format. The json used to get the datasample. And the xml used to checking the validation of the input information.
 
 <br><br>
 Feature Category: Firebase Integration <br>
@@ -421,9 +425,13 @@ Feature Category: Firebase Integration <br>
    - *Code coverage: ...*
    - *Types of tests created and descriptions: ...*
 
-2. xxx
+2. Tests for the format-validation-method of username and password 
 
-...
+   - [unitTest  Class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java) for the[CheckingHandlerDemo Class]( https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).
+   - Number of test cases:  6
+   - Code coverage:100%
+   - Types of tests created and descriptions:  
+   test the format-validation-method of username and password. Wrong format will return relevant result. For instance, if the password is “123456678”, the test would return “the password should contain digitals and letters”
 
 <br> <hr>
 
