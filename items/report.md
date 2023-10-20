@@ -141,9 +141,9 @@ Note that the core criteria of contribution is based on `code contribution` (the
   - **Code Contribution in the final App**
     - Feature [Search], [Search-Invalid] - class Attribute: [Attribute.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Attribute.java)
     - class Parser: [Parser.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java)
-    - class AVLTree: [Search.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
-    - class AVLTree: [Token.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Token.java)
-    - class AVLTree: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java) <br>
+    - class Search: [Search.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
+    - class Token: [Token.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Token.java)
+    - class Tokenizer: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java) <br>
 
   - **Code and App Design** 
     - AVL tree - class AVLTree: [AVLTree.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
