@@ -134,7 +134,7 @@ This is an important section of your report and should include all technical dec
 
 1. *AVL tree*
    * *Objective: used for storing pets for [Search] feature.*
-   * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
+   * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)*
    * *Reasons:*
       * *It is more efficient than Red-black tree for searching with a time complexity O(log n)*
       * *We don't need to often insert items into the tree, so the performance of insertion is not as important as searching*
@@ -193,16 +193,21 @@ and proceed in [Class basicAttribute , excluding thr function of findEqual (),fi
 
 ### <u>Grammar(s)</u>
 We designed two grammars, the first one is more strict than the second.
-The reason we made this decision is that we want our app to return accurate search results if the search input strictly follows our first grammar.In the meantime, we also want it to accept a broader range of search inputs, and return the results based on the parts that can be recognized by our second grammar.
+   * *Reasons:*
+      * We want our app to return accurate search results if the search input strictly follows our first grammar.
+      * we also want it to accept a broader range of search inputs, and return the results based on the parts that can be recognized by our second grammar.
+
 In conclusion, compared with only using one grammar, our design can accept more search inputs, and guarantee the correctness of search results without crashing our app. 
 
 First grammar for normal search:
+
 Production Rules:
 
     <Search> ::= (<Attribute> <separator>){0-6} <Attribute> | <>
     <Attribute> ::= <identifier> <operator> (<numeric literal> | <string literal>){0-1}
 
 Second grammar for invalid search:
+
 Production Rules:
 
     <Search> ::= <attribute>*
