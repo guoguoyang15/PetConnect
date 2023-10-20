@@ -76,34 +76,95 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-2. **UID2, Name2**  I have xx% contribution, as follows: <br>
-  - ...
+2. **u7568823, Fan Yue**  I have 25% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+     - [UnitTest for validation of  username and password format in local login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java)
+      - [Feature [DataFiles]  file  data_sample_8color.json ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
+       - Feature [Login] , locally checking  and custom feature [Data-Formats]:<br>[class  LoginActivity , LocalCheckUserLoginInfo(). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71).
+       [LoadLocalUserInfo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L158) .<br>
+       [Class User](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/User.java).<br>
+       [File userdata.xml ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/xml/userdata.xml)
+      - Chain of responsibility Design pattern[class LoginActivity, CheckComplianceOfUserData ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L101).<br>
+   [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).<br>
+   [class: AbstractCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java).<br>
+   [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java).<br>
+   [Class PasswordLengthCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordCheckingHandler.java).<br>
+   [Class PasswordCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordLengthCheckingHandler.java)<br>
+    -	Factory Method design pattern[Class AttributeFactory ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java),<br>
+     [Class Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74).<br>
+     [Class AttributeTypeEnum](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/AttributeTypeEnum.java)<br>
+    -	Strategy design pattern  pattern .[Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370)<br>
+   [Class basicAttribute , excluding thr function of findEqual (),findSmaller (), and findGreater()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/basicAttribute.java);<br>
+[Class bodyTypeAttribute, exclude the detail in the function of executeMethod()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/bodyTypeAttribute.java)<br>
+[class colorAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)<br>
+[class  colorAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)<br>
+[Class  commentAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/commentAttribute.java)<br>
+[Class idAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/idAttribute.java )<br>
+[Class moneyAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/moneyAttribute.java)<br>
+[Class nameAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/nameAttribute.java)<br>
+[ class  typeAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/typeAttribute.java)<br>
+    - Part of AVL tree. [class pet , compareTo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L48).<br>
+     [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
 
+<br><br>
+3. **u7758372, Jiasheng Li**  I have 25% contribution, as follows: <br>
+- **Code Contribution in the final App**
+    - Feature [LogIn], [LoadShowData], [FB-Auth], [FB-Persist], [Surprised Feature 2]
+      - class LoginActivity: [login()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100), [register()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134).
+      - class MainActivity: [loadShowData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L89-109), [updateDataFromFirebase()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L144-167), [onBackPressed()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L169-183)
+      - class SearchActivity: [onActivityResult()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L85-120) 
+    - [Pet class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java), [DetailActivity class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/DetailActivity.java), [MyAdapter class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MyAdapter.java),
+    - SearchActivity class: [putToSearch()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L38-52), [constructQuery()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L54-83),
+    - MainActivity class: [loadLocalData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L111-142), [hideSoftKeyboard()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L185-195).
 
+- **Code and App Design**
+  - UML Class diagrams 
+  - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
 
+<img alt="Search Activity Prototype" src="Sample_pages_of_our_applications/SearchActivity_prototype.jpg" width="30%">
+<img alt="Main Activity Prototype" src="Sample_pages_of_our_applications/MainActivity_prototype.jpg" width="30%">
+<img alt="Detail Activity Prototype" src="Sample_pages_of_our_applications/DetailActivity_prototype.jpg" width="30%">
+<br>
+
+- **Others**:
+    - [Report Writing?] [Slides preparation?]*
+    - Firebase project setup: https://console.firebase.google.com/u/1/project/petconnect-2ea29/overview
+        * Account Number: comp2100.6442.g21@gmail.com Password: comp.G21!
+    - APK generating
+    - Android project setup and demo
+    - Git repo setup and management
+    - Team management
+
+<br><br>
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
-*PetConnect is a charitable animal adoption app that aims to adopt stray animals, record their basic information (e.g., coat color, size, and value), and sell them to families in need at a price close to the cost of adoption.
-(https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/items/sample3.png)*
-*There are up to 12 common animals listed here, and after logging in, users can search for the animals they want to adopt based on a variety of indicators(https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/items/sample2.png)*
-
-*as well as read the comments on the animal's basic information screen to deepen their understanding of the animal they are adopting(https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/items/sample4.png)*
+Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
+Adopters can find their best-fit pets by PetConnect based on their favorite pet type, coat color, and body type.
+PetConnect also provides an estimated adoption budget and comments from other users for adopters to refer to.
 
 We believe that our design of PetConnect which takes into account the individual needs and abilities of adopters can significantly improve the adoption rate and quality of poor pets.
-<br>![Login page](Sample_pages_of_our_applications/sample1.png)![Search page](Sample_pages_of_our_applications/sample2.png)![Result page](Sample_pages_of_our_applications/sample3.png)![Details page](Sample_pages_of_our_applications/sample4.png)<br>
+
+<img alt="Login Page" src="Sample_pages_of_our_applications/sample1.png" width="24%">
+<img alt="Search Page" src="Sample_pages_of_our_applications/sample2.png" width="24%">
+<img alt="Result Page" src="Sample_pages_of_our_applications/sample3.png" width="24%">
+<img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
-*Target audience: those who want a pet but don't want to spend too much money*
+1. Target Users: Adopters who have preferences for pet characteristics
+   * Users can search for pets based on criteria such as pet type (e.g., dog, cat, rabbit), coat color, and body type (e.g., small, medium, large).
+   * Users can search and browse comments to get additional information about pets.
+   * The application will provide a list of pets that match the user's preferences, helping them find their best-fit pet.
 
-*Molly wants to adopt a cheap orange colored cat*
-1. *Molly downloaded PetConnect and registered and logged in*
-2. *She chose $200 according to her budget and chose an orange medium-sized cat according to her preference; a cat that is too big eats too much, and a cat that is too small is not close enough to its owner*
-3. *According to the search results, Jasmine saw many suitable cats, and through careful comparison of cat photos and related reviews, Jasmine made her choice*
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+2. Target Users: Adopters with limited financial means
+   * Users can set a budget and receive recommendations within their specified limits.
+   * PetConnect offers a feature to estimate the adoption budget, which considers factors like the pet's breed, age, and expected ongoing costs (e.g., food, veterinary care).
 
+3. Target Users: Owners of their lost pets
+   * Users can find their pets by searching pets' names, characteristics or any information about missing.
+
+4. Target Users: Investors (e.g., herdsman, zoo, working animal training center, etc).
+   * Users can look for the animals they need based on searching characteristics and comments and observing the photos
 <hr> 
 
 ### Application UML
@@ -132,30 +193,27 @@ This is an important section of your report and should include all technical dec
 
 ### Data Structures
 
-*[What data structures did your team utilise? Where and why?]*
-
-Here is a partial (short) example for the subsection `Data Structures`:*
-
 *I used the following data structures in my project:*
 
-1. *LinkedList*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
+1. *AVL tree*
+   * *Objective: used for storing pets for [Search] feature.*
+   * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)*
    * *Reasons:*
-      * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
-      * *We don't need to access the item by index for xxx feature because...*
-      * For the (part), the data ... (characteristics) ...
-
-2. ...
-
-3. ...
+      * *Dynamic Operations*<br>
+      It is more efficient than Red-black tree for searching with a time complexity O(log n).We don't need to often insert items into the tree, so the performance of insertion is not as important as searching.
+      * *Balanced Binary Search Trees* <br>
+      AVL trees are a type of self-balancing binary search tree. Every insertion operation ensures that the tree remains balanced, which means the height of the tree is always maintained at `O(log n)`. This ensures that search operations are fast and have a time complexity of `O(log n)` and is much better than many sorting algorithms that might require O(n) space..
+      * *In-Order Traversal Efficiency*: <br>
+      there's a need in our application to retrieve data in a sorted manner (e.g., display all pets in money-descending order), AVL trees allow efficient in-order traversal.
+      * *Memory Usage*: <br>
+      Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
 
 <hr>
 
 ### Design Patterns
 
 1. *Chain of responsibility Design Pattern*
-   * *Objective:* used for validate the format of username and password in Login funciton.
+   * *Objective:* used for validate the format of username and password in Login function.
    * *Code Locations:* defined in [Class LoginActivity, CheckComplianceOfUserData () ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L164)
 and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java); 
 [class: AbstractCheckingHandler ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java) and [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java) , 
@@ -168,7 +226,7 @@ and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u775
       * Decoupling:The pattern separates the receivers—the individual validation checks—from the sender, which in this case is the portion of our app that initiates the login validation. The system's constituent parts can remain independent and cohesive thanks to this decoupling. 
       * Stop On Failure:The chain can be stopped as soon as one of the validators fails, depending on how we implement it. This can be effective because, once a failure is identified, it won't call upon additional validators needlessly. 
 
-2. *Factory Method Design Pattern*
+1. *Factory Method Design Pattern*
    * *Objective:* used for create a specified filter-attribute regarding the input-query.
    * *Code Locations:*defined in [Class AttributeFactory](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java);
 and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74);
@@ -203,13 +261,26 @@ and proceed in [Class basicAttribute , excluding thr function of findEqual (),fi
 ### Parser
 
 ### <u>Grammar(s)</u>
-*[How do you design the grammar? What are the advantages of your designs?]*
-*If there are several grammars, list them all under this section and what they relate to.*
+We designed two grammars, the first one is more strict than the second.
+   * *Reasons:*
+      * We want our app to return accurate search results if the search input strictly follows our first grammar.
+      * we also want it to accept a broader range of search inputs, and return the results based on the parts that can be recognized by our second grammar.
+
+In conclusion, compared with only using one grammar, our design can accept more search inputs, and guarantee the correctness of search results without crashing our app. 
+
+First grammar for normal search:
 
 Production Rules:
 
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+    <Search> ::= (<Attribute> <separator>){0-6} <Attribute> | <>
+    <Attribute> ::= <identifier> <operator> (<numeric literal> | <string literal>){0-1}
+
+Second grammar for invalid search:
+
+Production Rules:
+
+    <Search> ::= <attribute>*
+    <Attribute> ::= <identifier> <operator>{0-1} (<numeric literal> | <string literal>){0-1}
 
 
 ### <u>Tokenizers and Parsers</u>
@@ -242,9 +313,8 @@ Production Rules:
          2. Input is in right format, by method [CheckComplianceOfUserData](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L150-159).
      * And will display the corresponding result messages by Toast if login fails.
 
-2. [DataFiles]. Description  ... ... (...)
-   * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-   * Link to the Firebase repo: ...
+2. [DataFiles] ,Create data file(s) with at least 2,500 valid data instances,
+   * Code to the Data File ：[File  data_sample_8color.json](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
 
 3. [LoadShowData]. When a user is logged in, load data (from the file(s) and/or Firebase) at regular time intervals,
    and visualise the same in the App. <br> (e.g., If the main page contains a list of featured products, the user may see
@@ -259,7 +329,7 @@ Production Rules:
 4. [Search]. Users must be able to search for information on your app. (medium)<br>
    The application is dependent on your app theme. E.g., search for information of products, users, by certain
    criteria (e.g. #apple $1-2).
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
    * Description of feature: ... <br>
    * Description of your implementation: ... <br>
 
@@ -267,7 +337,7 @@ Production Rules:
 Feature Category: Search-related features <br>
 1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
 correctly handle partially invalid search queries and give meaningful results. (medium)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+   * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
    * Description of your implementation: ...
 
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
@@ -307,9 +377,10 @@ Feature Category: UI Design and Testing <br>
 <br><br>
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
 1. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
-    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-    * Description of your implementation: ...
+    * Code:[Class LoginActivity , LocalCheckUserLoginInfo()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71) and [LoadLocalUserInfo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L158),<br>[Class User ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/User.java).
+    [File userdata.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/xml/userdata.xml).
+    [File  data_sample_8color.json ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
+    * Description of your implementation: storing the data sample in json format  and storing the user’s username and password in xml format. The json used to get the datasample. And the xml used to checking the validation of the input information.
 
 <br><br>
 Feature Category: Firebase Integration <br>
@@ -353,9 +424,6 @@ Feature Category: Firebase Integration <br>
 4. A new strategy for visualising the traditional list of results.
    * Not implemented.
 
-- If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprised feature specifications).
-- State that "Surprised feature is not implemented" otherwise.
-
 <br> <hr>
 
 ## Summary of Known Errors and Bugs
@@ -388,9 +456,13 @@ Feature Category: Firebase Integration <br>
    - *Code coverage: ...*
    - *Types of tests created and descriptions: ...*
 
-2. xxx
+2. Tests for the format-validation-method of username and password 
 
-...
+   - [unitTest  Class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java) for the[CheckingHandlerDemo Class]( https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).
+   - Number of test cases:  6
+   - Code coverage:100%
+   - Types of tests created and descriptions:  
+   test the format-validation-method of username and password. Wrong format will return relevant result. For instance, if the password is “123456678”, the test would return “the password should contain digitals and letters”
 
 <br> <hr>
 
