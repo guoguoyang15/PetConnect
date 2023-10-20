@@ -135,6 +135,17 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - Git repo setup and management
     - Team management
 
+4. **u7605165, Hexuan Meng**  I have 25% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+    - Feature [Search], [Search-Invalid] - class Attribute: [Attribute.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Attribute.java)
+    - class Parser: [Parser.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java)
+    - class AVLTree: [Search.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
+    - class AVLTree: [Token.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Token.java)
+    - class AVLTree: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java) <br><br>
+
+  - **Code and App Design** 
+    - AVL tree - class AVLTree: [AVLTree.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
+
 <br><br>
 ## Application Description
 
@@ -337,8 +348,7 @@ Since we have two grammars, we created two parse methods for each grammar. If th
 
 ### Custom Features
 Feature Category: Search-related features <br>
-1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
-correctly handle partially invalid search queries and give meaningful results. (medium)
+1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
    * Description of feature: This feature allows users to input partial invalid search, then return the results based on the valid part of their search without crashing the app.  <br>
    * Description of your implementation: When users input their search, we first parse it according to our first grammar as a normal search. If any illegal production exception are thrown, we will catch it then use our second grammar to parse the input string. If our parser can recognize any part of the search, we return the results accordingly.
