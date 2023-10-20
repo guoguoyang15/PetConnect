@@ -105,10 +105,48 @@ Note that the core criteria of contribution is based on `code contribution` (the
 [ class  typeAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/typeAttribute.java)<br>
     - Part of AVL tree. <br>[class pet , compareTo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L50).<br>
      [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
-     <br><br>
 
+<br><br>
 
+3. **u7758372, Jiasheng Li**  I have 25% contribution, as follows: <br>
+- **Code Contribution in the final App**
+    - Feature [LogIn], [LoadShowData], [FB-Auth], [FB-Persist], [Surprised Feature 2]
+      - class LoginActivity: [login()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L57-100), [register()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L102-134).
+      - class MainActivity: [loadShowData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L89-109), [updateDataFromFirebase()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L144-167), [onBackPressed()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L169-183)
+      - class SearchActivity: [onActivityResult()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L85-120) 
+    - [Pet class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java), [DetailActivity class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/DetailActivity.java), [MyAdapter class](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MyAdapter.java),
+    - SearchActivity class: [putToSearch()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L38-52), [constructQuery()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L54-83),
+    - MainActivity class: [loadLocalData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L111-142), [hideSoftKeyboard()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L185-195).
 
+- **Code and App Design**
+  - UML Class diagrams 
+  - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
+
+<img alt="Search Activity Prototype" src="Sample_pages_of_our_applications/SearchActivity_prototype.jpg" width="30%">
+<img alt="Main Activity Prototype" src="Sample_pages_of_our_applications/MainActivity_prototype.jpg" width="30%">
+<img alt="Detail Activity Prototype" src="Sample_pages_of_our_applications/DetailActivity_prototype.jpg" width="30%">
+
+- **Others**:
+    - [Report Writing?] [Slides preparation?]*
+    - Firebase project setup: https://console.firebase.google.com/u/1/project/petconnect-2ea29/overview
+        * Account Number: comp2100.6442.g21@gmail.com Password: comp.G21!
+    - APK generating
+    - Android project setup and demo
+    - Git repo setup and management
+    - Team management
+
+4. **u7605165, Hexuan Meng**  I have 25% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+    - Feature [Search], [Search-Invalid] - class Attribute: [Attribute.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Attribute.java)
+    - class Parser: [Parser.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java)
+    - class AVLTree: [Search.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
+    - class AVLTree: [Token.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Token.java)
+    - class AVLTree: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java) <br><br>
+
+  - **Code and App Design** 
+    - AVL tree - class AVLTree: [AVLTree.java](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)
+
+<br><br>
 ## Application Description
 
 Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
@@ -123,7 +161,6 @@ We believe that our design of PetConnect which takes into account the individual
 <img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
 1. Target Users: Adopters who have preferences for pet characteristics
    * Users can search for pets based on criteria such as pet type (e.g., dog, cat, rabbit), coat color, and body type (e.g., small, medium, large).
@@ -153,16 +190,6 @@ We believe that our design of PetConnect which takes into account the individual
 
 ## Application Design and Decisions
 
-This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
-
-- Details about the parser (describe the formal grammar and language used)
-
-- Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
-
-- Details about the design patterns used (where in the code, justification of the choice, etc)
-
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
-
 <hr>
 
 ### Data Structures
@@ -173,14 +200,14 @@ This is an important section of your report and should include all technical dec
    * *Objective: used for storing pets for [Search] feature.*
    * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)*
    * *Reasons:*
-      * *Dynamic Operations*
+      * *Dynamic Operations*<br>
       It is more efficient than Red-black tree for searching with a time complexity O(log n).We don't need to often insert items into the tree, so the performance of insertion is not as important as searching.
-      * *Balanced Binary Search Trees*
+      * *Balanced Binary Search Trees* <br>
       AVL trees are a type of self-balancing binary search tree. Every insertion operation ensures that the tree remains balanced, which means the height of the tree is always maintained at `O(log n)`. This ensures that search operations are fast and have a time complexity of `O(log n)` and is much better than many sorting algorithms that might require O(n) space..
-      * *In-Order Traversal Efficiency*: 
+      * *In-Order Traversal Efficiency*: <br>
       there's a need in our application to retrieve data in a sorted manner (e.g., display all pets in money-descending order), AVL trees allow efficient in-order traversal.
-      * *Memory Usage*: 
-    Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
+      * *Memory Usage*: <br>
+      Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
 
 <hr>
 
@@ -259,15 +286,10 @@ Production Rules:
 
 ### <u>Tokenizers and Parsers</u>
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+   * *Code Locations: defined in [Class Tokenizer](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Tokenizer.java) and [Class Parser](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java)*
 
-<hr>
+Since we have two grammars, we created two parse methods for each grammar. If the first parse method failed to parse the input, we will use another method to parse it. This means we can handle both valid and invalid inputs accordingly without crashing our app.
 
-### Others
-
-*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
-
-<br>
 <hr>
 
 ## Implemented Features
@@ -304,26 +326,54 @@ Production Rules:
    The application is dependent on your app theme. E.g., search for information of products, users, by certain
    criteria (e.g. #apple $1-2).
    * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
-   * Description of feature: ... <br>
-   * Description of your implementation: ... <br>
+   * Description of feature: This feature enables users to get search results based on their input. <br>
+   * Description of your implementation: When users input their search, we use our parser to parse that string into a search object. Then we will get all the pets according to the user's specified budget, because the pets are inserted in our tree data structure by their price. By doing so, we can increase the performance of each search operation. After that, we just perform search against other attributes in the search object. <br>
 
 ### Custom Features
 Feature Category: Search-related features <br>
-1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and <br>
-correctly handle partially invalid search queries and give meaningful results. (medium)
+1. [Search-Invalid]. On top of giving search results from valid inputs, search functionality can process and correctly handle partially invalid search queries and give meaningful results. (medium)
    * Code: [Class Search](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java)
-   * Description of your implementation: ...
+   * Description of feature: This feature allows users to input partial invalid search, then return the results based on the valid part of their search without crashing the app.  <br>
+   * Description of your implementation: When users input their search, we first parse it according to our first grammar as a normal search. If any illegal production exception are thrown, we will catch it then use our second grammar to parse the input string. If our parser can recognize any part of the search, we return the results accordingly.
 
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ...
+    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * Description of your implementation: ...
+    * Code: [Class SearchActivity, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java)
+    * Help users pre-filter search results with a simple and intuitive UI to quickly reach their search goals.
 
 <br><br>
 Feature Category: UI Design and Testing <br>
 1. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ...
+    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
+    * Description of your implementation: ...
+    * Code: [Class activity_main, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_main.xml)
+    * [Class activity_login, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml)
+    * [Class activity_detail, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_detail.xml)
+    * [Class activity_search, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_search.xml)
+    * [Class item_layout, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/item_layout.xml)
+    * Description of your implementation:
+        1. User-friendly design
+           The PetConnect interface is intuitive and user-friendly, with important buttons (such as the login and
+           register buttons, as well as the query button) located within reach of the user's one-handed thumb, ensuring
+           that users can easily navigate and use the application's various functions.
+        2. Consistent UI style
+           The app ensures a consistent look and feel by using a uniform dark background scheme, as well as brightly
+           colored fonts and buttons, which enhances the overall user experience.
+        3. Responsive design
+           PetConnect's layout takes into account different screen sizes and resolutions, such as 19:9, 18:9, and 16:9,
+           ensuring that it performs well on a variety of devices.
+        4. Attention to detail
+           The UI interface uses gradient shadows to make elements more attractive, and rounded bubble styles to wrap
+           important fonts, emphasizing the depth and multi-dimensionality of the design.
+        5. Optimized list display
+           The use of ListViews and custom adapters ensures that comments and other list content are displayed
+           effectively.
+        6. Interactivity and Feedback
+           Effective UI elements such as AutoCompleteTextView and RangeSlider interact with users and provide them with
+           the necessary feedback to make the application more dynamic and interactive.
+
 
 <br><br>
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
