@@ -107,17 +107,17 @@ Note that the core criteria of contribution is based on `code contribution` (the
      [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
      <br><br>
 
-
-
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
-*PetConnect is a charitable animal adoption app that aims to adopt stray animals, record their basic information (e.g., coat color, size, and value), and sell them to families in need at a price close to the cost of adoption.
-(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample3.png/)*
-*There are up to 12 common animals listed here, and after logging in, users can search for the animals they want to adopt based on a variety of indicators(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample2.png/)*
+Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
+Adopters can find their best-fit pets by PetConnect based on their favorite pet type, coat color, and body type.
+PetConnect also provides an estimated adoption budget and comments from other users for adopters to refer to.
+We believe that our design of PetConnect which takes into account the individual needs and abilities of adopters can significantly improve the adoption rate and quality of poor pets.
 
-*as well as read the comments on the animal's basic information screen to deepen their understanding of the animal they are adopting(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample4.png/)*
-
+<img alt="Login Page" src="Sample_pages_of_our_applications/sample1.png" width="24%">
+<img alt="Search Page" src="Sample_pages_of_our_applications/sample2.png" width="24%">
+<img alt="Result Page" src="Sample_pages_of_our_applications/sample3.png" width="24%">
+<img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
