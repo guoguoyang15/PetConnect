@@ -106,6 +106,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - Part of AVL tree. [class pet , compareTo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L48).<br>
      [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
 
+<br><br>
 3. **u7758372, Jiasheng Li**  I have 25% contribution, as follows: <br>
 - **Code Contribution in the final App**
     - Feature [LogIn], [LoadShowData], [FB-Auth], [FB-Persist], [Surprised Feature 2]
@@ -116,7 +117,6 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - SearchActivity class: [putToSearch()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L38-52), [constructQuery()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L54-83),
     - MainActivity class: [loadLocalData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L111-142), [hideSoftKeyboard()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L185-195).
 
-<br><br>
 - **Code and App Design**
     - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
 
@@ -124,7 +124,6 @@ Note that the core criteria of contribution is based on `code contribution` (the
 <img alt="Main Activity Prototype" src="Sample_pages_of_our_applications/MainActivity_prototype.jpg" width="30%">
 <img alt="Detail Activity Prototype" src="Sample_pages_of_our_applications/DetailActivity_prototype.jpg" width="30%">
 
-<br><br>
 - **Others**: (only if significant and significantly different from an "average contribution")
     - [Report Writing?] [Slides preparation?]*
     - Firebase project setup: https://console.firebase.google.com/u/1/project/petconnect-2ea29/overview
@@ -134,7 +133,6 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - Git repo setup and management
 
 <br><br>
-
 ## Application Description
 
 Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
