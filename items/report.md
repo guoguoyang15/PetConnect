@@ -83,13 +83,12 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
-*PetConnect is a charitable animal adoption app that aims to adopt stray animals, record their basic information (e.g., coat color, size, and value), and sell them to families in need at a price close to the cost of adoption.
-(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample3.png/)*
-*There are up to 12 common animals listed here, and after logging in, users can search for the animals they want to adopt based on a variety of indicators(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample2.png/)*
+Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
+Adopters can find their best-fit pets by PetConnect based on their favorite pet type, coat color, and body type. 
+PetConnect also provides an estimated adoption budget and comments from other users for adopters to refer to.
 
-*as well as read the comments on the animal's basic information screen to deepen their understanding of the animal they are adopting(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample4.png/)*
-
+We believe that our design of PetConnect which takes into account the individual needs and abilities of adopters can significantly improve the adoption rate and quality of poor pets.
+<br>![Login page](Sample_pages_of_our_applications/sample1.png)![Search page](Sample_pages_of_our_applications/sample2.png)![Result page](Sample_pages_of_our_applications/sample3.png)![Details page](Sample_pages_of_our_applications/sample4.png)<br>
 
 ### Application Use Cases and or Examples
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
@@ -152,7 +151,7 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 
 ### Design Patterns
 
-1. *Chain of responsibility Design Pttern*
+1. *Chain of responsibility Design Pattern*
    * *Objective:* used for validate the format of username and password in Login funciton.
    * *Code Locations:* defined in [Class LoginActivity, CheckComplianceOfUserData () ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L164)
 and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java); 
@@ -166,7 +165,7 @@ and proceed in [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u775
       * Decoupling:The pattern separates the receivers—the individual validation checks—from the sender, which in this case is the portion of our app that initiates the login validation. The system's constituent parts can remain independent and cohesive thanks to this decoupling. 
       * Stop On Failure:The chain can be stopped as soon as one of the validators fails, depending on how we implement it. This can be effective because, once a failure is identified, it won't call upon additional validators needlessly. 
 
-1. *Factory Method Design Pttern*
+2. *Factory Method Design Pattern*
    * *Objective:* used for create a specified filter-attribute regarding the input-query.
    * *Code Locations:*defined in [Class AttributeFactory](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java);
 and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74);
@@ -177,7 +176,7 @@ and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.
       * Complex Creation Logic: Coding can become cleaner and easier to maintain if an attribute creation process (such as initializing related data structures, setting default values, etc.) is complex and is contained within a factory.
       * Extensibility:We may add more features as our app develops. We can easily expand our attribute creation process with the aid of a factory method. 
 
-1. *Strategy design pattern  pattern*
+3. *Strategy Design Pattern*
    * *Objective:* used for filter the data sample with different logic.
    * *Code Locations:* [Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370);
 defined in [Class IAttribute](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/IAttribute.java);
@@ -194,7 +193,7 @@ and proceed in [Class basicAttribute , excluding thr function of findEqual (),fi
       * Encapsulation of Filtering Logic: Every filtering criterion (like money or color) can be contained within a separate class. This makes the codebase clean and organized by guaranteeing that the logic for each criterion is isolated. 
       * Flexibility in Filtering: Future filtering criteria can be easily added with the Strategy pattern. We can simply add a new filtering strategy without changing the existing code if we later decide to filter based on another attribute, like "size" or "date." 
       * Dynamic Filter Selection:We can choose the best filtering strategy at runtime because the filtering logic is separated from the main application logic. For example, once the query has been parsed, we can use the user's input to dynamically instantiate and apply the required filter strategies. 
-      * Maintainability and Extendibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
+      * Maintainability and Extensibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
       * Testability: The decoupling and modularization of the filtering logic makes it simpler to write unit tests for every strategy. To make sure that every component of your filtering logic functions as intended, you can test each filtering criterion separately. 
 <hr>
 
