@@ -118,19 +118,21 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - MainActivity class: [loadLocalData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L111-142), [hideSoftKeyboard()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L185-195).
 
 - **Code and App Design**
-    - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
+  - UML Class diagrams 
+  - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
 
 <img alt="Search Activity Prototype" src="Sample_pages_of_our_applications/SearchActivity_prototype.jpg" width="30%">
 <img alt="Main Activity Prototype" src="Sample_pages_of_our_applications/MainActivity_prototype.jpg" width="30%">
 <img alt="Detail Activity Prototype" src="Sample_pages_of_our_applications/DetailActivity_prototype.jpg" width="30%">
 
-- **Others**: (only if significant and significantly different from an "average contribution")
+- **Others**:
     - [Report Writing?] [Slides preparation?]*
     - Firebase project setup: https://console.firebase.google.com/u/1/project/petconnect-2ea29/overview
         * Account Number: comp2100.6442.g21@gmail.com Password: comp.G21!
     - APK generating
     - Android project setup and demo
     - Git repo setup and management
+    - Team management
 
 <br><br>
 ## Application Description
@@ -147,7 +149,6 @@ We believe that our design of PetConnect which takes into account the individual
 <img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
 1. Target Users: Adopters who have preferences for pet characteristics
    * Users can search for pets based on criteria such as pet type (e.g., dog, cat, rabbit), coat color, and body type (e.g., small, medium, large).
