@@ -341,15 +341,38 @@ correctly handle partially invalid search queries and give meaningful results. (
    * Description of your implementation: ...
 
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ...
+   * Code: [Class SearchActivity, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java) 
+   * Help users pre-filter search results with a simple and intuitive UI to quickly reach their search goals.
 
 <br><br>
 Feature Category: UI Design and Testing <br>
 1. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ...
+   * Code: [Class activity_main, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_main.xml)
+   * [Class activity_login, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml)
+   * [Class activity_detail, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_detail.xml)
+   * [Class activity_search, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_search.xml)
+   * [Class item_layout, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/item_layout.xml)
+   * Description of your implementation:
+     1. User-friendly design
+     The PetConnect interface is intuitive and user-friendly, with important buttons (such as the login and 
+     register buttons, as well as the query button) located within reach of the user's one-handed thumb, ensuring 
+     that users can easily navigate and use the application's various functions.
+     2. Consistent UI style
+     The app ensures a consistent look and feel by using a uniform dark background scheme, as well as brightly 
+     colored fonts and buttons, which enhances the overall user experience.
+     3. Responsive design
+     PetConnect's layout takes into account different screen sizes and resolutions, such as 19:9, 18:9, and 16:9, 
+     ensuring that it performs well on a variety of devices.
+     4. Attention to detail
+     The UI interface uses gradient shadows to make elements more attractive, and rounded bubble styles to wrap 
+     important fonts, emphasizing the depth and multi-dimensionality of the design.
+     5. Optimized list display
+     The use of ListViews and custom adapters ensures that comments and other list content are displayed 
+     effectively.
+     6. Interactivity and Feedback
+     Effective UI elements such as AutoCompleteTextView and RangeSlider interact with users and provide them with 
+     the necessary feedback to make the application more dynamic and interactive.
+      
 
 <br><br>
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
