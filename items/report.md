@@ -76,8 +76,36 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-2. **UID2, Name2**  I have xx% contribution, as follows: <br>
-  - ...
+2. **u7568823, Fan Yue**  I have 25% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+     - [UnitTest for validation of  usrname and password format in local login](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/unitTest.java)
+      - [Feature [DataFiles]  file  data_sample_8color.json ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/raw/data_sample_8color.json)
+       - Feature [Login] , locally cheking  and custom feature [Data-Formats]:<br>[class  LoginActivity , LocalCheckUserLoginInfo(). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L71).
+       [LoadLocalUserInfo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L158) .<br>
+       [Class User](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/User.java).<br>
+       [File userdata.xml ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/xml/userdata.xml)
+      - Chain of responsibility Design pattern[class LoginActivity, CheckComplianceOfUserData ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java#L101).<br>
+   [class: CheckingHandlerDemo ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/CheckingHandlerDemo.java).<br>
+   [class: AbstractCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/AbstractCheckingHandler.java).<br>
+   [Class EmailFormatCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/EmailFormatCheckingHandler.java).<br>
+   [Class PasswordLengthCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordCheckingHandler.java).<br>
+   [Class PasswordCheckingHandler](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/CheckingHandler/PasswordLengthCheckingHandler.java)<br>
+    -	Factory Method design pattern[Class AttributeFactory ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/AttributeFactory.java),<br>
+     [Class Parser , part of parseSearchTest()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Parser.java#L74).<br>
+     [Class AttributeTypeEnum](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/AttributeTypeEnum.java)<br>
+    -	Strategy design pattern  pattern .[Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370)<br>
+   [Class basicAttribute , excluding thr function of findEqual (),findSmaller (), and findGreater()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/basicAttribute.java);<br>
+[Class bodyTypeAttribute, exclude the detail in the function of executeMethod()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/bodyTypeAttribute.java)<br>
+[class colorAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)<br>
+[class  colorAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/colorAttribute.java)<br>
+[Class  commentAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/commentAttribute.java)<br>
+[Class idAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/idAttribute.java )<br>
+[Class moneyAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/moneyAttribute.java)<br>
+[Class nameAttribute , exclude the detail in function of executeMethod (). ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/nameAttribute.java)<br>
+[ class  typeAttribute , exclude the detail in function of executeMethod ().](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/AttributeFolder/typeAttribute.java)<br>
+    - Part of AVL tree. [class pet , compareTo() ](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Pet.java#L48).<br>
+     [Class Tool , GetPetsAvlTree()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/tool/Tool.java#L58)<br>
+     <br><br>
 
 
 
