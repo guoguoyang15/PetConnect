@@ -467,7 +467,7 @@ Feature Category: Firebase Integration <br>
    - Code coverage:100%
    - Types of tests created and descriptions:  
    test the format-validation-method of username and password. Wrong format will return relevant result. For instance, if the password is “123456678”, the test would return “the password should contain digitals and letters”
-
+   ![image.png](./image.png)
 <br> <hr>
 
 
