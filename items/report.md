@@ -124,7 +124,6 @@ Note that the core criteria of contribution is based on `code contribution` (the
 <img alt="Search Activity Prototype" src="Sample_pages_of_our_applications/SearchActivity_prototype.jpg" width="30%">
 <img alt="Main Activity Prototype" src="Sample_pages_of_our_applications/MainActivity_prototype.jpg" width="30%">
 <img alt="Detail Activity Prototype" src="Sample_pages_of_our_applications/DetailActivity_prototype.jpg" width="30%">
-<br>
 
 - **Others**:
     - [Report Writing?] [Slides preparation?]*
