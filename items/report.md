@@ -173,14 +173,14 @@ This is an important section of your report and should include all technical dec
    * *Objective: used for storing pets for [Search] feature.*
    * *Code Locations: defined in [Class AVLTree](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/AVLTree/AVLTree.java)*
    * *Reasons:*
-      * *Dynamic Operations*
+      * *Dynamic Operations*<br>
       It is more efficient than Red-black tree for searching with a time complexity O(log n).We don't need to often insert items into the tree, so the performance of insertion is not as important as searching.
-      * *Balanced Binary Search Trees*
+      * *Balanced Binary Search Trees* <br>
       AVL trees are a type of self-balancing binary search tree. Every insertion operation ensures that the tree remains balanced, which means the height of the tree is always maintained at `O(log n)`. This ensures that search operations are fast and have a time complexity of `O(log n)` and is much better than many sorting algorithms that might require O(n) space..
-      * *In-Order Traversal Efficiency*: 
+      * *In-Order Traversal Efficiency*: <br>
       there's a need in our application to retrieve data in a sorted manner (e.g., display all pets in money-descending order), AVL trees allow efficient in-order traversal.
-      * *Memory Usage*: 
-    Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
+      * *Memory Usage*: <br>
+      Unlike Hash Maps or Hash Tables which might use arrays and linked lists with additional overhead for handling collisions, AVL trees use a simple node-based structure. Each node in the AVL tree typically contains the data, a height (integer), and pointers to left and right children. This can lead to efficient memory usage.
 
 <hr>
 
