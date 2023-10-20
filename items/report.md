@@ -118,6 +118,15 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - SearchActivity class: [putToSearch()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L38-52), [constructQuery()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java#L54-83),
     - MainActivity class: [loadLocalData()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L111-142), [hideSoftKeyboard()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.java#L185-195).
 
+4. **u7580614, Zhining Zhang**  I have 25% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+    - Feature [UI-Layout],- class Dummy: [activity_main.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_main.xml)
+    - Feature [UI-Layout],- class Dummy: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml)
+    - Feature [UI-Layout],- class Dummy: [activity_detail.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_detail.xml)
+    - Feature [UI-Layout],- class Dummy: [activity_search.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_search.xml)
+    - Feature [UI-Layout],- class Dummy: [item_layout.xml](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/item_layout.xml)
+    - [SearchActivity class](https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java/)[LanguageTranslator class]<br><br>
+
 - **Code and App Design**
   - UML Class diagrams 
   - Construct UI prototype for SearchActivity, MainActivity and DetailActivity
@@ -344,17 +353,12 @@ correctly handle partially invalid search queries and give meaningful results. (
    * Description of your implementation: When users input their search, we first parse it according to our first grammar as a normal search. If any illegal production exception are thrown, we will catch it then use our second grammar to parse the input string. If our parser can recognize any part of the search, we return the results accordingly.
 
 2. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
-    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * Description of your implementation: ...
     * Code: [Class SearchActivity, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/SearchActivity.java)
     * Help users pre-filter search results with a simple and intuitive UI to quickly reach their search goals.
 
 <br><br>
 Feature Category: UI Design and Testing <br>
 1. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
-    * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-    * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-    * Description of your implementation: ...
     * Code: [Class activity_main, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_main.xml)
     * [Class activity_login, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml)
     * [Class activity_detail, entire file](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/res/layout/activity_detail.xml)
