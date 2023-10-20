@@ -111,25 +111,34 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
-*PetConnect is a charitable animal adoption app that aims to adopt stray animals, record their basic information (e.g., coat color, size, and value), and sell them to families in need at a price close to the cost of adoption.
-(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample3.png/)*
-*There are up to 12 common animals listed here, and after logging in, users can search for the animals they want to adopt based on a variety of indicators(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample2.png/)*
+Our application PetConnect is designed for pet adoption. PetConnect provides convenient, customized services for caring pet adopters.
+Adopters can find their best-fit pets by PetConnect based on their favorite pet type, coat color, and body type.
+PetConnect also provides an estimated adoption budget and comments from other users for adopters to refer to.
 
-*as well as read the comments on the animal's basic information screen to deepen their understanding of the animal they are adopting(https://gitlab.cecs.anu.edu.au/-/ide/project/u7758372/ga-23s2/tree/main/-/MyApplication/app/src/main/res/drawable/sample4.png/)*
+We believe that our design of PetConnect which takes into account the individual needs and abilities of adopters can significantly improve the adoption rate and quality of poor pets.
 
+<img alt="Login Page" src="Sample_pages_of_our_applications/sample1.png" width="24%">
+<img alt="Search Page" src="Sample_pages_of_our_applications/sample2.png" width="24%">
+<img alt="Result Page" src="Sample_pages_of_our_applications/sample3.png" width="24%">
+<img alt="Details Page" src="Sample_pages_of_our_applications/sample4.png" width="24%">
 
 ### Application Use Cases and or Examples
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
-*Target audience: those who want a pet but don't want to spend too much money*
+1. Target Users: Adopters who have preferences for pet characteristics
+   * Users can search for pets based on criteria such as pet type (e.g., dog, cat, rabbit), coat color, and body type (e.g., small, medium, large).
+   * Users can search and browse comments to get additional information about pets.
+   * The application will provide a list of pets that match the user's preferences, helping them find their best-fit pet.
 
-*Molly wants to adopt a cheap orange colored cat*
-1. *Molly downloaded PetConnect and registered and logged in*
-2. *She chose $200 according to her budget and chose an orange medium-sized cat according to her preference; a cat that is too big eats too much, and a cat that is too small is not close enough to its owner*
-3. *According to the search results, Jasmine saw many suitable cats, and through careful comparison of cat photos and related reviews, Jasmine made her choice*
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+2. Target Users: Adopters with limited financial means
+   * Users can set a budget and receive recommendations within their specified limits.
+   * PetConnect offers a feature to estimate the adoption budget, which considers factors like the pet's breed, age, and expected ongoing costs (e.g., food, veterinary care).
 
+3. Target Users: Owners of their lost pets
+   * Users can find their pets by searching pets' names, characteristics or any information about missing.
+
+4. Target Users: Investors (e.g., herdsman, zoo, working animal training center, etc).
+   * Users can look for the animals they need based on searching characteristics and comments and observing the photos
 <hr> 
 
 ### Application UML
@@ -202,7 +211,7 @@ and proceed in  [class: Parser , part of parseSearchTest()](https://gitlab.cecs.
       * Complex Creation Logic: Coding can become cleaner and easier to maintain if an attribute creation process (such as initializing related data structures, setting default values, etc.) is complex and is contained within a factory.
       * Extensibility:We may add more features as our app develops. We can easily expand our attribute creation process with the aid of a factory method. 
 
-1. *Strategy design pattern  pattern*
+3. *Strategy Design Pattern*
    * *Objective:* used for filter the data sample with different logic.
    * *Code Locations:* [Class Search, searchPetsTree_Test ()](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Parser/Search.java#L370);
 defined in [Class IAttribute](https://gitlab.cecs.anu.edu.au/u7758372/ga-23s2/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/Interface/IAttribute.java);
@@ -219,7 +228,7 @@ and proceed in [Class basicAttribute , excluding thr function of findEqual (),fi
       * Encapsulation of Filtering Logic: Every filtering criterion (like money or color) can be contained within a separate class. This makes the codebase clean and organized by guaranteeing that the logic for each criterion is isolated. 
       * Flexibility in Filtering: Future filtering criteria can be easily added with the Strategy pattern. We can simply add a new filtering strategy without changing the existing code if we later decide to filter based on another attribute, like "size" or "date." 
       * Dynamic Filter Selection:We can choose the best filtering strategy at runtime because the filtering logic is separated from the main application logic. For example, once the query has been parsed, we can use the user's input to dynamically instantiate and apply the required filter strategies. 
-      * Maintainability and Extendibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
+      * Maintainability and Extensibility:Because every strategy class is in charge of a particular kind of filtering, the Single Responsibility Principle is encouraged. It is now simpler to identify problems, update specific filter logic, and expand the system with additional filter types thanks to this separation.  
       * Testability: The decoupling and modularization of the filtering logic makes it simpler to write unit tests for every strategy. To make sure that every component of your filtering logic functions as intended, you can test each filtering criterion separately. 
 <hr>
 
@@ -365,9 +374,6 @@ Feature Category: Firebase Integration <br>
 
 4. A new strategy for visualising the traditional list of results.
    * Not implemented.
-
-- If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprised feature specifications).
-- State that "Surprised feature is not implemented" otherwise.
 
 <br> <hr>
 
